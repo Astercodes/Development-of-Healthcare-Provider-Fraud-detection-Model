@@ -45,6 +45,7 @@ const pages = [
   { label: "/initiatives/", route: "initiatives/index.html", id: "page-initiatives", file: path.join(ROOT, "initiatives", "index.html") },
   { label: "/initiatives/provider-anomaly-detection/", route: "Initiative 1", id: "page-init-1", file: path.join(ROOT, "initiatives", "provider-anomaly-detection", "index.html") },
   { label: "/initiatives/synthetic-identity-detection/", route: "Initiative 2", id: "page-init-2", file: path.join(ROOT, "initiatives", "synthetic-identity-detection", "index.html") },
+  { label: "/initiatives/fraud-prevention-curricula/", route: "Initiative 3", id: "page-init-3", file: path.join(ROOT, "initiatives", "fraud-prevention-curricula", "index.html") },
 ];
 
 const navLinks = pages
