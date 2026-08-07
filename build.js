@@ -655,7 +655,7 @@ function renderCurriculaPage(content, assetPrefix) {
     .map((m) => {
       const isAvailable = m.status === "available";
       const statusPill = `<span class="status-pill ${isAvailable ? "available" : "in-preparation"}">${isAvailable ? "Available" : "In preparation"}</span>`;
-      const verifyLinks = [m.moduleFile, m.handoutFile]
+      const verifyLinks = [m.moduleFile, m.facilitatorGuideFile, m.handoutFile]
         .filter(Boolean)
         .map((f) => `<a href="${registryArtifactHref(assetPrefix, f.identifier)}">${esc(f.identifier)}</a>`)
         .join(" · ");
@@ -663,6 +663,7 @@ function renderCurriculaPage(content, assetPrefix) {
         ? `
         <div class="cta-row">
           ${downloadLink(m.moduleFile, "btn-primary")}
+          ${downloadLink(m.facilitatorGuideFile, "btn-secondary")}
           ${downloadLink(m.handoutFile, "btn-secondary")}
         </div>
         <p class="note">Registry entry and SHA-256 verification: ${verifyLinks}</p>`

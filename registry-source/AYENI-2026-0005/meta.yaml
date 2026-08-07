@@ -1,0 +1,19 @@
+identifier: AYENI-2026-0005
+title: Facilitator guide, Module 01 — account takeover and synthetic identity
+initiative: 3
+type: guide
+tier: 1
+licence: CC BY 4.0
+published: 2026-08-07
+version: 1
+description: >
+  Everything a volunteer needs to deliver Module 01 competently: a timed
+  delivery script broken into five-to-twelve-minute segments, a 30-minute cut
+  version, a specimen credit-file exercise with an answer key and teaching
+  rationale for each line, guidance on the thirty seconds after a participant
+  discloses it happened to them, room-management guidance, a list of things
+  never to say and why, and a printable session-record form.
+files:
+  - path: files/facilitator-guide-module-01-account-takeover-and-synthetic-identity.pdf
+    size: 129534
+    sha256: 037c09bbab05059f04284c7917465452a4b9f74cbe732dede12a95e83da1bfee

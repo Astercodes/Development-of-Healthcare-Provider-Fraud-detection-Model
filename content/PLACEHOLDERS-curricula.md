@@ -7,34 +7,35 @@ participant handouts are real files, adapted from the source PDFs you uploaded, 
 hashes and byte sizes computed by `scripts/build-registry-metadata.js` (never hand-typed). The
 following are decisions made while building the page, not gaps in the content.
 
-## Module 03 is marked "in preparation," not invented
+## There is no Module 03
 
-You described three module families in the brief, but only supplied source material for two
-(account takeover / synthetic identity, and Medicare/Medicaid billing fraud). Module 03
-(AI-generated impersonation) has a title and one-line description in `content/curricula.json`
-because you named the topic, but no `moduleFile`/`handoutFile` — the render function shows a
-"Not yet available" note instead of a download for that card. Nothing about its content, length,
-or delivery format is invented; only the topic name is asserted, from your own description.
+An earlier draft of this page carried a third module card ("AI-Generated Impersonation") marked
+"in preparation," on the reasoning that the brief described three module families and only two
+had source material. That was a mistake: you only ever named two modules, and I asserted a third
+that doesn't exist. It has been removed entirely — not marked in preparation, removed — and
+`content/curricula.json` now lists exactly the two real modules with source material behind them.
 
-## There is no separate "facilitator guide" document
+## Facilitator guides: real, separate documents
 
-The brief asked for "the facilitator guide, presented as the thing that makes the modules usable
-by someone other than you." I read both module PDFs in full looking for a standalone guide file
-and there isn't one — each module already contains its own delivery script, timing breakdown, a
-30-minute cut version, a specimen exercise with an answer key, and guidance on handling a
-participant disclosure. So the "Facilitator guide" section on the page doesn't link a document;
-it explains that this material lives inside each module, and says so plainly rather than
-implying a separate guide exists. If a standalone cross-module facilitator guide gets written
-later, this section is where it would link from.
+An earlier version of this page claimed "there is no separate facilitator guide document," on the
+basis that the module PDFs I'd read contained delivery notes. That was also wrong — you supplied
+two dedicated facilitator guide PDFs, one per module, each far more extensive than what the module
+PDFs alone contained: a timed delivery script, a 30-minute cut, a full specimen-exercise answer
+key with per-line teaching rationale, a branching guide for handling a disclosure (live incident,
+public disclosure, private disclosure, safeguarding concern), room-management guidance, a "things
+never to say" list, and a printable session-record form. These are deposited as
+`AYENI-2026-0005` (Module 01) and `AYENI-2026-0006` (Module 02), and each module card now links
+to its own guide as a third download alongside the module and the handout.
 
-## Identifiers: AYENI-2026-0001 through 0004
+## Identifiers: AYENI-2026-0001 through 0006
 
-These four are the first *real* (non-demo) registry deposits, using the identifier convention
+These six are the first *real* (non-demo) registry deposits, using the identifier convention
 your registry brief specified (`identifier: AYENI-2026-0007` was the literal example given) and
 the same numbering family the RFE response uses for its own exhibits. Assigned in upload order:
-0001/0002 are the two full modules, 0003/0004 are the two participant handouts. All four are
-`initiative: 3`, `tier: 1` (open, no verification gate), `type: curriculum` for modules and
-`type: guide` for handouts, `licence: CC BY 4.0`, `published: 2026-08-07`.
+0001/0002 are the two full modules, 0003/0004 are the two participant handouts, 0005/0006 are the
+two facilitator guides. All six are `initiative: 3`, `tier: 1` (open, no verification gate),
+`type: curriculum` for modules and `type: guide` for handouts and facilitator guides,
+`licence: CC BY 4.0`, `published: 2026-08-07`.
 
 ## Duplicate handout upload
 
