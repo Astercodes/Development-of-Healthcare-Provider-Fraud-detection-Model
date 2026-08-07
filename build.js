@@ -30,33 +30,46 @@ function readJSON(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
+// All internal links are relative and end in an explicit filename
+// (never a bare directory path) so navigation works identically
+// whether the site is opened via file://, hosted at a domain root,
+// or hosted under a subpath (e.g. a GitHub Pages project site).
+function homeHref(assetPrefix, hash) {
+  return `${assetPrefix}/index.html${hash ? "#" + hash : ""}`;
+}
+function initiativesIndexHref(assetPrefix) {
+  return `${assetPrefix}/initiatives/index.html`;
+}
+
 // ---------------------------------------------------------------
 // Shared chrome: header (with no-JS mobile nav) and footer
 // ---------------------------------------------------------------
 
 function siteHeader(assetPrefix) {
+  const home = (hash) => homeHref(assetPrefix, hash);
+  const initiatives = initiativesIndexHref(assetPrefix);
   return `
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="${assetPrefix}/">
+    <a class="brand" href="${home()}">
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-name">${SITE_NAME}</span>
     </a>
     <nav class="primary-nav" aria-label="Primary">
-      <a href="${assetPrefix}/#work">Home</a>
-      <a href="${assetPrefix}/initiatives/">Initiatives</a>
-      <a href="${assetPrefix}/#registry">Registry</a>
-      <a href="${assetPrefix}/#how-to-use">How to use this</a>
-      <a href="${assetPrefix}/#access">Verify your institution</a>
+      <a href="${home("work")}">Home</a>
+      <a href="${initiatives}">Initiatives</a>
+      <a href="${home("registry")}">Registry</a>
+      <a href="${home("how-to-use")}">How to use this</a>
+      <a href="${home("access")}">Verify your institution</a>
     </nav>
     <details class="nav-disclosure">
       <summary aria-label="Open menu">Menu</summary>
       <nav class="mobile-nav-panel" aria-label="Primary, mobile">
-        <a href="${assetPrefix}/">Home</a>
-        <a href="${assetPrefix}/initiatives/">Initiatives</a>
-        <a href="${assetPrefix}/#registry">Registry</a>
-        <a href="${assetPrefix}/#how-to-use">How to use this</a>
-        <a href="${assetPrefix}/#access">Verify your institution</a>
+        <a href="${home()}">Home</a>
+        <a href="${initiatives}">Initiatives</a>
+        <a href="${home("registry")}">Registry</a>
+        <a href="${home("how-to-use")}">How to use this</a>
+        <a href="${home("access")}">Verify your institution</a>
       </nav>
     </details>
   </div>
@@ -64,17 +77,19 @@ function siteHeader(assetPrefix) {
 }
 
 function siteFooter(assetPrefix) {
+  const home = (hash) => homeHref(assetPrefix, hash);
+  const initiatives = initiativesIndexHref(assetPrefix);
   return `
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <nav class="footer-nav" aria-label="Footer">
-      <a href="${assetPrefix}/initiatives/">Initiatives</a>
-      <a href="${assetPrefix}/#registry">Registry</a>
-      <a href="${assetPrefix}/#how-to-use">How to use this</a>
-      <a href="${assetPrefix}/#curricula">Curricula</a>
-      <a href="${assetPrefix}/#about">About</a>
-      <a href="${assetPrefix}/#changelog">Changelog</a>
-      <a href="${assetPrefix}/#contact">Contact</a>
+      <a href="${initiatives}">Initiatives</a>
+      <a href="${home("registry")}">Registry</a>
+      <a href="${home("how-to-use")}">How to use this</a>
+      <a href="${home("curricula")}">Curricula</a>
+      <a href="${home("about")}">About</a>
+      <a href="${home("changelog")}">Changelog</a>
+      <a href="${home("contact")}">Contact</a>
     </nav>
   </div>
 </footer>`;
@@ -120,7 +135,7 @@ function renderInitiativePage(content, assetPrefix) {
   const breadcrumb = `
 <div class="breadcrumb">
   <div class="wrap">
-    <a href="${assetPrefix}/">Home</a><span class="sep">/</span><a href="${assetPrefix}/initiatives/">Initiatives</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><a href="${initiativesIndexHref(assetPrefix)}">Initiatives</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
   </div>
 </div>`;
 
@@ -260,8 +275,8 @@ function renderInitiativePage(content, assetPrefix) {
   <div class="wrap">
     <h2 class="section-heading">${esc(headings.nextSteps)} <a class="anchor-link" href="#next-steps" aria-label="Link to ${esc(headings.nextSteps)} section">#</a></h2>
     <div class="cta-row">
-      <a class="btn btn-primary" href="${assetPrefix}/#how-to-use">How to use this</a>
-      <a class="btn btn-secondary" href="${assetPrefix}/#access">Verify your institution</a>
+      <a class="btn btn-primary" href="${homeHref(assetPrefix, "how-to-use")}">How to use this</a>
+      <a class="btn btn-secondary" href="${homeHref(assetPrefix, "access")}">Verify your institution</a>
     </div>
   </div>
 </section>`;
@@ -297,7 +312,7 @@ function renderIndexPage(content, assetPrefix) {
   const breadcrumb = `
 <div class="breadcrumb">
   <div class="wrap">
-    <a href="${assetPrefix}/">Home</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
   </div>
 </div>`;
 
@@ -305,11 +320,12 @@ function renderIndexPage(content, assetPrefix) {
     .map((e) => {
       const statusClass = e.status === "available" ? "available" : "in-preparation";
       const statusText = e.status === "available" ? "Available" : "In preparation";
-      const heading = e.href
-        ? `<h2><a href="${assetPrefix}${esc(e.href)}">${esc(e.title)}</a></h2>`
+      const entryHref = e.href ? `${assetPrefix}/${e.href}` : null;
+      const heading = entryHref
+        ? `<h2><a href="${esc(entryHref)}">${esc(e.title)}</a></h2>`
         : `<h2>${esc(e.title)}</h2>`;
-      const link = e.href
-        ? `<a class="entry-link" href="${assetPrefix}${esc(e.href)}">Read the page →</a>`
+      const link = entryHref
+        ? `<a class="entry-link" href="${esc(entryHref)}">Read the page →</a>`
         : "";
       return `
       <article class="initiative-entry">
