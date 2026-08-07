@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Fraud-Detection Methodology</title>
+<meta name="description" content="Published methods, documented feature construction, and validation protocols for provider-level anomaly detection in federal healthcare claims and synthetic-identity detection in consumer lending — free, verifiable, and available to any qualifying institution.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Open Fraud-Detection Methodology</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#work">Initiatives</a>
+      <a href="#registry">Registry</a>
+      <a href="#how-to-use">How to use this</a>
+      <a href="#access">Verify your institution</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Open fraud-detection methodology for institutions that currently have none.</h1>
+      <p class="hero-lede">
+        Published methods, documented feature construction, and validation protocols for two
+        detection gaps that existing systems do not cover — provider-level anomaly detection in
+        federal healthcare claims, and synthetic-identity detection in consumer lending — together
+        with fraud-prevention curricula for older Americans.
+      </p>
+      <p class="hero-tag">Free. Verifiable. Available to any qualifying institution.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#work">Read the methodology</a>
+        <a class="btn btn-secondary" href="#how-to-use">How to use this</a>
+        <a class="btn btn-ghost" href="#registry">Registry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The problem -->
+  <section class="section" id="problem">
+    <div class="wrap wrap-narrow">
+      <h2 class="section-kicker">The problem</h2>
+      <p class="section-lead">Fraud detection in the United States is allocated by budget rather than by exposure.</p>
+
+      <p>
+        The largest financial institutions operate sophisticated commercial detection systems.
+        Community banks, credit unions, and regional lenders generally operate with rule-based
+        screening or less. Fraud operations test defences and route toward the institutions that
+        do not detect them — so capability concentrated at the top of the market does not
+        eliminate loss. It displaces it downward, onto the institutions least able to absorb it,
+        in the communities least able to replace a failed local lender.
+      </p>
+
+      <p>
+        Federal healthcare claims integrity faces a different constraint with the same effect.
+        Review is predominantly rule-based and post-payment: a claim is paid, then audited against
+        known fraud patterns. A rule detects only what has already been characterised and written
+        down, and it examines one claim at a time — so a provider whose individual claims each
+        appear defensible remains invisible even when their aggregate billing behaviour is a clear
+        statistical outlier against peers.
+      </p>
+
+      <p>
+        Both gaps share a structural property: they are resistant to rule-based detection. Neither
+        is closed by writing better rules.
+      </p>
+
+      <p>
+        And detection, wherever it operates, works only after a fraudulent transaction has been
+        attempted. Where a victim is deceived into authorising a transfer herself — impersonation
+        of a family member, an official, a bank — the transaction is not anomalous from the
+        institution's side at all. The only intervention that stops that scheme is the intended
+        victim recognising it.
+      </p>
+    </div>
+  </section>
+
+  <!-- The approach -->
+  <section class="section section-alt" id="approach">
+    <div class="wrap wrap-narrow">
+      <h2 class="section-kicker">The approach</h2>
+      <p class="section-lead">Learn what normal looks like, then find what deviates from it.</p>
+
+      <p>
+        Rather than encoding known fraud patterns as rules, these methods learn ordinary behaviour
+        from the data itself and identify entities whose conduct departs from it in statistically
+        improbable ways. The system does not need to be told what the scheme is — which is what
+        allows it to surface schemes no one has yet characterised.
+      </p>
+
+      <p>
+        Learned systems are harder to explain than rules, and an unexplainable flag is useless in
+        an enforcement context where a referral has to be defensible. Every method published here
+        documents its feature construction in full and attributes each score to the specific
+        measured behaviours that produced it.
+      </p>
+    </div>
+  </section>
+
+  <!-- The work -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <h2 class="section-kicker">The work</h2>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Provider-level claims anomaly detection</h3>
+          <p>
+            Scores the biller, not the bill. Identifies providers whose billing behaviour deviates
+            from peers of the same specialty, region, and patient mix — surfacing schemes that
+            were never enumerated in a rule set.
+          </p>
+          <p class="card-audience">For state Medicaid program integrity units, HHS OIG contractors, and Medicare Administrative Contractors.</p>
+          <a class="card-link" href="#initiative-1">Initiative 1 →</a>
+        </article>
+
+        <article class="card">
+          <h3>Transaction and synthetic-identity detection</h3>
+          <p>
+            Transaction fraud detection validated across multiple payment environments, extended
+            to synthetic-identity detection at account origination — where every data element is
+            individually valid and the falsehood lives in the combination.
+          </p>
+          <p class="card-audience">For community banks, credit unions, regional lenders, and smaller origination platforms.</p>
+          <a class="card-link" href="#initiative-2">Initiative 2 →</a>
+        </article>
+
+        <article class="card">
+          <h3>Fraud-prevention curricula for older Americans</h3>
+          <p>
+            Each detection pattern, reversed, becomes a recognition heuristic taught to the
+            population that pattern targets. Structured modules with a facilitator guide, built to
+            be delivered by any trained volunteer.
+          </p>
+          <p class="card-audience">For AARP's Fraud Fighter Network and community organisations serving older adults.</p>
+          <a class="card-link" href="#initiative-3">Initiative 3 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Objectives -->
+  <section class="section section-alt" id="objectives">
+    <div class="wrap">
+      <h2 class="section-kicker">Objectives</h2>
+
+      <ul class="objectives-list">
+        <li>
+          <h3>Place detection capability where it is currently absent</h3>
+          <p>With integrity units and lenders that have no equivalent capability and no budget to acquire one.</p>
+        </li>
+        <li>
+          <h3>Make adoption verifiable rather than trusted</h3>
+          <p>Every method ships with a validation protocol allowing an institution to test performance against its own historical data, including known fraud cases, before deploying anything.</p>
+        </li>
+        <li>
+          <h3>Build methodology that improves through deployment</h3>
+          <p>Institutions report what they find — where features fail to compute against real data, where peer groupings mis-specify, where flag volumes exceed investigative capacity — and those findings are incorporated and republished as deployment-tested methodology.</p>
+        </li>
+        <li>
+          <h3>Extend prevention to the point detection cannot reach</h3>
+          <p>Curricula built to be taught by volunteers, so reach is not bounded by any one person's calendar.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Access -->
+  <section class="section" id="access">
+    <div class="wrap wrap-narrow">
+      <h2 class="section-kicker">Access</h2>
+
+      <p>
+        Methodology is published without restriction. Papers, feature dictionaries,
+        specifications, validation protocols, implementation guides, and all curricula are freely
+        available to anyone. No registration. A competent team can implement from these documents
+        alone.
+      </p>
+
+      <p>
+        Reference implementations are available to verified institutions at no cost. Verification
+        confirms institutional identity against public regulatory registries — NCUA charter
+        numbers, FDIC certificate numbers, state agency identifiers. It is an identity check, not
+        an approval decision: there is no fee, no discretion, and no institution excluded by size,
+        budget, sector, or geography.
+      </p>
+
+      <p>
+        The distinction reflects standard practice for security tooling. Detection logic fully
+        readable by the actors it is designed to catch is detection logic they can engineer
+        around.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#verify">Verify your institution</a>
+        <a class="btn btn-secondary" href="#how-to-use">How to use this</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrity -->
+  <section class="section section-alt" id="integrity">
+    <div class="wrap wrap-narrow">
+      <h2 class="section-kicker">Integrity</h2>
+
+      <p>
+        Every artifact is deposited under a permanent identifier, hashed with SHA-256, and
+        timestamped by an independent RFC 3161 authority. Deposits are frozen on publication and
+        cannot be altered — only superseded, with prior versions permanently retrievable.
+      </p>
+
+      <p>
+        Hashes and timestamp tokens are published for every artifact, including those requiring
+        verification, so integrity is checkable without access.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#registry">Registry</a>
+        <a class="btn btn-secondary" href="#verification">How verification works</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#work">Initiatives</a>
+      <a href="#registry">Registry</a>
+      <a href="#how-to-use">How to use this</a>
+      <a href="#curricula">Curricula</a>
+      <a href="#about">About</a>
+      <a href="#changelog">Changelog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
