@@ -218,10 +218,15 @@ function renderInitiativePage(content, assetPrefix) {
 
   const artifactCards = content.artifacts
     .map((a) => {
-      const accessLine =
-        a.tier === 2
-          ? `<li><span class="k">Access:</span>Available to verified institutions</li>`
-          : `<li><span class="k">Access:</span><a href="${esc(a.link)}">Registry entry</a></li>`;
+      const linkIsReal = /^(https?:)?\//.test(a.link || "");
+      let accessLine;
+      if (a.tier === 2) {
+        accessLine = `<li><span class="k">Access:</span>Available to verified institutions</li>`;
+      } else if (linkIsReal) {
+        accessLine = `<li><span class="k">Access:</span><a href="${esc(a.link)}">Registry entry</a></li>`;
+      } else {
+        accessLine = `<li><span class="k">Access:</span><span class="pending">Registry entry pending deposit</span></li>`;
+      }
       return `
         <div class="artifact-card">
           <span class="tier-badge tier-${a.tier}">${esc(a.tierLabel)}</span>

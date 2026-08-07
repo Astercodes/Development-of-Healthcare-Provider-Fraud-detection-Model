@@ -405,6 +405,7 @@ aside.callout p { margin-bottom: 0; color: var(--ink); }
 }
 .artifact-meta li { margin: 0 0 6px; color: var(--ink-soft); max-width: none; }
 .artifact-meta .k { color: var(--ink); font-weight: 600; margin-right: 6px; }
+.artifact-meta .pending { font-style: italic; }
 
 .tier-badge {
   display: inline-block;
