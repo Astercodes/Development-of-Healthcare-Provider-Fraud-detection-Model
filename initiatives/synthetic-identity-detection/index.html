@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transaction and Synthetic-Identity Detection — Open Fraud-Detection Methodology</title>
+<meta name="description" content="Transaction fraud detection validated across multiple payment environments, extended to synthetic-identity detection at account origination — where every data element is individually valid and the falsehood lives in the combination.">
+<link rel="stylesheet" href="../../assets/initiative.css">
+<link rel="stylesheet" href="../../assets/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Open Fraud-Detection Methodology</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="../../#work">Home</a>
+      <a href="../../initiatives/">Initiatives</a>
+      <a href="../../#registry">Registry</a>
+      <a href="../../#how-to-use">How to use this</a>
+      <a href="../../#access">Verify your institution</a>
+    </nav>
+    <details class="nav-disclosure">
+      <summary aria-label="Open menu">Menu</summary>
+      <nav class="mobile-nav-panel" aria-label="Primary, mobile">
+        <a href="../../">Home</a>
+        <a href="../../initiatives/">Initiatives</a>
+        <a href="../../#registry">Registry</a>
+        <a href="../../#how-to-use">How to use this</a>
+        <a href="../../#access">Verify your institution</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="../../">Home</a><span class="sep">/</span><a href="../../initiatives/">Initiatives</a><span class="sep">/</span><span aria-current="page">Transaction and Synthetic-Identity Detection</span>
+  </div>
+</div>
+<main id="main">
+
+<div class="page-header">
+  <div class="wrap">
+    <p class="kicker">Initiative 2</p>
+    <h1>Transaction and Synthetic-Identity Detection</h1>
+    <p class="standfirst">A transaction and synthetic-identity fraud detection methodology for community banks, credit unions, regional lenders, and smaller origination platforms.</p>
+    <div class="status-line">
+      <h2 id="status">Status</h2>
+      <ul class="status-list">
+        <li><span class="label">Feature-engineering specification</span><span class="value">[PLACEHOLDER — publication status and date]</span></li>
+        <li><span class="label">Threat-model note (synthetic identity)</span><span class="value">[PLACEHOLDER — publication status and date]</span></li>
+        <li><span class="label">Implementation guide</span><span class="value">[PLACEHOLDER — publication status and date]</span></li>
+        <li><span class="label">Reference implementation</span><span class="value">[PLACEHOLDER — publication status and date]</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="the-problem">
+  <div class="wrap">
+    <h2 class="section-heading" id="the-problem-heading">The problem <a class="anchor-link" href="#the-problem" aria-label="Link to The problem section">#</a></h2>
+    <div class="problem-list">
+        <div class="problem-item">
+          <h3>Detection capability is allocated by budget, not exposure</h3>
+          <p>The largest national institutions operate sophisticated commercial detection systems, purchased from vendors at costs running into the millions annually and maintained by dedicated analytics staff. Community banks, credit unions, regional lenders, and smaller online origination platforms generally operate with a fraction of that capability, and in many cases with rule-based screening alone. Fraud operations respond rationally to that allocation: they test defenses and route toward the institutions that do not detect them, which means capability concentrated at the top of the market does not eliminate fraud volume — it displaces it downward, onto the institutions least able to absorb loss.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Identity verification tests validity, not combination</h3>
+          <p>A synthetic identity is an internally consistent false identity assembled from composite real data elements — a genuine Social Security number belonging to someone who does not actively use it, paired with a fabricated name, a real address, a plausible date of birth. Identity-verification systems ask whether each data element is valid, and a synthetic identity passes every check because each element is valid. The falsehood is in the combination, and combinations are not what verification examines.</p>
+        </div>
+        <div class="problem-item">
+          <h3>No single institution observes the complete pattern</h3>
+          <p>A synthetic identity is cultivated deliberately across accounts at multiple institutions in multiple states, precisely because no single institution observes the complete pattern. Detection capability confined to a small number of large banks therefore leaves the scheme viable everywhere else; capability distributed broadly across the smaller-institution tier degrades it everywhere at once.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="how-it-works">
+  <div class="wrap">
+    <h2 class="section-heading">How the method works <a class="anchor-link" href="#how-it-works" aria-label="Link to How the method works section">#</a></h2>
+    <ol class="steps">
+        <li>
+          <div>
+            <h3>Feature construction across the credit lifecycle</h3>
+            <p>Input is transaction records as institutions already hold them — amount, timestamp, merchant category, location, and account history — and, for synthetic-identity detection, credit-file and application-behavior data over time: credit-history depth, account-opening sequence, debt-to-income relationships, revolving-balance trajectories, and delinquency patterning. Because a synthetic identity is assembled from real, individually valid elements, detection has to move from field validation to behavioral pattern analysis across this feature space.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Class-imbalance handling</h3>
+            <p>Fraudulent transactions constitute roughly one percent of volume or less. A model that simply predicts "legitimate" for every transaction achieves 99% accuracy while detecting nothing, which is why accuracy alone is a misleading metric here. Handling this correctly is a matter of feature engineering combined with sampling and weighting techniques that prevent the majority class from dominating what the model learns.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Behavioral scoring</h3>
+            <p>For transactions, the output is a fraud-probability score for real-time decisioning or batch review. For account applications, the output is a score reflecting the likelihood that an applicant profile reflects a constructed rather than an organic identity — derived from how a credit file was assembled and whether the borrowing pattern is internally consistent, not from whether any single field is valid.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Signal precision for cross-institution comparability</h3>
+            <p>Each behavioral signal is defined exactly — what is measured, over what observation window, and how it is calculated — so that a different institution with different data can compute the identical measurement and obtain a comparable result. This matters because a synthetic identity is typically cultivated across accounts at multiple institutions in multiple states specifically because no single institution observes the complete pattern; comparable measurements across the smaller-institution tier are what make that pattern visible.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Deployable, not just published</h3>
+            <p>The methodology is published as working, documented, openly licensed code alongside an operational guide, so that an institution's existing technical staff — typically one or two people at a community bank or credit union — can run it against their own data. Publishing working implementations rather than descriptions alone converts adoption from a system-construction project into a configuration task.</p>
+          </div>
+        </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="what-it-produces">
+  <div class="wrap">
+    <h2 class="section-heading">What it produces <a class="anchor-link" href="#what-it-produces" aria-label="Link to What it produces section">#</a></h2>
+    <div class="produces-grid">
+      <div>
+        <h3>What it consumes</h3>
+        <p>Transaction records as institutions already hold them — amount, timestamp, merchant category, location, and account history — and, for synthetic-identity detection, credit-file and application-behavior data: credit-history depth, account-opening sequence, debt-to-income relationships, revolving-balance trajectories, and delinquency patterning. No commercial analytics platform or vendor relationship is required.</p>
+      </div>
+      <div>
+        <h3>What it emits</h3>
+        <p>A fraud-probability score per transaction, for real-time decisioning or batch review; and, for account applications, a score reflecting the likelihood that an applicant profile reflects a constructed rather than an organic identity.</p>
+      </div>
+    </div>
+    <aside class="callout" role="note" aria-label="Important">
+      <span class="callout-label">Important</span>
+      <p>These scores support an institution's own fraud and underwriting decisions. They do not themselves authorize, deny, or flag an account as fraudulent — that determination remains the institution's, made under its own policies and escalation procedures.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt" id="who-uses-it">
+  <div class="wrap">
+    <h2 class="section-heading">Who uses it <a class="anchor-link" href="#who-uses-it" aria-label="Link to Who uses it section">#</a></h2>
+    <p>The direct users are the financial institutions currently least protected against transaction and identity fraud. Their trade associations and state leagues provide established channels through which published methodology reaches many institutions simultaneously — which is how a specification, unlike a consulting engagement, scales without dependence on any one implementer.</p>
+    <ul class="audience-list"><li>Community banks</li><li>Credit unions</li><li>Regional lenders</li><li>Smaller online origination platforms</li></ul>
+  </div>
+</section>
+
+<section class="section" id="artifacts">
+  <div class="wrap">
+    <h2 class="section-heading">Artifacts <a class="anchor-link" href="#artifacts" aria-label="Link to Artifacts section">#</a></h2>
+    <div class="artifact-grid">
+        <div class="artifact-card">
+          <span class="tier-badge tier-1">Tier 1 — public</span>
+          <h3>Feature-engineering specification</h3>
+          <ul class="artifact-meta">
+            <li><span class="k">Type:</span>Documentation</li>
+            <li><span class="k">Deposit date:</span>[PLACEHOLDER]</li>
+            <li><span class="k">Access:</span><a href="[PLACEHOLDER — registry entry URL]">Registry entry</a></li>
+          </ul>
+        </div>
+        <div class="artifact-card">
+          <span class="tier-badge tier-1">Tier 1 — public</span>
+          <h3>Threat-model note — synthetic identity</h3>
+          <ul class="artifact-meta">
+            <li><span class="k">Type:</span>Documentation</li>
+            <li><span class="k">Deposit date:</span>[PLACEHOLDER]</li>
+            <li><span class="k">Access:</span><a href="[PLACEHOLDER — registry entry URL]">Registry entry</a></li>
+          </ul>
+        </div>
+        <div class="artifact-card">
+          <span class="tier-badge tier-1">Tier 1 — public</span>
+          <h3>Implementation guide for smaller institutions</h3>
+          <ul class="artifact-meta">
+            <li><span class="k">Type:</span>Documentation</li>
+            <li><span class="k">Deposit date:</span>[PLACEHOLDER]</li>
+            <li><span class="k">Access:</span><a href="[PLACEHOLDER — registry entry URL]">Registry entry</a></li>
+          </ul>
+        </div>
+        <div class="artifact-card">
+          <span class="tier-badge tier-2">Tier 2 — verified institutions</span>
+          <h3>Reference implementation — transaction fraud detection</h3>
+          <ul class="artifact-meta">
+            <li><span class="k">Type:</span>Code</li>
+            <li><span class="k">Deposit date:</span>[PLACEHOLDER]</li>
+            <li><span class="k">Access:</span>Available to verified institutions</li>
+          </ul>
+        </div>
+    </div>
+    <p class="tier2-note">Tier 2 artifacts are reference implementations, available at no cost after institutional identity verification. Tier 1 artifacts — documentation, protocols, and papers — are open to anyone without registration.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="next-steps">
+  <div class="wrap">
+    <h2 class="section-heading">Next steps <a class="anchor-link" href="#next-steps" aria-label="Link to Next steps section">#</a></h2>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="../../#how-to-use">How to use this</a>
+      <a class="btn btn-secondary" href="../../#access">Verify your institution</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../../initiatives/">Initiatives</a>
+      <a href="../../#registry">Registry</a>
+      <a href="../../#how-to-use">How to use this</a>
+      <a href="../../#curricula">Curricula</a>
+      <a href="../../#about">About</a>
+      <a href="../../#changelog">Changelog</a>
+      <a href="../../#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+<p class="print-citation">This document: /initiatives/synthetic-identity-detection/. Retrieved from the printing browser's own header/footer date stamp when available.</p>
+</body>
+</html>

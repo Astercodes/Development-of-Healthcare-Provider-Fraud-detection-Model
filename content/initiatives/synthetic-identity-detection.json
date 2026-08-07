@@ -1,0 +1,102 @@
+{
+  "slug": "synthetic-identity-detection",
+  "number": 2,
+  "title": "Transaction and Synthetic-Identity Detection",
+  "standfirst": "A transaction and synthetic-identity fraud detection methodology for community banks, credit unions, regional lenders, and smaller origination platforms.",
+  "summary": "Transaction fraud detection validated across multiple payment environments, extended to synthetic-identity detection at account origination — where every data element is individually valid and the falsehood lives in the combination.",
+  "audience": "For community banks, credit unions, regional lenders, and smaller origination platforms.",
+  "indexStatus": "available",
+  "status": [
+    { "label": "Feature-engineering specification", "value": "[PLACEHOLDER — publication status and date]" },
+    { "label": "Threat-model note (synthetic identity)", "value": "[PLACEHOLDER — publication status and date]" },
+    { "label": "Implementation guide", "value": "[PLACEHOLDER — publication status and date]" },
+    { "label": "Reference implementation", "value": "[PLACEHOLDER — publication status and date]" }
+  ],
+  "problem": [
+    {
+      "heading": "Detection capability is allocated by budget, not exposure",
+      "body": "The largest national institutions operate sophisticated commercial detection systems, purchased from vendors at costs running into the millions annually and maintained by dedicated analytics staff. Community banks, credit unions, regional lenders, and smaller online origination platforms generally operate with a fraction of that capability, and in many cases with rule-based screening alone. Fraud operations respond rationally to that allocation: they test defenses and route toward the institutions that do not detect them, which means capability concentrated at the top of the market does not eliminate fraud volume — it displaces it downward, onto the institutions least able to absorb loss."
+    },
+    {
+      "heading": "Identity verification tests validity, not combination",
+      "body": "A synthetic identity is an internally consistent false identity assembled from composite real data elements — a genuine Social Security number belonging to someone who does not actively use it, paired with a fabricated name, a real address, a plausible date of birth. Identity-verification systems ask whether each data element is valid, and a synthetic identity passes every check because each element is valid. The falsehood is in the combination, and combinations are not what verification examines."
+    },
+    {
+      "heading": "No single institution observes the complete pattern",
+      "body": "A synthetic identity is cultivated deliberately across accounts at multiple institutions in multiple states, precisely because no single institution observes the complete pattern. Detection capability confined to a small number of large banks therefore leaves the scheme viable everywhere else; capability distributed broadly across the smaller-institution tier degrades it everywhere at once."
+    }
+  ],
+  "methodSteps": [
+    {
+      "heading": "Feature construction across the credit lifecycle",
+      "body": "Input is transaction records as institutions already hold them — amount, timestamp, merchant category, location, and account history — and, for synthetic-identity detection, credit-file and application-behavior data over time: credit-history depth, account-opening sequence, debt-to-income relationships, revolving-balance trajectories, and delinquency patterning. Because a synthetic identity is assembled from real, individually valid elements, detection has to move from field validation to behavioral pattern analysis across this feature space."
+    },
+    {
+      "heading": "Class-imbalance handling",
+      "body": "Fraudulent transactions constitute roughly one percent of volume or less. A model that simply predicts \"legitimate\" for every transaction achieves 99% accuracy while detecting nothing, which is why accuracy alone is a misleading metric here. Handling this correctly is a matter of feature engineering combined with sampling and weighting techniques that prevent the majority class from dominating what the model learns."
+    },
+    {
+      "heading": "Behavioral scoring",
+      "body": "For transactions, the output is a fraud-probability score for real-time decisioning or batch review. For account applications, the output is a score reflecting the likelihood that an applicant profile reflects a constructed rather than an organic identity — derived from how a credit file was assembled and whether the borrowing pattern is internally consistent, not from whether any single field is valid."
+    },
+    {
+      "heading": "Signal precision for cross-institution comparability",
+      "body": "Each behavioral signal is defined exactly — what is measured, over what observation window, and how it is calculated — so that a different institution with different data can compute the identical measurement and obtain a comparable result. This matters because a synthetic identity is typically cultivated across accounts at multiple institutions in multiple states specifically because no single institution observes the complete pattern; comparable measurements across the smaller-institution tier are what make that pattern visible."
+    },
+    {
+      "heading": "Deployable, not just published",
+      "body": "The methodology is published as working, documented, openly licensed code alongside an operational guide, so that an institution's existing technical staff — typically one or two people at a community bank or credit union — can run it against their own data. Publishing working implementations rather than descriptions alone converts adoption from a system-construction project into a configuration task."
+    }
+  ],
+  "produces": {
+    "consumesHeading": "What it consumes",
+    "consumes": "Transaction records as institutions already hold them — amount, timestamp, merchant category, location, and account history — and, for synthetic-identity detection, credit-file and application-behavior data: credit-history depth, account-opening sequence, debt-to-income relationships, revolving-balance trajectories, and delinquency patterning. No commercial analytics platform or vendor relationship is required.",
+    "emitsHeading": "What it emits",
+    "emits": "A fraud-probability score per transaction, for real-time decisioning or batch review; and, for account applications, a score reflecting the likelihood that an applicant profile reflects a constructed rather than an organic identity.",
+    "calloutLabel": "Important",
+    "callout": "These scores support an institution's own fraud and underwriting decisions. They do not themselves authorize, deny, or flag an account as fraudulent — that determination remains the institution's, made under its own policies and escalation procedures."
+  },
+  "whoUses": {
+    "intro": "The direct users are the financial institutions currently least protected against transaction and identity fraud. Their trade associations and state leagues provide established channels through which published methodology reaches many institutions simultaneously — which is how a specification, unlike a consulting engagement, scales without dependence on any one implementer.",
+    "list": [
+      "Community banks",
+      "Credit unions",
+      "Regional lenders",
+      "Smaller online origination platforms"
+    ]
+  },
+  "artifacts": [
+    {
+      "title": "Feature-engineering specification",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    },
+    {
+      "title": "Threat-model note — synthetic identity",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    },
+    {
+      "title": "Implementation guide for smaller institutions",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    },
+    {
+      "title": "Reference implementation — transaction fraud detection",
+      "type": "Code",
+      "tier": 2,
+      "tierLabel": "Tier 2 — verified institutions",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    }
+  ]
+}

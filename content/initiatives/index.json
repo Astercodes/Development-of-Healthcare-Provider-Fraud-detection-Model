@@ -17,8 +17,8 @@
       "title": "Transaction and Synthetic-Identity Detection",
       "summary": "Transaction fraud detection validated across multiple payment environments, extended to synthetic-identity detection at account origination — where every data element is individually valid and the falsehood lives in the combination.",
       "audience": "For community banks, credit unions, regional lenders, and smaller origination platforms.",
-      "status": "in preparation",
-      "href": null
+      "status": "available",
+      "href": "/initiatives/synthetic-identity-detection/"
     },
     {
       "number": 3,
