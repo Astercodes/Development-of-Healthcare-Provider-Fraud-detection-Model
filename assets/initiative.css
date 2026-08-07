@@ -456,6 +456,42 @@ aside.callout p { margin-bottom: 0; color: var(--ink); }
 .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
+/* ---------- How to Use This: routing cards, cost note, contact ---------- */
+
+.routing-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+.routing-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+.routing-card p { color: var(--ink); }
+.routing-card strong { color: var(--ink); }
+.routing-card .entry-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.note {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.contact-email {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.contact-email a { text-decoration: none; }
+.contact-email a:hover { text-decoration: underline; }
+
 /* ---------- Initiatives index ---------- */
 
 .initiative-index-grid {

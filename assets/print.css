@@ -60,7 +60,8 @@
   .artifact-card,
   .problem-item,
   aside.callout,
-  .initiative-entry {
+  .initiative-entry,
+  .routing-card {
     break-inside: avoid-page;
   }
 

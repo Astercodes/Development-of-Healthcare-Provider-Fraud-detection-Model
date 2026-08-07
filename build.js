@@ -40,6 +40,12 @@ function homeHref(assetPrefix, hash) {
 function initiativesIndexHref(assetPrefix) {
   return `${assetPrefix}/initiatives/index.html`;
 }
+function initiativeHref(assetPrefix, slug) {
+  return `${assetPrefix}/initiatives/${slug}/index.html`;
+}
+function howToUseHref(assetPrefix, hash) {
+  return `${assetPrefix}/how-to-use/index.html${hash ? "#" + hash : ""}`;
+}
 
 // ---------------------------------------------------------------
 // Shared chrome: header (with no-JS mobile nav) and footer
@@ -59,7 +65,7 @@ function siteHeader(assetPrefix) {
       <a href="${home("work")}">Home</a>
       <a href="${initiatives}">Initiatives</a>
       <a href="${home("registry")}">Registry</a>
-      <a href="${home("how-to-use")}">How to use this</a>
+      <a href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a href="${home("access")}">Verify your institution</a>
     </nav>
     <details class="nav-disclosure">
@@ -68,7 +74,7 @@ function siteHeader(assetPrefix) {
         <a href="${home()}">Home</a>
         <a href="${initiatives}">Initiatives</a>
         <a href="${home("registry")}">Registry</a>
-        <a href="${home("how-to-use")}">How to use this</a>
+        <a href="${howToUseHref(assetPrefix)}">How to use this</a>
         <a href="${home("access")}">Verify your institution</a>
       </nav>
     </details>
@@ -85,7 +91,7 @@ function siteFooter(assetPrefix) {
     <nav class="footer-nav" aria-label="Footer">
       <a href="${initiatives}">Initiatives</a>
       <a href="${home("registry")}">Registry</a>
-      <a href="${home("how-to-use")}">How to use this</a>
+      <a href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a href="${home("curricula")}">Curricula</a>
       <a href="${home("about")}">About</a>
       <a href="${home("changelog")}">Changelog</a>
@@ -275,7 +281,7 @@ function renderInitiativePage(content, assetPrefix) {
   <div class="wrap">
     <h2 class="section-heading">${esc(headings.nextSteps)} <a class="anchor-link" href="#next-steps" aria-label="Link to ${esc(headings.nextSteps)} section">#</a></h2>
     <div class="cta-row">
-      <a class="btn btn-primary" href="${homeHref(assetPrefix, "how-to-use")}">How to use this</a>
+      <a class="btn btn-primary" href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a class="btn btn-secondary" href="${homeHref(assetPrefix, "access")}">Verify your institution</a>
     </div>
   </div>
@@ -371,6 +377,171 @@ ${siteFooter(assetPrefix)}`;
 }
 
 // ---------------------------------------------------------------
+// "How to Use This" page template
+// ---------------------------------------------------------------
+
+function renderHowToUsePage(content, assetPrefix) {
+  const breadcrumb = `
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
+  </div>
+</div>`;
+
+  const pageHeader = `
+<div class="page-header">
+  <div class="wrap">
+    <h1>${esc(content.title)}</h1>
+    <p class="standfirst">${esc(content.standfirst)}</p>
+  </div>
+</div>`;
+
+  const routingEntries = content.routing.entries
+    .map(
+      (r) => `
+      <div class="routing-card">
+        <p><strong>${esc(r.condition)}</strong> — ${esc(r.body)}</p>
+        <a class="entry-link" href="${initiativeHref(assetPrefix, r.initiativeSlug)}">${esc(r.linkText)}</a>
+      </div>`
+    )
+    .join("");
+
+  const sectionRouting = `
+<section class="section" id="choosing-a-method">
+  <div class="wrap">
+    <h2 class="section-heading">Choosing a method <a class="anchor-link" href="#choosing-a-method" aria-label="Link to Choosing a method section">#</a></h2>
+    <p>${esc(content.routing.intro)}</p>
+    <div class="routing-grid">${routingEntries}
+    </div>
+  </div>
+</section>`;
+
+  const dataEntries = content.dataRequired.entries
+    .map(
+      (d) => `
+        <div>
+          <h3>${esc(d.label)}</h3>
+          <p>${esc(d.body)}</p>
+        </div>`
+    )
+    .join("");
+
+  const sectionData = `
+<section class="section section-alt" id="what-data-is-required">
+  <div class="wrap">
+    <h2 class="section-heading">What data is required <a class="anchor-link" href="#what-data-is-required" aria-label="Link to What data is required section">#</a></h2>
+    <p>${esc(content.dataRequired.intro)}</p>
+    <div class="produces-grid">${dataEntries}
+    </div>
+  </div>
+</section>`;
+
+  const sectionCost = `
+<section class="section" id="what-it-costs-to-run">
+  <div class="wrap">
+    <h2 class="section-heading">What it costs to run <a class="anchor-link" href="#what-it-costs-to-run" aria-label="Link to What it costs to run section">#</a></h2>
+    <p>${esc(content.cost.body)}</p>
+    <p class="note">${esc(content.cost.note)}</p>
+  </div>
+</section>`;
+
+  const validationSteps = content.validationSteps
+    .map(
+      (s) => `
+        <li>
+          <div>
+            <h3>${esc(s.heading)}</h3>
+            <p>${esc(s.body)}</p>
+          </div>
+        </li>`
+    )
+    .join("");
+
+  const sectionValidation = `
+<section class="section section-alt" id="running-the-validation-protocol">
+  <div class="wrap">
+    <h2 class="section-heading">Running the validation protocol <a class="anchor-link" href="#running-the-validation-protocol" aria-label="Link to Running the validation protocol section">#</a></h2>
+    <ol class="steps">${validationSteps}
+    </ol>
+  </div>
+</section>`;
+
+  const sectionReading = `
+<section class="section" id="reading-the-output">
+  <div class="wrap">
+    <h2 class="section-heading">Reading the output <a class="anchor-link" href="#reading-the-output" aria-label="Link to Reading the output section">#</a></h2>
+    <p>${esc(content.readingOutput.body)}</p>
+    <aside class="callout" role="note" aria-label="${esc(content.readingOutput.calloutLabel)}">
+      <span class="callout-label">${esc(content.readingOutput.calloutLabel)}</span>
+      <p>${esc(content.readingOutput.callout)}</p>
+    </aside>
+  </div>
+</section>`;
+
+  const sectionVerification = `
+<section class="section section-alt" id="getting-the-implementation">
+  <div class="wrap">
+    <h2 class="section-heading">Getting the implementation <a class="anchor-link" href="#getting-the-implementation" aria-label="Link to Getting the implementation section">#</a></h2>
+    <p>${esc(content.verification.body)}</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="${homeHref(assetPrefix, "access")}">${esc(content.verification.linkText)}</a>
+    </div>
+  </div>
+</section>`;
+
+  const reportingItems = content.reportingBack.items.map((i) => `<li>${esc(i)}</li>`).join("");
+  const sectionReporting = `
+<section class="section" id="reporting-back">
+  <div class="wrap">
+    <h2 class="section-heading">Reporting back <a class="anchor-link" href="#reporting-back" aria-label="Link to Reporting back section">#</a></h2>
+    <p>${esc(content.reportingBack.intro)}</p>
+    <ul class="audience-list">${reportingItems}</ul>
+  </div>
+</section>`;
+
+  const mailHref = content.contact.email.startsWith("[")
+    ? "#contact"
+    : `mailto:${content.contact.email}`;
+  const emailDisplay = content.contact.email.startsWith("[")
+    ? content.contact.email
+    : `<a href="mailto:${esc(content.contact.email)}">${esc(content.contact.email)}</a>`;
+
+  const sectionContact = `
+<section class="section section-alt" id="contact">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">Contact <a class="anchor-link" href="#contact" aria-label="Link to Contact section">#</a></h2>
+    <p>${esc(content.contact.intro)}</p>
+    <p class="contact-email">${emailDisplay}</p>
+    <p>${esc(content.contact.guidance)}</p>
+  </div>
+</section>`;
+
+  const body = `
+${siteHeader(assetPrefix)}
+${breadcrumb}
+<main id="main">
+${pageHeader}
+${sectionRouting}
+${sectionData}
+${sectionCost}
+${sectionValidation}
+${sectionReading}
+${sectionVerification}
+${sectionReporting}
+${sectionContact}
+</main>
+${siteFooter(assetPrefix)}`;
+
+  return pageShell({
+    title: content.title,
+    description: content.standfirst,
+    assetPrefix,
+    bodyHtml: body,
+    canonicalPath: `/how-to-use/`,
+  });
+}
+
+// ---------------------------------------------------------------
 // Build
 // ---------------------------------------------------------------
 
@@ -396,6 +567,18 @@ function build() {
       renderInitiativePage(content, "../..")
     );
     console.log(`Wrote initiatives/${entry.slug}/index.html`);
+  }
+
+  const howToUseFile = path.join(ROOT, "content", "how-to-use.json");
+  if (fs.existsSync(howToUseFile)) {
+    const howToUseContent = readJSON(howToUseFile);
+    const howToUseDir = path.join(ROOT, "how-to-use");
+    fs.mkdirSync(howToUseDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(howToUseDir, "index.html"),
+      renderHowToUsePage(howToUseContent, "..")
+    );
+    console.log("Wrote how-to-use/index.html");
   }
 }
 
