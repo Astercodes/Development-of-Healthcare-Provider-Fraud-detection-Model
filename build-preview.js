@@ -48,6 +48,7 @@ const pages = [
   { label: "/initiatives/fraud-prevention-curricula/", route: "Initiative 3", id: "page-init-3", file: path.join(ROOT, "initiatives", "fraud-prevention-curricula", "index.html") },
   { label: "/how-to-use/", route: "How to Use This", id: "page-how-to-use", file: path.join(ROOT, "how-to-use", "index.html") },
   { label: "/curricula/", route: "Curricula", id: "page-curricula", file: path.join(ROOT, "curricula", "index.html") },
+  { label: "/about/", route: "About", id: "page-about", file: path.join(ROOT, "about", "index.html") },
   { label: "/registry/", route: "Registry", id: "page-registry", file: path.join(ROOT, "registry", "index.html") },
   { label: "/registry/AYENI-2026-0001/", route: "Registry artifact (curriculum module, Tier 1)", id: "page-registry-ayeni1", file: path.join(ROOT, "registry", "AYENI-2026-0001", "index.html") },
   { label: "/registry/REGISTRY-DEMO-0001/", route: "Registry artifact (demo, Tier 1)", id: "page-registry-demo1", file: path.join(ROOT, "registry", "REGISTRY-DEMO-0001", "index.html") },

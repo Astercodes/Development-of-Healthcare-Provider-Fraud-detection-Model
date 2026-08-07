@@ -71,6 +71,9 @@ function registryFilterHref(assetPrefix, dimension, value) {
 function curriculaHref(assetPrefix, hash) {
   return `${assetPrefix}/curricula/index.html${hash ? "#" + hash : ""}`;
 }
+function aboutHref(assetPrefix, hash) {
+  return `${assetPrefix}/about/index.html${hash ? "#" + hash : ""}`;
+}
 function registryFileHref(assetPrefix, identifier, filename) {
   return `${assetPrefix}/registry/${identifier}/files/${filename}`;
 }
@@ -163,9 +166,9 @@ function siteFooter(assetPrefix) {
       <a href="${registryIndexHref(assetPrefix)}">Registry</a>
       <a href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a href="${curriculaHref(assetPrefix)}">Curricula</a>
-      <a href="${home("about")}">About</a>
+      <a href="${aboutHref(assetPrefix)}">About</a>
       <a href="${home("changelog")}">Changelog</a>
-      <a href="${home("contact")}">Contact</a>
+      <a href="${aboutHref(assetPrefix, "contact")}">Contact</a>
     </nav>
   </div>
 </footer>`;
@@ -730,6 +733,94 @@ ${siteFooter(assetPrefix)}`;
 }
 
 // ---------------------------------------------------------------
+// About page template
+// ---------------------------------------------------------------
+
+function renderAboutPage(content, assetPrefix) {
+  const breadcrumb = `
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
+  </div>
+</div>`;
+
+  const pageHeader = `
+<div class="page-header">
+  <div class="wrap">
+    <h1>${esc(content.title)}</h1>
+    <p class="standfirst">${esc(content.standfirst)}</p>
+  </div>
+</div>`;
+
+  const sectionWork = `
+<section class="section" id="the-work">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.theWork.heading)} <a class="anchor-link" href="#the-work" aria-label="Link to ${esc(content.theWork.heading)} section">#</a></h2>
+    <p>${esc(content.theWork.intro)}</p>
+    <p>${esc(content.theWork.access)}</p>
+  </div>
+</section>`;
+
+  const backgroundParagraphs = content.background.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("\n    ");
+  const sectionBackground = `
+<section class="section section-alt" id="background">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.background.heading)} <a class="anchor-link" href="#background" aria-label="Link to ${esc(content.background.heading)} section">#</a></h2>
+    ${backgroundParagraphs}
+  </div>
+</section>`;
+
+  const sectionEducation = `
+<section class="section" id="fraud-prevention-education">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.education.heading)} <a class="anchor-link" href="#fraud-prevention-education" aria-label="Link to ${esc(content.education.heading)} section">#</a></h2>
+    <p>${esc(content.education.body)}</p>
+  </div>
+</section>`;
+
+  const sectionWhy = `
+<section class="section section-alt" id="why-published-openly">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.whyPublished.heading)} <a class="anchor-link" href="#why-published-openly" aria-label="Link to ${esc(content.whyPublished.heading)} section">#</a></h2>
+    <p>${esc(content.whyPublished.body)}</p>
+  </div>
+</section>`;
+
+  const emailDisplay = content.contact.email.startsWith("[")
+    ? content.contact.email
+    : `<a href="mailto:${esc(content.contact.email)}">${esc(content.contact.email)}</a>`;
+
+  const sectionContact = `
+<section class="section" id="contact">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.contact.heading)} <a class="anchor-link" href="#contact" aria-label="Link to ${esc(content.contact.heading)} section">#</a></h2>
+    <p>${esc(content.contact.intro)} ${emailDisplay}</p>
+  </div>
+</section>`;
+
+  const body = `
+${siteHeader(assetPrefix)}
+${breadcrumb}
+<main id="main">
+${pageHeader}
+${sectionWork}
+${sectionBackground}
+${sectionEducation}
+${sectionWhy}
+${sectionContact}
+</main>
+${siteFooter(assetPrefix)}`;
+
+  return pageShell({
+    title: content.title,
+    description: content.standfirst,
+    assetPrefix,
+    bodyHtml: body,
+    canonicalPath: `/about/`,
+  });
+}
+
+// ---------------------------------------------------------------
 // Registry: index (+ static filter pages) and artifact page
 // ---------------------------------------------------------------
 
@@ -1034,6 +1125,18 @@ function build() {
       renderCurriculaPage(curriculaContent, "..")
     );
     console.log("Wrote curricula/index.html");
+  }
+
+  const aboutFile = path.join(ROOT, "content", "about.json");
+  if (fs.existsSync(aboutFile)) {
+    const aboutContent = readJSON(aboutFile);
+    const aboutDir = path.join(ROOT, "about");
+    fs.mkdirSync(aboutDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(aboutDir, "index.html"),
+      renderAboutPage(aboutContent, "..")
+    );
+    console.log("Wrote about/index.html");
   }
 
   const initiativeSlugByNumber = {};
