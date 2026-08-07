@@ -1,0 +1,22 @@
+identifier: REGISTRY-DEMO-0001-v2
+title: Registry mechanism demonstration (Tier 1, current)
+initiative: 
+type: implementation
+tier: 1
+licence: CC0-1.0
+published: 2026-08-07
+version: 2
+supersedes: REGISTRY-DEMO-0001
+description: >
+  Revised version of the registry mechanism demonstration. Demonstrates that a
+  revision publishes at a new identifier rather than editing the original in
+  place, and that both versions stay live and cross-linked. This is a template
+  demonstration for the registry mechanism itself — it is not a published
+  methodology artifact from any initiative.
+files:
+  - path: files/README.md
+    size: 809
+    sha256: b5b0a59dfa205ea00f9981d27eabf3c238b307b63828898fcfcb210b4413c48c
+  - path: files/example-config.json
+    size: 205
+    sha256: 5b1b48c981792d7e47459caaceb612869bdcf5a6470837b0e50b902bd39bf2db

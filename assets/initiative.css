@@ -492,6 +492,96 @@ aside.callout p { margin-bottom: 0; color: var(--ink); }
 .contact-email a { text-decoration: none; }
 .contact-email a:hover { text-decoration: underline; }
 
+/* ---------- Registry: tables, hashes, filters, version banner ---------- */
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: var(--paper-alt);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+.registry-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.registry-table th,
+.registry-table td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.registry-table th {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.registry-table .muted { color: var(--ink-soft); }
+.registry-table.hash-table .hash-cell code {
+  word-break: break-all;
+  white-space: normal;
+  display: inline-block;
+  max-width: 42ch;
+}
+
+.filter-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.filter-list li { margin: 0; max-width: none; color: var(--ink-soft); }
+.filter-label { font-weight: 600; color: var(--ink); margin-right: 4px; }
+.filter-list a { text-decoration: none; }
+.filter-list a.active {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.version-banner {
+  background: var(--warn-tint);
+  border-top: 1px solid var(--warn-border);
+  border-bottom: 1px solid var(--warn-border);
+  padding: 14px 0;
+}
+.version-banner p {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+  max-width: none;
+}
+.version-banner p + p { margin-top: 6px; }
+
+.readme-body h4, .readme-body h5, .readme-body h6 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  margin: 1.2em 0 0.5em;
+}
+.readme-body h4:first-child { margin-top: 0; }
+.readme-body ul { margin: 0 0 1.1em; padding-left: 1.3em; color: var(--ink-soft); }
+.readme-body li { margin-bottom: 0.4em; }
+.readme-body p { color: var(--ink-soft); }
+
+.verify-line {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
 /* ---------- Initiatives index ---------- */
 
 .initiative-index-grid {

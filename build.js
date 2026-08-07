@@ -13,11 +13,24 @@
 
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const ROOT = __dirname;
 const CONTENT_DIR = path.join(ROOT, "content", "initiatives");
 const OUT_DIR = path.join(ROOT, "initiatives");
+const REGISTRY_SOURCE_DIR = path.join(ROOT, "registry-source");
+const REGISTRY_OUT_DIR = path.join(ROOT, "registry");
 const SITE_NAME = "Open Fraud-Detection Methodology";
+
+const ARTIFACT_TYPE_LABELS = {
+  methodology: "Methodology",
+  specification: "Specification",
+  protocol: "Protocol",
+  implementation: "Implementation",
+  guide: "Guide",
+  curriculum: "Curriculum",
+  note: "Note",
+};
 
 function esc(str) {
   return String(str)
@@ -46,6 +59,51 @@ function initiativeHref(assetPrefix, slug) {
 function howToUseHref(assetPrefix, hash) {
   return `${assetPrefix}/how-to-use/index.html${hash ? "#" + hash : ""}`;
 }
+function registryIndexHref(assetPrefix) {
+  return `${assetPrefix}/registry/index.html`;
+}
+function registryArtifactHref(assetPrefix, identifier) {
+  return `${assetPrefix}/registry/${identifier}/index.html`;
+}
+function registryFilterHref(assetPrefix, dimension, value) {
+  return `${assetPrefix}/registry/by-${dimension}/${value}/index.html`;
+}
+function formatBytes(n) {
+  return `${Number(n).toLocaleString("en-US")} bytes`;
+}
+
+// Minimal, purpose-scoped Markdown -> HTML renderer for artifact
+// READMEs. Not a general Markdown implementation: headings, paragraphs,
+// unordered lists, inline code, bold, and links only — enough for a
+// real README without pulling in a dependency.
+function renderMarkdown(md) {
+  const blocks = md.trim().split(/\n\s*\n/);
+  const html = blocks
+    .map((block) => {
+      const lines = block.split("\n");
+      const headingMatch = lines[0].match(/^(#{1,3})\s+(.*)$/);
+      if (headingMatch && lines.length === 1) {
+        const level = headingMatch[1].length + 2; // README h1 -> page h3, directly under the "README" h2 section heading
+        const tag = `h${Math.min(level, 6)}`;
+        return `<${tag}>${inlineMarkdown(esc(headingMatch[2]))}</${tag}>`;
+      }
+      if (lines.every((l) => /^\s*-\s+/.test(l))) {
+        const items = lines
+          .map((l) => `<li>${inlineMarkdown(esc(l.replace(/^\s*-\s+/, "")))}</li>`)
+          .join("");
+        return `<ul>${items}</ul>`;
+      }
+      return `<p>${inlineMarkdown(esc(block)).replace(/\n/g, " ")}</p>`;
+    })
+    .join("\n");
+  return html;
+}
+function inlineMarkdown(escapedText) {
+  return escapedText
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/`(.+?)`/g, "<code>$1</code>")
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+}
 
 // ---------------------------------------------------------------
 // Shared chrome: header (with no-JS mobile nav) and footer
@@ -64,7 +122,7 @@ function siteHeader(assetPrefix) {
     <nav class="primary-nav" aria-label="Primary">
       <a href="${home("work")}">Home</a>
       <a href="${initiatives}">Initiatives</a>
-      <a href="${home("registry")}">Registry</a>
+      <a href="${registryIndexHref(assetPrefix)}">Registry</a>
       <a href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a href="${home("access")}">Verify your institution</a>
     </nav>
@@ -73,7 +131,7 @@ function siteHeader(assetPrefix) {
       <nav class="mobile-nav-panel" aria-label="Primary, mobile">
         <a href="${home()}">Home</a>
         <a href="${initiatives}">Initiatives</a>
-        <a href="${home("registry")}">Registry</a>
+        <a href="${registryIndexHref(assetPrefix)}">Registry</a>
         <a href="${howToUseHref(assetPrefix)}">How to use this</a>
         <a href="${home("access")}">Verify your institution</a>
       </nav>
@@ -90,7 +148,7 @@ function siteFooter(assetPrefix) {
   <div class="wrap footer-inner">
     <nav class="footer-nav" aria-label="Footer">
       <a href="${initiatives}">Initiatives</a>
-      <a href="${home("registry")}">Registry</a>
+      <a href="${registryIndexHref(assetPrefix)}">Registry</a>
       <a href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a href="${home("curricula")}">Curricula</a>
       <a href="${home("about")}">About</a>
@@ -542,6 +600,261 @@ ${siteFooter(assetPrefix)}`;
 }
 
 // ---------------------------------------------------------------
+// Registry: index (+ static filter pages) and artifact page
+// ---------------------------------------------------------------
+
+function tierBadge(tier) {
+  const label = tier === 2 || tier === "2" ? "Tier 2 — verified institutions" : "Tier 1 — public";
+  return `<span class="tier-badge tier-${tier}">${esc(label)}</span>`;
+}
+
+function renderRegistryIndexPage(
+  { artifacts, pageTitle, introText, typesPresent, activeFilter },
+  initiativeSlugByNumber,
+  assetPrefix
+) {
+  const breadcrumb = `
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span>${
+      activeFilter
+        ? `<a href="${registryIndexHref(assetPrefix)}">Registry</a><span class="sep">/</span><span aria-current="page">${esc(pageTitle)}</span>`
+        : `<span aria-current="page">Registry</span>`
+    }
+  </div>
+</div>`;
+
+  const pageHeader = `
+<div class="page-header">
+  <div class="wrap">
+    <h1>${esc(pageTitle)}</h1>
+    <p class="standfirst">${esc(introText)}</p>
+  </div>
+</div>`;
+
+  const filterLink = (dimension, value, label) => {
+    const href = value === null ? registryIndexHref(assetPrefix) : registryFilterHref(assetPrefix, dimension, value);
+    const isActive = activeFilter && activeFilter.dimension === dimension && String(activeFilter.value) === String(value);
+    const current = isActive ? ` aria-current="page" class="active"` : "";
+    return `<a href="${href}"${current}>${esc(label)}</a>`;
+  };
+
+  const initiativeFilters = ["1", "2", "3"].map((n) => filterLink("initiative", n, `Initiative ${n}`)).join(" · ");
+  const typeFilters = typesPresent
+    .map((t) => filterLink("type", t, ARTIFACT_TYPE_LABELS[t] || t))
+    .join(" · ");
+  const tierFilters = ["1", "2"].map((n) => filterLink("tier", n, `Tier ${n}`)).join(" · ");
+
+  const sectionFilters = `
+<section class="section section-alt" id="filters">
+  <div class="wrap">
+    <h2 class="section-heading">Filter <a class="anchor-link" href="#filters" aria-label="Link to Filter section">#</a></h2>
+    <ul class="filter-list">
+      <li><span class="filter-label">By initiative:</span> ${filterLink(null, null, "All")} · ${initiativeFilters}</li>
+      <li><span class="filter-label">By type:</span> ${filterLink(null, null, "All")} · ${typeFilters}</li>
+      <li><span class="filter-label">By tier:</span> ${filterLink(null, null, "All")} · ${tierFilters}</li>
+    </ul>
+  </div>
+</section>`;
+
+  const rows = artifacts
+    .map((a) => {
+      const initiativeCell = a.initiative
+        ? `<a href="${initiativeHref(assetPrefix, initiativeSlugByNumber[a.initiative] || "")}">Initiative ${esc(a.initiative)}</a>`
+        : `<span class="muted">—</span>`;
+      return `
+        <tr>
+          <td><a href="${registryArtifactHref(assetPrefix, a.identifier)}"><code>${esc(a.identifier)}</code></a></td>
+          <td><a href="${registryArtifactHref(assetPrefix, a.identifier)}">${esc(a.title)}</a></td>
+          <td>${initiativeCell}</td>
+          <td>${esc(ARTIFACT_TYPE_LABELS[a.type] || a.type)}</td>
+          <td>${tierBadge(a.tier)}</td>
+          <td>${esc(a.published)}</td>
+        </tr>`;
+    })
+    .join("");
+
+  const tableOrEmpty = artifacts.length
+    ? `
+    <div class="table-scroll">
+    <table class="registry-table">
+      <thead>
+        <tr><th>Identifier</th><th>Title</th><th>Initiative</th><th>Type</th><th>Tier</th><th>Published</th></tr>
+      </thead>
+      <tbody>${rows}
+      </tbody>
+    </table>
+    </div>`
+    : `<p>No artifacts currently listed under this filter.</p>`;
+
+  const sectionList = `
+<section class="section" id="artifact-list">
+  <div class="wrap">
+    <h2 class="section-heading">Artifacts <a class="anchor-link" href="#artifact-list" aria-label="Link to Artifacts section">#</a></h2>
+    ${tableOrEmpty}
+  </div>
+</section>`;
+
+  const body = `
+${siteHeader(assetPrefix)}
+${breadcrumb}
+<main id="main">
+${pageHeader}
+${sectionFilters}
+${sectionList}
+</main>
+${siteFooter(assetPrefix)}`;
+
+  return pageShell({
+    title: pageTitle,
+    description: introText,
+    assetPrefix,
+    bodyHtml: body,
+    canonicalPath: activeFilter ? `/registry/by-${activeFilter.dimension}/${activeFilter.value}/` : `/registry/`,
+  });
+}
+
+function renderArtifactPage(meta, initiativeSlugByNumber, readmeMarkdown, assetPrefix) {
+  const breadcrumb = `
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><a href="${registryIndexHref(assetPrefix)}">Registry</a><span class="sep">/</span><span aria-current="page">${esc(meta.identifier)}</span>
+  </div>
+</div>`;
+
+  const pageHeader = `
+<div class="page-header">
+  <div class="wrap">
+    <p class="kicker">${esc(ARTIFACT_TYPE_LABELS[meta.type] || meta.type)}</p>
+    <h1>${esc(meta.title)}</h1>
+    <div class="status-line">
+      <ul class="status-list">
+        <li><span class="label">Identifier</span><span class="value"><code>${esc(meta.identifier)}</code></span></li>
+        <li><span class="label">Version</span><span class="value">${esc(meta.version)}</span></li>
+        <li><span class="label">Published</span><span class="value">${esc(meta.published)}</span></li>
+        <li><span class="label">Access</span><span class="value">${tierBadge(meta.tier)}</span></li>
+      </ul>
+    </div>
+  </div>
+</div>`;
+
+  const versionBanner =
+    meta.supersedes || meta.supersededBy
+      ? `
+<div class="version-banner">
+  <div class="wrap">
+    ${
+      meta.supersededBy
+        ? `<p>This version has been superseded. Current version: <a href="${registryArtifactHref(assetPrefix, meta.supersededBy)}">${esc(meta.supersededBy)} →</a></p>`
+        : ""
+    }
+    ${
+      meta.supersedes
+        ? `<p>This version supersedes an earlier one, kept live for reference: <a href="${registryArtifactHref(assetPrefix, meta.supersedes)}">${esc(meta.supersedes)} →</a></p>`
+        : ""
+    }
+  </div>
+</div>`
+      : "";
+
+  const sectionDescription = `
+<section class="section" id="description">
+  <div class="wrap">
+    <h2 class="section-heading">Description <a class="anchor-link" href="#description" aria-label="Link to Description section">#</a></h2>
+    <p>${esc(meta.description)}</p>
+  </div>
+</section>`;
+
+  const sectionReadme = readmeMarkdown
+    ? `
+<section class="section section-alt" id="readme">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">README <a class="anchor-link" href="#readme" aria-label="Link to README section">#</a></h2>
+    <div class="readme-body">${renderMarkdown(readmeMarkdown)}</div>
+  </div>
+</section>`
+    : "";
+
+  const fileRows = meta.files
+    .map(
+      (f) => `
+        <tr>
+          <td><code>${esc(f.path)}</code></td>
+          <td>${esc(formatBytes(f.size))}</td>
+          <td class="hash-cell"><code>${esc(f.sha256)}</code></td>
+        </tr>`
+    )
+    .join("");
+
+  const accessBlock =
+    meta.tier === 2 || meta.tier === "2"
+      ? `
+    <p>Available to verified institutions at no cost. Verification confirms institutional identity, not eligibility.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="${homeHref(assetPrefix, "access")}">How verification works →</a>
+    </div>`
+      : `
+    <div class="cta-row">
+      ${meta.files
+        .map(
+          (f) =>
+            `<a class="btn btn-secondary" href="files/${esc(path.basename(f.path))}">Download ${esc(path.basename(f.path))}</a>`
+        )
+        .join("\n      ")}
+      <a class="btn btn-primary" href="${esc(meta.identifier)}.zip">Download all files (.zip)</a>
+    </div>`;
+
+  const sectionFiles = `
+<section class="section" id="files">
+  <div class="wrap">
+    <h2 class="section-heading">Files <a class="anchor-link" href="#files" aria-label="Link to Files section">#</a></h2>
+    <div class="table-scroll">
+    <table class="registry-table hash-table">
+      <thead><tr><th>Path</th><th>Size</th><th>SHA-256</th></tr></thead>
+      <tbody>${fileRows}
+      </tbody>
+    </table>
+    </div>
+    <p class="verify-line">Each file's SHA-256 is listed above. To confirm a download is unmodified: <code>shasum -a 256 filename</code></p>
+    ${accessBlock}
+  </div>
+</section>`;
+
+  const initiativeLink = meta.initiative
+    ? `<p><a href="${initiativeHref(assetPrefix, initiativeSlugByNumber[meta.initiative] || "")}">← Back to Initiative ${esc(meta.initiative)}</a></p>`
+    : `<p><a href="${registryIndexHref(assetPrefix)}">← Back to the registry</a></p>`;
+
+  const sectionFooterNav = `
+<section class="section section-alt" id="parent-initiative">
+  <div class="wrap">
+    <p><span class="k">Licence:</span> ${esc(meta.licence)}</p>
+    ${initiativeLink}
+  </div>
+</section>`;
+
+  const body = `
+${siteHeader(assetPrefix)}
+${breadcrumb}
+<main id="main">
+${pageHeader}
+${versionBanner}
+${sectionDescription}
+${sectionReadme}
+${sectionFiles}
+${sectionFooterNav}
+</main>
+${siteFooter(assetPrefix)}`;
+
+  return pageShell({
+    title: `${meta.identifier} — ${meta.title}`,
+    description: meta.description,
+    assetPrefix,
+    bodyHtml: body,
+    canonicalPath: `/registry/${meta.identifier}/`,
+  });
+}
+
+// ---------------------------------------------------------------
 // Build
 // ---------------------------------------------------------------
 
@@ -579,6 +892,104 @@ function build() {
       renderHowToUsePage(howToUseContent, "..")
     );
     console.log("Wrote how-to-use/index.html");
+  }
+
+  const initiativeSlugByNumber = {};
+  for (const entry of indexContent.entries) {
+    initiativeSlugByNumber[String(entry.number)] = entry.slug;
+  }
+  buildRegistry(initiativeSlugByNumber);
+}
+
+function buildRegistry(initiativeSlugByNumber) {
+  const registryJsonFile = path.join(REGISTRY_SOURCE_DIR, "registry.json");
+  if (!fs.existsSync(registryJsonFile)) {
+    console.log("No registry-source/registry.json — run scripts/build-registry-metadata.js first. Skipping registry.");
+    return;
+  }
+  const artifacts = readJSON(registryJsonFile);
+  const typesPresent = [...new Set(artifacts.map((a) => a.type))].sort();
+
+  fs.mkdirSync(REGISTRY_OUT_DIR, { recursive: true });
+
+  // Index: "/" (all) — assetPrefix ".."
+  fs.writeFileSync(
+    path.join(REGISTRY_OUT_DIR, "index.html"),
+    renderRegistryIndexPage(
+      { artifacts, pageTitle: "Registry", introText: "Every artifact published by this program, in one list.", typesPresent, activeFilter: null },
+      initiativeSlugByNumber,
+      ".."
+    )
+  );
+  console.log("Wrote registry/index.html");
+
+  // Static filter pages — assetPrefix "../../.." (one level deeper than the index)
+  const filterAssetPrefix = "../../..";
+  const writeFilterPage = (dimension, value, filtered, label) => {
+    const dir = path.join(REGISTRY_OUT_DIR, `by-${dimension}`, String(value));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(
+      path.join(dir, "index.html"),
+      renderRegistryIndexPage(
+        {
+          artifacts: filtered,
+          pageTitle: `Registry — ${label}`,
+          introText: `Artifacts filtered to ${label}.`,
+          typesPresent,
+          activeFilter: { dimension, value },
+        },
+        initiativeSlugByNumber,
+        filterAssetPrefix
+      )
+    );
+    console.log(`Wrote registry/by-${dimension}/${value}/index.html`);
+  };
+
+  for (const n of ["1", "2", "3"]) {
+    writeFilterPage("initiative", n, artifacts.filter((a) => String(a.initiative) === n), `Initiative ${n}`);
+  }
+  for (const t of typesPresent) {
+    writeFilterPage("type", t, artifacts.filter((a) => a.type === t), ARTIFACT_TYPE_LABELS[t] || t);
+  }
+  for (const n of ["1", "2"]) {
+    writeFilterPage("tier", n, artifacts.filter((a) => String(a.tier) === n), `Tier ${n}`);
+  }
+
+  // Per-artifact pages — assetPrefix "../.." (same depth as an initiative page)
+  for (const meta of artifacts) {
+    const artifactSourceDir = path.join(REGISTRY_SOURCE_DIR, meta.identifier);
+    const artifactOutDir = path.join(REGISTRY_OUT_DIR, meta.identifier);
+    fs.mkdirSync(artifactOutDir, { recursive: true });
+
+    const readmeFile = meta.files.find((f) => path.basename(f.path) === "README.md");
+    const readmeMarkdown = readmeFile
+      ? fs.readFileSync(path.join(artifactSourceDir, readmeFile.path), "utf8")
+      : null;
+
+    fs.writeFileSync(
+      path.join(artifactOutDir, "index.html"),
+      renderArtifactPage(meta, initiativeSlugByNumber, readmeMarkdown, "../..")
+    );
+    console.log(`Wrote registry/${meta.identifier}/index.html`);
+
+    const isTier1 = String(meta.tier) === "1";
+    if (isTier1 && meta.files.length) {
+      const filesOutDir = path.join(artifactOutDir, "files");
+      fs.mkdirSync(filesOutDir, { recursive: true });
+      const absoluteSourcePaths = [];
+      for (const f of meta.files) {
+        const srcPath = path.join(artifactSourceDir, f.path);
+        const destPath = path.join(filesOutDir, path.basename(f.path));
+        fs.copyFileSync(srcPath, destPath);
+        absoluteSourcePaths.push(destPath);
+      }
+      const zipPath = path.join(artifactOutDir, `${meta.identifier}.zip`);
+      if (fs.existsSync(zipPath)) fs.unlinkSync(zipPath);
+      execFileSync("zip", ["-q", "-j", "-X", zipPath, ...absoluteSourcePaths]);
+      console.log(`  + ${meta.files.length} file(s) copied, zip built`);
+    } else if (!isTier1) {
+      console.log(`  (tier 2 — files not published, hashes only)`);
+    }
   }
 }
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REGISTRY-DEMO-0001 — Registry mechanism demonstration (Tier 1, superseded) — Open Fraud-Detection Methodology</title>
+<meta name="description" content="Demonstrates the artifact registry's file table, SHA-256 hashing, per-file downloads, whole-deposit zip, and version-supersession banner, using real files and real computed hashes. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative, and carries no fraud-detection content. Superseded by REGISTRY-DEMO-0001-v2.">
+<link rel="stylesheet" href="../../assets/initiative.css">
+<link rel="stylesheet" href="../../assets/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Open Fraud-Detection Methodology</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="../../index.html#work">Home</a>
+      <a href="../../initiatives/index.html">Initiatives</a>
+      <a href="../../registry/index.html">Registry</a>
+      <a href="../../how-to-use/index.html">How to use this</a>
+      <a href="../../index.html#access">Verify your institution</a>
+    </nav>
+    <details class="nav-disclosure">
+      <summary aria-label="Open menu">Menu</summary>
+      <nav class="mobile-nav-panel" aria-label="Primary, mobile">
+        <a href="../../index.html">Home</a>
+        <a href="../../initiatives/index.html">Initiatives</a>
+        <a href="../../registry/index.html">Registry</a>
+        <a href="../../how-to-use/index.html">How to use this</a>
+        <a href="../../index.html#access">Verify your institution</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="../../index.html">Home</a><span class="sep">/</span><a href="../../registry/index.html">Registry</a><span class="sep">/</span><span aria-current="page">REGISTRY-DEMO-0001</span>
+  </div>
+</div>
+<main id="main">
+
+<div class="page-header">
+  <div class="wrap">
+    <p class="kicker">Implementation</p>
+    <h1>Registry mechanism demonstration (Tier 1, superseded)</h1>
+    <div class="status-line">
+      <ul class="status-list">
+        <li><span class="label">Identifier</span><span class="value"><code>REGISTRY-DEMO-0001</code></span></li>
+        <li><span class="label">Version</span><span class="value">1</span></li>
+        <li><span class="label">Published</span><span class="value">2026-08-07</span></li>
+        <li><span class="label">Access</span><span class="value"><span class="tier-badge tier-1">Tier 1 — public</span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="version-banner">
+  <div class="wrap">
+    <p>This version has been superseded. Current version: <a href="../../registry/REGISTRY-DEMO-0001-v2/index.html">REGISTRY-DEMO-0001-v2 →</a></p>
+    
+  </div>
+</div>
+
+<section class="section" id="description">
+  <div class="wrap">
+    <h2 class="section-heading">Description <a class="anchor-link" href="#description" aria-label="Link to Description section">#</a></h2>
+    <p>Demonstrates the artifact registry's file table, SHA-256 hashing, per-file downloads, whole-deposit zip, and version-supersession banner, using real files and real computed hashes. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative, and carries no fraud-detection content. Superseded by REGISTRY-DEMO-0001-v2.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="readme">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">README <a class="anchor-link" href="#readme" aria-label="Link to README section">#</a></h2>
+    <div class="readme-body"><h3>Registry mechanism demonstration</h3>
+<p>This is not a published methodology artifact. It exists to prove that the artifact registry's mechanics are real:</p>
+<p>- The SHA-256 hash shown on this artifact's page is computed by   <code>scripts/build-registry-metadata.js</code> directly from the bytes of this   file — never hand-typed. - Downloading this file and running <code>shasum -a 256 README.md</code> should   produce exactly the hash shown on the registry page. - This entry is Tier 1 (open), so both this file and   <code>example-config.json</code> are downloadable individually, and together as   a single zip of the whole deposit.</p>
+<h4>Why this exists</h4>
+<p>Every real artifact this program will publish (feature dictionaries, validation protocols, reference implementations, curriculum modules) is still in preparation — every publication date across this site is currently <code>[PLACEHOLDER]</code>. Rather than fabricate a fake hash next to a fake "published" methodology document, this demonstration entry uses real, honestly-labeled content so every acceptance check for the registry — hash matching, print output, tier-gating, version banners — can actually be verified before any real artifact is deposited here.</p>
+<h4>Version note</h4>
+<p>This entry (v1) has been superseded by <code>REGISTRY-DEMO-0001-v2</code>, which demonstrates the version-supersession banner. Both pages stay live, per the version-handling policy: no supersession machinery, just a one-line link each way.</p></div>
+  </div>
+</section>
+
+<section class="section" id="files">
+  <div class="wrap">
+    <h2 class="section-heading">Files <a class="anchor-link" href="#files" aria-label="Link to Files section">#</a></h2>
+    <div class="table-scroll">
+    <table class="registry-table hash-table">
+      <thead><tr><th>Path</th><th>Size</th><th>SHA-256</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>files/README.md</code></td>
+          <td>1,426 bytes</td>
+          <td class="hash-cell"><code>ec51b2e2adf33e687bd3571adaaf0a25f98d3f960efd24885c3bd5198dfdfe14</code></td>
+        </tr>
+        <tr>
+          <td><code>files/example-config.json</code></td>
+          <td>205 bytes</td>
+          <td class="hash-cell"><code>5b1b48c981792d7e47459caaceb612869bdcf5a6470837b0e50b902bd39bf2db</code></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="verify-line">Each file's SHA-256 is listed above. To confirm a download is unmodified: <code>shasum -a 256 filename</code></p>
+    
+    <div class="cta-row">
+      <a class="btn btn-secondary" href="files/README.md">Download README.md</a>
+      <a class="btn btn-secondary" href="files/example-config.json">Download example-config.json</a>
+      <a class="btn btn-primary" href="REGISTRY-DEMO-0001.zip">Download all files (.zip)</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="parent-initiative">
+  <div class="wrap">
+    <p><span class="k">Licence:</span> CC0-1.0</p>
+    <p><a href="../../registry/index.html">← Back to the registry</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../../initiatives/index.html">Initiatives</a>
+      <a href="../../registry/index.html">Registry</a>
+      <a href="../../how-to-use/index.html">How to use this</a>
+      <a href="../../index.html#curricula">Curricula</a>
+      <a href="../../index.html#about">About</a>
+      <a href="../../index.html#changelog">Changelog</a>
+      <a href="../../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+<p class="print-citation">This document: /registry/REGISTRY-DEMO-0001/. Retrieved from the printing browser's own header/footer date stamp when available.</p>
+</body>
+</html>

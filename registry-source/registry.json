@@ -1,0 +1,68 @@
+[
+  {
+    "identifier": "REGISTRY-DEMO-0001",
+    "title": "Registry mechanism demonstration (Tier 1, superseded)",
+    "initiative": null,
+    "type": "implementation",
+    "tier": "1",
+    "licence": "CC0-1.0",
+    "published": "2026-08-07",
+    "version": "1",
+    "supersededBy": "REGISTRY-DEMO-0001-v2",
+    "description": "Demonstrates the artifact registry's file table, SHA-256 hashing, per-file downloads, whole-deposit zip, and version-supersession banner, using real files and real computed hashes. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative, and carries no fraud-detection content. Superseded by REGISTRY-DEMO-0001-v2.",
+    "files": [
+      {
+        "path": "files/README.md",
+        "size": 1426,
+        "sha256": "ec51b2e2adf33e687bd3571adaaf0a25f98d3f960efd24885c3bd5198dfdfe14"
+      },
+      {
+        "path": "files/example-config.json",
+        "size": 205,
+        "sha256": "5b1b48c981792d7e47459caaceb612869bdcf5a6470837b0e50b902bd39bf2db"
+      }
+    ]
+  },
+  {
+    "identifier": "REGISTRY-DEMO-0001-v2",
+    "title": "Registry mechanism demonstration (Tier 1, current)",
+    "initiative": null,
+    "type": "implementation",
+    "tier": "1",
+    "licence": "CC0-1.0",
+    "published": "2026-08-07",
+    "version": "2",
+    "supersedes": "REGISTRY-DEMO-0001",
+    "description": "Revised version of the registry mechanism demonstration. Demonstrates that a revision publishes at a new identifier rather than editing the original in place, and that both versions stay live and cross-linked. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative.",
+    "files": [
+      {
+        "path": "files/README.md",
+        "size": 809,
+        "sha256": "b5b0a59dfa205ea00f9981d27eabf3c238b307b63828898fcfcb210b4413c48c"
+      },
+      {
+        "path": "files/example-config.json",
+        "size": 205,
+        "sha256": "5b1b48c981792d7e47459caaceb612869bdcf5a6470837b0e50b902bd39bf2db"
+      }
+    ]
+  },
+  {
+    "identifier": "REGISTRY-DEMO-0002",
+    "title": "Registry mechanism demonstration (Tier 2)",
+    "initiative": null,
+    "type": "guide",
+    "tier": "2",
+    "licence": "Available to verified institutions",
+    "published": "2026-08-07",
+    "version": "1",
+    "description": "Demonstrates the Tier 2 artifact page: the file table and full SHA-256 hashes still display, but the download links are replaced by a verification link, since Tier 2 artifacts are available only to verified institutions. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative.",
+    "files": [
+      {
+        "path": "files/notes.md",
+        "size": 508,
+        "sha256": "6b3c7cfd8ed7c05951549c1396a0017fb41c5164173b81c929b0999f0332d09c"
+      }
+    ]
+  }
+]

@@ -73,8 +73,13 @@
   }
   aside.callout .callout-label { color: #000 !important; }
 
-  .tier-badge {
-    border: 1px solid #000;
+  .tier-badge,
+  .tier-badge.tier-1,
+  .tier-badge.tier-2,
+  .status-pill,
+  .status-pill.available,
+  .status-pill.in-preparation {
+    border: 1px solid #000 !important;
     color: #000 !important;
     background: #fff !important;
   }
@@ -88,6 +93,49 @@
   .status-list li::before {
     background: #fff !important;
     border-color: #000;
+  }
+
+  /* Registry: full hashes, complete tables, no clipped columns. */
+  #filters,
+  .filter-list {
+    display: none !important;
+  }
+  .table-scroll {
+    overflow-x: visible !important;
+  }
+  .registry-table {
+    width: 100% !important;
+    font-size: 10pt;
+  }
+  .registry-table th,
+  .registry-table td {
+    border-color: #000;
+  }
+  .registry-table tr {
+    break-inside: avoid;
+  }
+  /* The Files section can contain many rows — let the table itself
+     paginate rather than forcing the whole section onto one page. */
+  #files.section {
+    break-inside: auto;
+  }
+  .registry-table.hash-table .hash-cell code {
+    max-width: none;
+    word-break: break-all;
+  }
+  code {
+    background: #fff !important;
+    border: 1px solid #999;
+    white-space: nowrap;
+  }
+  /* Full hashes must still wrap (a 64-char hex string cannot be kept
+     on one line), so this is the one exception to the no-wrap rule. */
+  .hash-cell code {
+    white-space: normal;
+  }
+  .version-banner {
+    border-color: #000 !important;
+    background: #fff !important;
   }
 
   /* Print-only citation footer: canonical path, for environments
