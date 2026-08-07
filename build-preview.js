@@ -1,0 +1,180 @@
+#!/usr/bin/env node
+/*
+ * Builds a single self-contained preview artifact that embeds the
+ * real generated site pages (each in its own iframe, so their
+ * stylesheets never collide with one another) for quick visual
+ * review. Not part of the deployed site — dev tooling only.
+ *
+ * Usage: node build-preview.js <output-path>
+ */
+
+const fs = require("fs");
+const path = require("path");
+
+const ROOT = __dirname;
+const OUT = process.argv[2] || path.join(ROOT, "preview.html");
+
+function inlineAssets(htmlPath) {
+  const dir = path.dirname(htmlPath);
+  let html = fs.readFileSync(htmlPath, "utf8");
+
+  html = html.replace(
+    /<link rel="stylesheet" href="([^"]+)"( media="([^"]+)")?>/g,
+    (match, href, _m, media) => {
+      const cssPath = path.join(dir, href);
+      const css = fs.readFileSync(cssPath, "utf8");
+      const mediaAttr = media ? ` media="${media}"` : "";
+      return `<style${mediaAttr}>\n${css}\n</style>`;
+    }
+  );
+
+  html = html.replace(
+    /<script src="([^"]+)"><\/script>/g,
+    (match, src) => {
+      const jsPath = path.join(dir, src);
+      const js = fs.readFileSync(jsPath, "utf8");
+      return `<script>\n${js}\n</script>`;
+    }
+  );
+
+  return html;
+}
+
+const pages = [
+  { label: "/", route: "index.html", id: "page-home", file: path.join(ROOT, "index.html") },
+  { label: "/initiatives/", route: "initiatives/index.html", id: "page-initiatives", file: path.join(ROOT, "initiatives", "index.html") },
+  { label: "/initiatives/provider-anomaly-detection/", route: "Initiative 1", id: "page-init-1", file: path.join(ROOT, "initiatives", "provider-anomaly-detection", "index.html") },
+  { label: "/initiatives/synthetic-identity-detection/", route: "Initiative 2", id: "page-init-2", file: path.join(ROOT, "initiatives", "synthetic-identity-detection", "index.html") },
+];
+
+const navLinks = pages
+  .map((p) => `<a href="#${p.id}">${p.route === p.label ? p.label : `${p.route}`}</a>`)
+  .join("");
+
+const sections = pages
+  .map((p) => {
+    const html = inlineAssets(p.file);
+    const escaped = html.replace(/"/g, "&quot;");
+    return `
+    <section class="preview-block" id="${p.id}">
+      <div class="preview-block-label">${p.label}</div>
+      <iframe class="preview-frame" srcdoc="${escaped}" title="${p.label}" loading="lazy"></iframe>
+    </section>`;
+  })
+  .join("\n");
+
+const output = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Site preview — Open Fraud-Detection Methodology</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root {
+    --bg: #f1efe8;
+    --card-bg: #fbfaf7;
+    --ink: #14171c;
+    --ink-soft: #4a5057;
+    --line: #dcd8cd;
+    --accent: #0b4f4a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101214;
+      --card-bg: #1b1e23;
+      --ink: #ece9e2;
+      --ink-soft: #b9b6ac;
+      --line: #33363c;
+      --accent: #6fb8ae;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101214;
+    --card-bg: #1b1e23;
+    --ink: #ece9e2;
+    --ink-soft: #b9b6ac;
+    --line: #33363c;
+    --accent: #6fb8ae;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .toolbar strong { font-size: 14px; }
+  .toolbar nav { display: flex; gap: 14px; flex-wrap: wrap; }
+  .toolbar a {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .toolbar a:hover { color: var(--accent); border-color: var(--accent); }
+  main { padding: 24px; display: grid; gap: 28px; max-width: 1280px; margin: 0 auto; }
+  .preview-block {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .preview-block-label {
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  iframe.preview-frame {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: #fff;
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Site preview</strong>
+  <nav>${navLinks}</nav>
+</div>
+<main>${sections}
+</main>
+<script>
+  // Auto-size each iframe to its content's real height so pages
+  // display in full without internal scrollbars.
+  document.querySelectorAll('.preview-frame').forEach(function (frame) {
+    frame.addEventListener('load', function () {
+      try {
+        var doc = frame.contentDocument;
+        var h = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
+        frame.style.height = h + 'px';
+      } catch (e) {
+        frame.style.height = '2000px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+`;
+
+fs.writeFileSync(OUT, output);
+console.log("Wrote", OUT, `(${(output.length / 1024).toFixed(0)} KB)`);
