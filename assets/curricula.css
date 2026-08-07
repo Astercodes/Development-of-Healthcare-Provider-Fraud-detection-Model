@@ -1,0 +1,111 @@
+/* ---------------------------------------------------------------
+   Curricula page overrides.
+   /curricula reaches a different audience than the rest of the
+   site: facilitators and older-adult participants, often reading
+   on a phone or a printed handout at a community center, not a
+   researcher at a desk. This sheet loads after initiative.css and
+   raises type size, line spacing, and contrast for the page body
+   without touching any other page (everything here is scoped
+   under body.curricula-page).
+--------------------------------------------------------------- */
+
+body.curricula-page {
+  font-size: 21px;
+  line-height: 1.75;
+}
+
+body.curricula-page p,
+body.curricula-page li {
+  /* Use full-strength ink instead of the softer body tone used
+     elsewhere on the site: this page is read aloud in a room, not
+     skimmed at a desk, so every line needs to hold contrast. */
+  color: var(--ink);
+  max-width: 62ch;
+}
+
+body.curricula-page .standfirst {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+body.curricula-page h1 {
+  font-size: 2.4rem;
+}
+
+body.curricula-page h2.section-heading {
+  font-size: 1.7rem;
+}
+
+body.curricula-page .module-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+body.curricula-page .module-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px 30px;
+}
+
+body.curricula-page .module-card .eyebrow {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  margin-bottom: 6px;
+}
+
+body.curricula-page .module-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3em;
+}
+
+body.curricula-page .module-tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: none;
+  margin-bottom: 14px;
+}
+
+body.curricula-page .module-card .status-pill {
+  margin-bottom: 14px;
+}
+
+/* Download buttons: larger touch targets, and the format/size
+   label is set apart so nobody clicks blindly on a file link. */
+body.curricula-page .btn {
+  padding: 16px 26px;
+  font-size: 1.05rem;
+  border-radius: 8px;
+}
+
+body.curricula-page .file-format {
+  font-weight: 400;
+  opacity: 0.85;
+  font-size: 0.9em;
+}
+
+body.curricula-page .note {
+  font-size: 1rem;
+  font-style: normal;
+}
+
+/* Focus rings need to stay obvious at this larger scale too. */
+body.curricula-page a:focus-visible,
+body.curricula-page .btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  body.curricula-page {
+    font-size: 19px;
+  }
+  body.curricula-page h1 {
+    font-size: 1.9rem;
+  }
+}

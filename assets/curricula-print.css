@@ -1,0 +1,44 @@
+/* ---------------------------------------------------------------
+   Print stylesheet for /curricula.
+   Loads after print.css and adds the same "genuinely usable"
+   standard to this page's own layout: a facilitator printing this
+   page at a community center needs large, legible type and a clear
+   list of what to download, not a shrunk copy of the screen layout.
+--------------------------------------------------------------- */
+
+@media print {
+  html, body.curricula-page {
+    font-size: 13pt;
+    line-height: 1.6;
+  }
+
+  body.curricula-page h1 { font-size: 22pt; }
+  body.curricula-page h2.section-heading { font-size: 16pt; }
+  body.curricula-page .module-card h3 { font-size: 14pt; }
+
+  .module-grid {
+    display: block;
+  }
+  .module-card {
+    border: 1px solid #000 !important;
+    background: #fff !important;
+    padding: 14pt 0;
+    margin-bottom: 14pt;
+    break-inside: avoid-page;
+  }
+  .module-card .eyebrow {
+    color: #000 !important;
+  }
+
+  /* File links resolve to a relative path on paper, which is not
+     usable by itself — print the label and format/size clearly
+     instead of relying on the (now inert) link. */
+  .cta-row .btn {
+    display: block;
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background: #fff !important;
+    margin-bottom: 8pt;
+    width: fit-content;
+  }
+}

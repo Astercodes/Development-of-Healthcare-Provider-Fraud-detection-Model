@@ -1,0 +1,42 @@
+{
+  "title": "Fraud-Prevention Curricula",
+  "standfirst": "Free teaching modules for AARP's Fraud Fighter Network and community organizations serving older adults. No registration, no sign-in — download and teach.",
+  "derivation": {
+    "heading": "Where this material comes from",
+    "body": "Each module is the back of a detection model, turned around. Building a detection system requires describing a fraud scheme in exact operational terms — what the person running it has to obtain, in what order, and what traces that leaves behind. Read the other way, that same description says what the scheme looks like to the person it targets. A detection feature and a recognition cue are two renderings of one analysis: the model uses it to score an entity, and these modules use it to teach a person."
+  },
+  "modules": [
+    {
+      "number": "01",
+      "status": "available",
+      "title": "Account Takeover and Synthetic Identity",
+      "tagline": "The code is not the attack. It is the alarm.",
+      "summary": "A 45-minute session on two schemes that both run on one piece of you: people who take over an account you already have, and people who build a new person out of your Social Security number.",
+      "moduleFile": { "identifier": "AYENI-2026-0001", "filename": "module-01-account-takeover-and-synthetic-identity.pdf", "label": "Module 01 — full teaching module", "sizeBytes": 162946 },
+      "handoutFile": { "identifier": "AYENI-2026-0003", "filename": "handout-module-01-account-takeover-and-synthetic-identity.pdf", "label": "Module 01 — participant handout", "sizeBytes": 36043 }
+    },
+    {
+      "number": "02",
+      "status": "available",
+      "title": "Medicare and Medicaid Billing Fraud",
+      "tagline": "When your Medicare number gets used without you.",
+      "summary": "A 45-minute session on how a Medicare or Medicaid number that seems harmless becomes a bill nobody in the room generated, the signals that appear before and after it happens, and the one thing to do about it.",
+      "moduleFile": { "identifier": "AYENI-2026-0002", "filename": "module-02-medicare-and-medicaid-billing-fraud.pdf", "label": "Module 02 — full teaching module", "sizeBytes": 157461 },
+      "handoutFile": { "identifier": "AYENI-2026-0004", "filename": "handout-module-02-medicare-and-medicaid-billing-fraud.pdf", "label": "Module 02 — participant handout", "sizeBytes": 36664 }
+    },
+    {
+      "number": "03",
+      "status": "in preparation",
+      "title": "AI-Generated Impersonation",
+      "tagline": "Impersonation of family members and officials.",
+      "summary": "A module on AI-generated voice and video impersonation of family members, government officials, and financial institutions — the third module family, in preparation.",
+      "moduleFile": null,
+      "handoutFile": null
+    }
+  ],
+  "facilitatorGuide": {
+    "heading": "The facilitator guide",
+    "body": "There is no separate facilitator guide document — each module is one. Every module includes a timed delivery script broken into five-to-twelve-minute segments, a 30-minute cut version for shorter slots, a specimen exercise with an answer key, a section on handling a participant's disclosure that it already happened to them, and a list of things not to say and why. That is what makes a module deliverable by a volunteer who has never met the author: everything a facilitator needs to run the session is inside the module they downloaded, not held separately by anyone."
+  },
+  "handoutsNote": "Each module includes a one-page participant handout: plain language, large type, and a tear-off strip with the one rule and the reporting numbers to keep by the phone. The handout is what leaves the room, so it carries the action and the numbers and nothing else."
+}

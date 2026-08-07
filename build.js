@@ -68,8 +68,18 @@ function registryArtifactHref(assetPrefix, identifier) {
 function registryFilterHref(assetPrefix, dimension, value) {
   return `${assetPrefix}/registry/by-${dimension}/${value}/index.html`;
 }
+function curriculaHref(assetPrefix, hash) {
+  return `${assetPrefix}/curricula/index.html${hash ? "#" + hash : ""}`;
+}
+function registryFileHref(assetPrefix, identifier, filename) {
+  return `${assetPrefix}/registry/${identifier}/files/${filename}`;
+}
 function formatBytes(n) {
   return `${Number(n).toLocaleString("en-US")} bytes`;
+}
+function formatSizeLabel(n) {
+  const kb = Number(n) / 1024;
+  return `PDF, ${kb >= 100 ? Math.round(kb) : kb.toFixed(1)} KB`;
 }
 
 // Minimal, purpose-scoped Markdown -> HTML renderer for artifact
@@ -123,6 +133,7 @@ function siteHeader(assetPrefix) {
       <a href="${home("work")}">Home</a>
       <a href="${initiatives}">Initiatives</a>
       <a href="${registryIndexHref(assetPrefix)}">Registry</a>
+      <a href="${curriculaHref(assetPrefix)}">Curricula</a>
       <a href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a href="${home("access")}">Verify your institution</a>
     </nav>
@@ -132,6 +143,7 @@ function siteHeader(assetPrefix) {
         <a href="${home()}">Home</a>
         <a href="${initiatives}">Initiatives</a>
         <a href="${registryIndexHref(assetPrefix)}">Registry</a>
+        <a href="${curriculaHref(assetPrefix)}">Curricula</a>
         <a href="${howToUseHref(assetPrefix)}">How to use this</a>
         <a href="${home("access")}">Verify your institution</a>
       </nav>
@@ -150,7 +162,7 @@ function siteFooter(assetPrefix) {
       <a href="${initiatives}">Initiatives</a>
       <a href="${registryIndexHref(assetPrefix)}">Registry</a>
       <a href="${howToUseHref(assetPrefix)}">How to use this</a>
-      <a href="${home("curricula")}">Curricula</a>
+      <a href="${curriculaHref(assetPrefix)}">Curricula</a>
       <a href="${home("about")}">About</a>
       <a href="${home("changelog")}">Changelog</a>
       <a href="${home("contact")}">Contact</a>
@@ -159,7 +171,13 @@ function siteFooter(assetPrefix) {
 </footer>`;
 }
 
-function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath }) {
+function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath, extraStylesheet, bodyClass }) {
+  const extraLink = extraStylesheet
+    ? `\n<link rel="stylesheet" href="${assetPrefix}/assets/${extraStylesheet}">`
+    : "";
+  const extraPrintLink = extraStylesheet
+    ? `\n<link rel="stylesheet" href="${assetPrefix}/assets/${extraStylesheet.replace(/\.css$/, "-print.css")}" media="print">`
+    : "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,9 +186,9 @@ function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath })
 <title>${esc(title)} — ${SITE_NAME}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="stylesheet" href="${assetPrefix}/assets/initiative.css">
-<link rel="stylesheet" href="${assetPrefix}/assets/print.css" media="print">
+<link rel="stylesheet" href="${assetPrefix}/assets/print.css" media="print">${extraLink}${extraPrintLink}
 </head>
-<body>
+<body${bodyClass ? ` class="${esc(bodyClass)}"` : ""}>
 <a class="skip-link" href="#main">Skip to content</a>
 ${bodyHtml}
 <p class="print-citation">This document: ${esc(canonicalPath)}. Retrieved from the printing browser's own header/footer date stamp when available.</p>
@@ -600,6 +618,117 @@ ${siteFooter(assetPrefix)}`;
 }
 
 // ---------------------------------------------------------------
+// Curricula page template
+// ---------------------------------------------------------------
+
+function renderCurriculaPage(content, assetPrefix) {
+  const breadcrumb = `
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
+  </div>
+</div>`;
+
+  const pageHeader = `
+<div class="page-header">
+  <div class="wrap">
+    <h1>${esc(content.title)}</h1>
+    <p class="standfirst">${esc(content.standfirst)}</p>
+  </div>
+</div>`;
+
+  const sectionDerivation = `
+<section class="section" id="where-this-comes-from">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.derivation.heading)} <a class="anchor-link" href="#where-this-comes-from" aria-label="Link to ${esc(content.derivation.heading)} section">#</a></h2>
+    <p>${esc(content.derivation.body)}</p>
+  </div>
+</section>`;
+
+  const downloadLink = (file, btnClass) => {
+    if (!file) return "";
+    const href = registryFileHref(assetPrefix, file.identifier, file.filename);
+    return `<a class="btn ${btnClass}" href="${esc(href)}">${esc(file.label)} <span class="file-format">— ${esc(formatSizeLabel(file.sizeBytes))}</span></a>`;
+  };
+
+  const moduleCards = content.modules
+    .map((m) => {
+      const isAvailable = m.status === "available";
+      const statusPill = `<span class="status-pill ${isAvailable ? "available" : "in-preparation"}">${isAvailable ? "Available" : "In preparation"}</span>`;
+      const verifyLinks = [m.moduleFile, m.handoutFile]
+        .filter(Boolean)
+        .map((f) => `<a href="${registryArtifactHref(assetPrefix, f.identifier)}">${esc(f.identifier)}</a>`)
+        .join(" · ");
+      const downloads = isAvailable
+        ? `
+        <div class="cta-row">
+          ${downloadLink(m.moduleFile, "btn-primary")}
+          ${downloadLink(m.handoutFile, "btn-secondary")}
+        </div>
+        <p class="note">Registry entry and SHA-256 verification: ${verifyLinks}</p>`
+        : `<p class="note">Not yet available. This module family is in preparation; nothing is published under this number yet.</p>`;
+      return `
+      <article class="module-card">
+        <p class="eyebrow">Module ${esc(m.number)}</p>
+        <h3>${esc(m.title)}</h3>
+        <p class="module-tagline">${esc(m.tagline)}</p>
+        ${statusPill}
+        <p>${esc(m.summary)}</p>
+        ${downloads}
+      </article>`;
+    })
+    .join("");
+
+  const sectionModules = `
+<section class="section section-alt" id="modules">
+  <div class="wrap">
+    <h2 class="section-heading">Modules <a class="anchor-link" href="#modules" aria-label="Link to Modules section">#</a></h2>
+    <p>No registration, no sign-in. Each available module downloads directly as a PDF.</p>
+    <div class="module-grid">${moduleCards}
+    </div>
+  </div>
+</section>`;
+
+  const sectionFacilitator = `
+<section class="section" id="facilitator-guide">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.facilitatorGuide.heading)} <a class="anchor-link" href="#facilitator-guide" aria-label="Link to ${esc(content.facilitatorGuide.heading)} section">#</a></h2>
+    <p>${esc(content.facilitatorGuide.body)}</p>
+  </div>
+</section>`;
+
+  const sectionHandouts = `
+<section class="section section-alt" id="participant-handouts">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">Participant handouts <a class="anchor-link" href="#participant-handouts" aria-label="Link to Participant handouts section">#</a></h2>
+    <p>${esc(content.handoutsNote)}</p>
+  </div>
+</section>`;
+
+  const body = `
+${siteHeader(assetPrefix)}
+${breadcrumb}
+<main id="main">
+${pageHeader}
+${sectionDerivation}
+${sectionModules}
+${sectionFacilitator}
+${sectionHandouts}
+</main>
+${siteFooter(assetPrefix)}`;
+
+  return pageShell({
+    title: content.title,
+    description: content.standfirst,
+    assetPrefix,
+    bodyHtml: body,
+    canonicalPath: `/curricula/`,
+    extraStylesheet: "curricula.css",
+    bodyClass: "curricula-page",
+  });
+}
+
+// ---------------------------------------------------------------
 // Registry: index (+ static filter pages) and artifact page
 // ---------------------------------------------------------------
 
@@ -892,6 +1021,18 @@ function build() {
       renderHowToUsePage(howToUseContent, "..")
     );
     console.log("Wrote how-to-use/index.html");
+  }
+
+  const curriculaFile = path.join(ROOT, "content", "curricula.json");
+  if (fs.existsSync(curriculaFile)) {
+    const curriculaContent = readJSON(curriculaFile);
+    const curriculaDir = path.join(ROOT, "curricula");
+    fs.mkdirSync(curriculaDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(curriculaDir, "index.html"),
+      renderCurriculaPage(curriculaContent, "..")
+    );
+    console.log("Wrote curricula/index.html");
   }
 
   const initiativeSlugByNumber = {};

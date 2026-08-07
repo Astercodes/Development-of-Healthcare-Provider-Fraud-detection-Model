@@ -47,9 +47,11 @@ const pages = [
   { label: "/initiatives/synthetic-identity-detection/", route: "Initiative 2", id: "page-init-2", file: path.join(ROOT, "initiatives", "synthetic-identity-detection", "index.html") },
   { label: "/initiatives/fraud-prevention-curricula/", route: "Initiative 3", id: "page-init-3", file: path.join(ROOT, "initiatives", "fraud-prevention-curricula", "index.html") },
   { label: "/how-to-use/", route: "How to Use This", id: "page-how-to-use", file: path.join(ROOT, "how-to-use", "index.html") },
+  { label: "/curricula/", route: "Curricula", id: "page-curricula", file: path.join(ROOT, "curricula", "index.html") },
   { label: "/registry/", route: "Registry", id: "page-registry", file: path.join(ROOT, "registry", "index.html") },
-  { label: "/registry/REGISTRY-DEMO-0001/", route: "Registry artifact (Tier 1)", id: "page-registry-demo1", file: path.join(ROOT, "registry", "REGISTRY-DEMO-0001", "index.html") },
-  { label: "/registry/REGISTRY-DEMO-0002/", route: "Registry artifact (Tier 2)", id: "page-registry-demo2", file: path.join(ROOT, "registry", "REGISTRY-DEMO-0002", "index.html") },
+  { label: "/registry/AYENI-2026-0001/", route: "Registry artifact (curriculum module, Tier 1)", id: "page-registry-ayeni1", file: path.join(ROOT, "registry", "AYENI-2026-0001", "index.html") },
+  { label: "/registry/REGISTRY-DEMO-0001/", route: "Registry artifact (demo, Tier 1)", id: "page-registry-demo1", file: path.join(ROOT, "registry", "REGISTRY-DEMO-0001", "index.html") },
+  { label: "/registry/REGISTRY-DEMO-0002/", route: "Registry artifact (demo, Tier 2)", id: "page-registry-demo2", file: path.join(ROOT, "registry", "REGISTRY-DEMO-0002", "index.html") },
 ];
 
 const navLinks = pages
@@ -63,7 +65,7 @@ const sections = pages
     return `
     <section class="preview-block" id="${p.id}">
       <div class="preview-block-label">${p.label}</div>
-      <iframe class="preview-frame" srcdoc="${escaped}" title="${p.label}" loading="lazy"></iframe>
+      <iframe class="preview-frame" srcdoc="${escaped}" title="${p.label}"></iframe>
     </section>`;
   })
   .join("\n");
@@ -164,17 +166,28 @@ const output = `<!doctype html>
 </main>
 <script>
   // Auto-size each iframe to its content's real height so pages
-  // display in full without internal scrollbars.
+  // display in full without internal scrollbars. Iframes load eagerly
+  // (no loading="lazy") since this page is meant to be reviewed in
+  // full, not scroll-optimized — a lazy iframe far down a long page
+  // can fail to trigger in some embedding contexts.
+  function sizeFrame(frame) {
+    try {
+      var doc = frame.contentDocument;
+      var h = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
+      frame.style.height = h + 'px';
+    } catch (e) {
+      frame.style.height = '2000px';
+    }
+  }
   document.querySelectorAll('.preview-frame').forEach(function (frame) {
-    frame.addEventListener('load', function () {
-      try {
-        var doc = frame.contentDocument;
-        var h = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
-        frame.style.height = h + 'px';
-      } catch (e) {
-        frame.style.height = '2000px';
-      }
-    });
+    frame.addEventListener('load', function () { sizeFrame(frame); });
+    // Fallback: the load event may have already fired before this
+    // listener attached (fast-loading srcdoc iframes can race the
+    // script). Size it now too, and again shortly after, in case
+    // contentDocument wasn't fully laid out yet at this exact tick.
+    sizeFrame(frame);
+    setTimeout(function () { sizeFrame(frame); }, 300);
+    setTimeout(function () { sizeFrame(frame); }, 1200);
   });
 </script>
 </body>

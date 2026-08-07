@@ -98,6 +98,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   padding: 0 24px;
 }
 
+.wrap-narrow { max-width: 760px; }
+
 /* ---------- Header / breadcrumb / nav (no-JS mobile menu) ---------- */
 
 .site-header {
