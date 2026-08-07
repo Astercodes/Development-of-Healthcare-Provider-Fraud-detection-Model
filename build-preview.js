@@ -47,6 +47,9 @@ const pages = [
   { label: "/initiatives/synthetic-identity-detection/", route: "Initiative 2", id: "page-init-2", file: path.join(ROOT, "initiatives", "synthetic-identity-detection", "index.html") },
   { label: "/initiatives/fraud-prevention-curricula/", route: "Initiative 3", id: "page-init-3", file: path.join(ROOT, "initiatives", "fraud-prevention-curricula", "index.html") },
   { label: "/how-to-use/", route: "How to Use This", id: "page-how-to-use", file: path.join(ROOT, "how-to-use", "index.html") },
+  { label: "/registry/", route: "Registry", id: "page-registry", file: path.join(ROOT, "registry", "index.html") },
+  { label: "/registry/REGISTRY-DEMO-0001/", route: "Registry artifact (Tier 1)", id: "page-registry-demo1", file: path.join(ROOT, "registry", "REGISTRY-DEMO-0001", "index.html") },
+  { label: "/registry/REGISTRY-DEMO-0002/", route: "Registry artifact (Tier 2)", id: "page-registry-demo2", file: path.join(ROOT, "registry", "REGISTRY-DEMO-0002", "index.html") },
 ];
 
 const navLinks = pages
