@@ -1,0 +1,101 @@
+/* ---------------------------------------------------------------
+   Print stylesheet for initiative pages.
+   Goal: a clean, complete, black-on-white legal-exhibit rendering.
+   Browsers print their own header/footer (title, URL, date, page
+   number) by default — this sheet adds a citation line inside the
+   page as a fallback for environments where that is disabled.
+--------------------------------------------------------------- */
+
+@media print {
+  * {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html, body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Chrome/navigation not useful on paper */
+  .site-header,
+  .site-footer,
+  .breadcrumb,
+  .skip-link,
+  .nav-disclosure,
+  .primary-nav {
+    display: none !important;
+  }
+
+  .wrap {
+    max-width: none;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000 !important;
+  }
+
+  /* Show the destination for external / registry links so the
+     printed page is self-contained as an exhibit. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    font-weight: normal;
+  }
+
+  .section {
+    border-bottom: 1px solid #999;
+    padding: 18pt 0;
+    break-inside: avoid-page;
+  }
+  .section-alt { background: #fff !important; }
+
+  h1, h2, h3 { break-after: avoid-page; }
+
+  .steps li,
+  .artifact-card,
+  .problem-item,
+  aside.callout,
+  .initiative-entry {
+    break-inside: avoid-page;
+  }
+
+  .anchor-link { display: none !important; }
+
+  aside.callout {
+    border: 1px solid #000;
+    background: #fff !important;
+  }
+  aside.callout .callout-label { color: #000 !important; }
+
+  .tier-badge {
+    border: 1px solid #000;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  .btn {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  .status-list li::before {
+    background: #fff !important;
+    border-color: #000;
+  }
+
+  /* Print-only citation footer: canonical path, for environments
+     that suppress the browser's own header/footer. */
+  .print-citation {
+    display: block !important;
+    margin-top: 24pt;
+    padding-top: 8pt;
+    border-top: 1px solid #000;
+    font-size: 9pt;
+  }
+}
