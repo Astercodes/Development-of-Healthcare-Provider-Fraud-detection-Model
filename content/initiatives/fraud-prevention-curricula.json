@@ -1,0 +1,112 @@
+{
+  "slug": "fraud-prevention-curricula",
+  "number": 3,
+  "title": "Fraud-Prevention Curricula for Older Americans",
+  "standfirst": "Structured teaching modules for AARP's Fraud Fighter Network and community organizations serving older adults.",
+  "summary": "Each detection pattern, reversed, becomes a recognition heuristic taught to the population that pattern targets. Structured modules with a facilitator guide, built to be delivered by any trained volunteer.",
+  "audience": "For AARP's Fraud Fighter Network and community organizations serving older adults.",
+  "indexStatus": "available",
+  "sectionHeadings": {
+    "method": "How the curricula are built"
+  },
+  "status": [
+    { "label": "Curriculum module — AI-generated impersonation", "value": "[PLACEHOLDER — publication status and date]" },
+    { "label": "Curriculum module — account takeover and synthetic-identity misuse", "value": "[PLACEHOLDER — publication status and date]" },
+    { "label": "Curriculum module — Medicare and Medicaid billing fraud", "value": "[PLACEHOLDER — publication status and date]" },
+    { "label": "Facilitator guide", "value": "[PLACEHOLDER — publication status and date]" },
+    { "label": "Participant handouts", "value": "[PLACEHOLDER — publication status and date]" }
+  ],
+  "problem": [
+    {
+      "heading": "Detection cannot reach an authorized transfer",
+      "body": "Where a victim is deceived into authorizing a transfer herself — impersonation of a family member, a government official, a financial institution — the transaction is not anomalous from the institution's perspective. It is an authorized instruction from a verified account holder. Detection is at its weakest precisely where the deception is most complete, and recovery after an authorized transfer is frequently impossible. The only reliable point of intervention is the intended recipient recognizing the fraud scheme before responding."
+    },
+    {
+      "heading": "Generic awareness material is true but not actionable",
+      "body": "General fraud-awareness material tends toward advice that is true but not actionable — be suspicious of unexpected calls — because its authors are not working from operational characterizations of specific fraud schemes. It also ages badly: guidance written before AI-generated voice cloning taught recognition cues that current fraud schemes are engineered to satisfy."
+    },
+    {
+      "heading": "Reach bounded by one person's calendar fails at scale",
+      "body": "Fraud schemes reach older Americans in every state through telephone networks, email, and social platforms that respect no state boundary; a single operation, frequently located outside the United States, contacts victims across all fifty states simultaneously. Material that depends on its author reaches whoever the author can personally address. A program whose reach is limited to its author's personal availability is inherently bounded, and cannot answer a threat operating at that scale."
+    }
+  ],
+  "methodSteps": [
+    {
+      "heading": "Convert each detection pattern into a recognition cue",
+      "body": "For every fraud pattern the detection work in Initiatives 1 and 2 is built to catch, produce a corresponding description of what that scheme looks and sounds like to the person receiving it — what is asked for, what pressure is applied, and what a legitimate request would never include."
+    },
+    {
+      "heading": "Build reusable modules, not one-off talks",
+      "body": "Each module covers one scheme family, with a fixed structure: how the scheme works, the specific signals to watch for, the single action to take, and where to report. Three module families are covered initially: AI-generated impersonation of family members and officials; account takeover and synthetic-identity misuse of a participant's own credit; and Medicare and Medicaid billing fraud in which a beneficiary's number is used without their knowledge."
+    },
+    {
+      "heading": "Deliver through an established national channel",
+      "body": "The curricula are delivered through AARP's Fraud Fighter Network, which provides existing reach into the target population — delivery does not depend on building an audience first."
+    },
+    {
+      "heading": "Extend from online-only to in-person delivery",
+      "body": "In-person sessions reach older adults who are less active online — a group that is both harder to reach and, for that reason, more exposed."
+    },
+    {
+      "heading": "Update the material as the schemes change",
+      "body": "Because the curricula are derived from ongoing detection work, new fraud patterns identified in that work feed directly into revised modules, rather than the material aging into inaccuracy."
+    }
+  ],
+  "produces": {
+    "consumesHeading": "What it draws on",
+    "consumes": "Two sources: the operational characterization of each fraud scheme developed through the detection work in Initiatives 1 and 2 — how a scheme is constructed, what it produces, and what traces it leaves — and continuous, hands-on delivery of fraud-prevention education through AARP's Fraud Fighter Network since May 2024.",
+    "emitsHeading": "What each module contains",
+    "emits": "A fixed structure repeated across every scheme family: how the scheme works, the specific signals to watch for, the single action to take, and where to report — plus a facilitator guide and one-page, plain-language participant handouts with reporting information.",
+    "calloutLabel": "Important",
+    "callout": "This material teaches recognition, not detection. It does not identify or intervene in a fraud attempt in progress — it gives the intended target of a scheme the specific, current signals needed to recognize it before responding, which is the only intervention available once a scheme relies on the victim's own authorization."
+  },
+  "whoUses": {
+    "intro": "Volunteers delivering fraud-prevention education through AARP's Fraud Fighter Network and comparable community organizations serving older adults. Each module's fixed structure means delivery does not depend on the deliverer's technical background.",
+    "list": [
+      "AARP's Fraud Fighter Network volunteers",
+      "Community organizations serving older adults"
+    ]
+  },
+  "artifacts": [
+    {
+      "title": "Curriculum module — AI-generated impersonation",
+      "type": "Curriculum module",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    },
+    {
+      "title": "Curriculum module — account takeover and synthetic-identity misuse",
+      "type": "Curriculum module",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    },
+    {
+      "title": "Curriculum module — Medicare and Medicaid billing fraud",
+      "type": "Curriculum module",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    },
+    {
+      "title": "Facilitator guide",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    },
+    {
+      "title": "Participant handouts",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1 — public",
+      "date": "[PLACEHOLDER]",
+      "link": "[PLACEHOLDER — registry entry URL]"
+    }
+  ]
+}

@@ -105,6 +105,18 @@ ${bodyHtml}
 // ---------------------------------------------------------------
 
 function renderInitiativePage(content, assetPrefix) {
+  const headings = Object.assign(
+    {
+      problem: "The problem",
+      method: "How the method works",
+      produces: "What it produces",
+      whoUses: "Who uses it",
+      artifacts: "Artifacts",
+      nextSteps: "Next steps",
+    },
+    content.sectionHeadings || {}
+  );
+
   const breadcrumb = `
 <div class="breadcrumb">
   <div class="wrap">
@@ -146,7 +158,7 @@ function renderInitiativePage(content, assetPrefix) {
   const sectionProblem = `
 <section class="section" id="the-problem">
   <div class="wrap">
-    <h2 class="section-heading" id="the-problem-heading">The problem <a class="anchor-link" href="#the-problem" aria-label="Link to The problem section">#</a></h2>
+    <h2 class="section-heading" id="the-problem-heading">${esc(headings.problem)} <a class="anchor-link" href="#the-problem" aria-label="Link to ${esc(headings.problem)} section">#</a></h2>
     <div class="problem-list">${problemItems}
     </div>
   </div>
@@ -167,7 +179,7 @@ function renderInitiativePage(content, assetPrefix) {
   const sectionMethod = `
 <section class="section section-alt" id="how-it-works">
   <div class="wrap">
-    <h2 class="section-heading">How the method works <a class="anchor-link" href="#how-it-works" aria-label="Link to How the method works section">#</a></h2>
+    <h2 class="section-heading">${esc(headings.method)} <a class="anchor-link" href="#how-it-works" aria-label="Link to ${esc(headings.method)} section">#</a></h2>
     <ol class="steps">${steps}
     </ol>
   </div>
@@ -176,7 +188,7 @@ function renderInitiativePage(content, assetPrefix) {
   const sectionProduces = `
 <section class="section" id="what-it-produces">
   <div class="wrap">
-    <h2 class="section-heading">What it produces <a class="anchor-link" href="#what-it-produces" aria-label="Link to What it produces section">#</a></h2>
+    <h2 class="section-heading">${esc(headings.produces)} <a class="anchor-link" href="#what-it-produces" aria-label="Link to ${esc(headings.produces)} section">#</a></h2>
     <div class="produces-grid">
       <div>
         <h3>${esc(content.produces.consumesHeading)}</h3>
@@ -198,7 +210,7 @@ function renderInitiativePage(content, assetPrefix) {
   const sectionWhoUses = `
 <section class="section section-alt" id="who-uses-it">
   <div class="wrap">
-    <h2 class="section-heading">Who uses it <a class="anchor-link" href="#who-uses-it" aria-label="Link to Who uses it section">#</a></h2>
+    <h2 class="section-heading">${esc(headings.whoUses)} <a class="anchor-link" href="#who-uses-it" aria-label="Link to ${esc(headings.whoUses)} section">#</a></h2>
     <p>${esc(content.whoUses.intro)}</p>
     <ul class="audience-list">${audienceItems}</ul>
   </div>
@@ -223,20 +235,25 @@ function renderInitiativePage(content, assetPrefix) {
     })
     .join("");
 
+  const hasTier2 = content.artifacts.some((a) => a.tier === 2);
+  const tierNote = hasTier2
+    ? `<p class="tier2-note">Tier 2 artifacts are reference implementations, available at no cost after institutional identity verification. Tier 1 artifacts — documentation, protocols, and papers — are open to anyone without registration.</p>`
+    : `<p class="tier2-note">All artifacts on this page are Tier 1 — open to anyone, without registration.</p>`;
+
   const sectionArtifacts = `
 <section class="section" id="artifacts">
   <div class="wrap">
-    <h2 class="section-heading">Artifacts <a class="anchor-link" href="#artifacts" aria-label="Link to Artifacts section">#</a></h2>
+    <h2 class="section-heading">${esc(headings.artifacts)} <a class="anchor-link" href="#artifacts" aria-label="Link to ${esc(headings.artifacts)} section">#</a></h2>
     <div class="artifact-grid">${artifactCards}
     </div>
-    <p class="tier2-note">Tier 2 artifacts are reference implementations, available at no cost after institutional identity verification. Tier 1 artifacts — documentation, protocols, and papers — are open to anyone without registration.</p>
+    ${tierNote}
   </div>
 </section>`;
 
   const sectionNext = `
 <section class="section section-alt" id="next-steps">
   <div class="wrap">
-    <h2 class="section-heading">Next steps <a class="anchor-link" href="#next-steps" aria-label="Link to Next steps section">#</a></h2>
+    <h2 class="section-heading">${esc(headings.nextSteps)} <a class="anchor-link" href="#next-steps" aria-label="Link to ${esc(headings.nextSteps)} section">#</a></h2>
     <div class="cta-row">
       <a class="btn btn-primary" href="${assetPrefix}/#how-to-use">How to use this</a>
       <a class="btn btn-secondary" href="${assetPrefix}/#access">Verify your institution</a>
