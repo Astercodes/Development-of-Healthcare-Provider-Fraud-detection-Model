@@ -13,28 +13,35 @@ All prior dead links to these pages (`home("access")` anchors on other pages, an
 page's own Access section CTA, which pointed at `about/index.html#contact`, a mismatch) now
 point at the real pages.
 
-## Form backend: Formspree, with a placeholder endpoint
+## Form backend: Formspree (live)
 
-You didn't answer when asked which backend to use (Formspree, a Vercel serverless function with
-an email API, or a serverless function with no durable log). I went with **Formspree**, the
-first option you listed in the build task, because it needs no server code and no secrets
-committed to this zero-dependency repo: the `<form>` posts straight to Formspree, which emails
-you the submission and keeps it in their dashboard. That dashboard **is** the "plain append-only
-log... so you have a record even before any portal exists" for Phase 1 — a static site with no
-serverless function has nowhere else to durably write one.
+Chose **Formspree**, the first option listed in the build task, because it needs no server code
+and no secrets committed to this zero-dependency repo: the `<form>` posts straight to Formspree,
+which emails the submission and keeps it in their dashboard. That dashboard **is** the "plain
+append-only log... so you have a record even before any portal exists" for Phase 1 — a static
+site with no serverless function has nowhere else to durably write one.
 
-**This will not work until you do two things:**
+The site is 100% static (no JS, no bundler, no React), and the CSP already sets
+`script-src 'none'` site-wide, so Formspree's Basic HTML integration (a plain
+`<form action="..." method="POST">`) is the only one of Formspree's three integration guides
+that applies here — their AJAX and React guides require client-side JavaScript this site
+deliberately does not ship.
 
-1. Create a free account at formspree.io and a new form.
-2. Replace the placeholder action URL in `content/access.json` → `verify.form.action`
-   (currently `https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID`) with your real form
-   endpoint, then run `node build.js` to regenerate `access/index.html`.
+`content/access.json` → `verify.form.action` is set to the real endpoint,
+`https://formspree.io/f/xwlevryj`. The CSP on `/access/` (`form-action https://formspree.io`)
+already allows submission to that origin — every other page keeps `form-action 'none'`, since
+this is the only page with a real form. If the form is ever pointed at a different Formspree
+account or a different domain entirely, that CSP line in `renderAccessFormPage`'s `pageShell()`
+call needs to match, or the browser will silently block the submission.
 
-The CSP on `/access/` (`form-action https://formspree.io`) already allows submission to
-Formspree's domain — every other page keeps `form-action 'none'`, since this is the only page
-with a real form. If you ever point the form at a different domain, that CSP line in
-`renderAccessFormPage`'s `pageShell()` call needs to change too, or the browser will silently
-block the submission.
+**Still to confirm on your end:** I tested the submission with a real headless browser against
+`access/index.html` — the form correctly POSTs to `https://formspree.io/f/xwlevryj` and the CSP
+does not block it (no console or CSP errors). Actual delivery to Formspree couldn't be confirmed
+from this session, though: this sandbox's outbound network proxy explicitly denies connections
+to `formspree.io` (a policy restriction of the build environment, unrelated to the site or the
+form code). Submit one real test entry through the live, deployed page yourself and confirm it
+lands in the Formspree dashboard/inbox for `xwlevryj` before telling institutions the form is
+live.
 
 ## "[X business days]" is a literal placeholder from your own copy
 
