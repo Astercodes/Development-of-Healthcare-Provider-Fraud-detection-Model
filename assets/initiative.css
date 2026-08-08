@@ -21,6 +21,18 @@
   --warn-border: #8a5a00;
   --warn-tint: #fbf1dc;
 
+  /* Fixed brand surfaces: purple for chrome/hero backgrounds, yellow
+     for buttons. Unlike --accent/--accent-2 (which flip per color
+     scheme so text stays readable), these stay constant in both
+     modes since they're backgrounds with their own fixed on-color
+     text, not text sitting on the page's own background. */
+  --brand-purple: #4a1f73;
+  --brand-purple-soft: #f1e9f8;
+  --on-brand-purple: #fdf9ff;
+  --brand-yellow: #f0b400;
+  --brand-yellow-strong: #d6a400;
+  --on-brand-yellow: #241238;
+
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
 
@@ -44,6 +56,7 @@
     --on-accent: #2a1338;
     --warn-border: #d9a441;
     --warn-tint: #2a2413;
+    --brand-purple-soft: #241a30;
   }
 }
 
@@ -114,8 +127,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
+  background: var(--brand-purple);
+  border-bottom: 3px solid var(--brand-yellow);
 }
 
 .header-inner {
@@ -131,7 +144,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--on-brand-purple);
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: 16px;
@@ -139,8 +152,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .brand-mark {
   width: 10px; height: 10px;
   border-radius: 2px;
-  background: var(--accent);
-  border: 2px solid var(--accent-2);
+  background: var(--brand-yellow);
+  border: 2px solid var(--on-brand-purple);
   box-sizing: border-box;
   flex: none;
 }
@@ -150,25 +163,26 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   gap: 24px;
 }
 .primary-nav a {
-  color: var(--ink-soft);
+  color: var(--on-brand-purple);
+  opacity: 0.85;
   text-decoration: none;
   font-size: 15px;
 }
-.primary-nav a:hover { color: var(--accent); }
+.primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
   list-style: none;
   cursor: pointer;
-  border: 1px solid var(--line);
+  border: 1px solid var(--on-brand-purple);
   border-radius: 6px;
   padding: 8px 12px;
   font-size: 14px;
-  color: var(--ink);
+  color: var(--on-brand-purple);
 }
 .nav-disclosure summary::-webkit-details-marker { display: none; }
-.nav-disclosure[open] summary { border-color: var(--accent); }
+.nav-disclosure[open] summary { border-color: var(--brand-yellow); color: var(--brand-yellow); }
 .nav-disclosure .mobile-nav-panel {
   position: fixed;
   left: 0; right: 0;
@@ -205,7 +219,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   width: 100%;
   height: min(58vh, 480px);
   overflow: hidden;
-  background: var(--paper-alt);
+  background: var(--brand-purple);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -223,8 +237,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 /* ---------- Page header block ---------- */
 
 .page-header {
-  padding: 48px 0 36px;
-  border-bottom: 1px solid var(--line);
+  padding: 48px 0 40px;
+  background: var(--brand-purple);
+  border-bottom: 4px solid var(--brand-yellow);
 }
 .page-header .kicker {
   font-family: var(--font-sans);
@@ -232,13 +247,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--brand-yellow);
   margin-bottom: 0.9em;
 }
 .page-header h1 {
+  color: var(--on-brand-purple);
   font-size: clamp(1.8rem, 1.3rem + 2vw, 2.6rem);
   max-width: 22ch;
   text-wrap: balance;
+}
+.page-header .standfirst {
+  color: var(--on-brand-purple);
+  opacity: 0.88;
 }
 .standfirst {
   font-size: 1.15rem;
@@ -249,7 +269,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .status-line {
   margin-top: 24px;
   padding-top: 20px;
-  border-top: 1px dashed var(--line);
+  border-top: 1px dashed rgba(253, 249, 255, 0.3);
 }
 .status-line h2 {
   font-family: var(--font-sans);
@@ -257,7 +277,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--on-brand-purple);
+  opacity: 0.75;
   margin-bottom: 0.75em;
 }
 .status-list {
@@ -270,7 +291,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .status-list li {
   margin: 0;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--on-brand-purple);
   padding-left: 18px;
   position: relative;
 }
@@ -280,11 +301,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   left: 0; top: 0.55em;
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--line);
-  border: 1px solid var(--ink-soft);
+  background: var(--brand-yellow);
+  border: 1px solid var(--brand-yellow);
 }
 .status-list .label { font-weight: 600; }
-.status-list .value { display: block; color: var(--ink-soft); font-size: 0.9rem; }
+.status-list .value { display: block; color: var(--on-brand-purple); opacity: 0.75; font-size: 0.9rem; }
 
 /* ---------- Sections ---------- */
 
@@ -292,7 +313,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   padding: 56px 0;
   border-bottom: 1px solid var(--line);
 }
-.section-alt { background: var(--paper-alt); }
+.section-alt { background: var(--brand-purple-soft); }
 
 .section h2 {
   font-size: 1.6rem;
@@ -452,14 +473,14 @@ aside.callout p { margin-bottom: 0; color: var(--ink); }
   color: var(--ink-soft);
 }
 .tier-badge.tier-1 {
-  color: var(--accent-strong);
-  border-color: var(--accent);
-  background: var(--accent-tint);
+  color: var(--on-brand-purple);
+  border-color: var(--brand-purple);
+  background: var(--brand-purple);
 }
 .tier-badge.tier-2 {
-  color: var(--accent-2-strong);
-  border-color: var(--accent-2);
-  background: var(--accent-2-tint);
+  color: var(--on-brand-yellow);
+  border-color: var(--brand-yellow);
+  background: var(--brand-yellow);
 }
 
 .tier2-note {
@@ -486,10 +507,20 @@ aside.callout p { margin-bottom: 0; color: var(--ink); }
   font-weight: 600;
   border: 1px solid transparent;
 }
-.btn-primary { background: var(--accent); color: var(--on-accent); }
-.btn-primary:hover { background: var(--accent-strong); }
-.btn-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
-.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.btn-primary { background: var(--brand-yellow); color: var(--on-brand-yellow); }
+.btn-primary:hover { background: var(--brand-yellow-strong); }
+.btn-secondary { background: transparent; color: var(--ink); border-color: var(--accent); border-width: 2px; }
+.btn-secondary:hover { background: var(--accent); color: var(--on-accent); }
+.page-header .btn-secondary,
+.hero .btn-secondary {
+  color: var(--on-brand-purple);
+  border-color: var(--on-brand-purple);
+}
+.page-header .btn-secondary:hover,
+.hero .btn-secondary:hover {
+  background: var(--on-brand-purple);
+  color: var(--brand-purple);
+}
 
 /* ---------- How to Use This: routing cards, cost note, contact ---------- */
 
@@ -652,16 +683,16 @@ code {
   border-radius: 999px;
   width: fit-content;
 }
-.status-pill.available { color: var(--accent-strong); background: var(--accent-tint); border: 1px solid var(--accent); }
+.status-pill.available { color: var(--on-brand-purple); background: var(--brand-purple); border: 1px solid var(--brand-purple); }
 .status-pill.in-preparation { color: var(--ink-soft); background: var(--paper-alt); border: 1px solid var(--line); }
 .initiative-entry .entry-link { font-weight: 600; text-decoration: none; margin-top: 6px; }
 
 /* ---------- Footer ---------- */
 
-.site-footer { padding: 36px 0; }
+.site-footer { padding: 36px 0; background: var(--brand-purple); border-top: 3px solid var(--brand-yellow); }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; }
-.footer-nav a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
-.footer-nav a:hover { color: var(--accent); }
+.footer-nav a { color: var(--on-brand-purple); opacity: 0.85; text-decoration: none; font-size: 14px; }
+.footer-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
 /* Print-only citation footer; hidden on screen, shown in print.css */
 .print-citation { display: none; }
