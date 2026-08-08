@@ -1,8 +1,8 @@
 {
-  "name": "open-fraud-detection-methodology",
+  "name": "fraud-cap",
   "version": "1.0.0",
   "private": true,
-  "description": "Static site generator for the Open Fraud Detection Methodology site: published fraud-detection methodology, an artifact registry, and fraud-prevention curricula.",
+  "description": "Static site generator for the FRAUD CAP site: published fraud-detection methodology, an artifact registry, and fraud-prevention curricula.",
   "scripts": {
     "build": "node build.js",
     "build:registry": "node scripts/build-registry-metadata.js",

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>AYENI-2026-0014 · Reference implementation, transaction fraud detection · FRAUD CAP</title>
+<meta name="description" content="The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FRAUD CAP">
+<meta property="og:title" content="AYENI-2026-0014 · Reference implementation, transaction fraud detection">
+<meta property="og:description" content="The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AYENI-2026-0014 · Reference implementation, transaction fraud detection">
+<meta name="twitter:description" content="The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.">
+<link rel="stylesheet" href="../../assets/initiative.css">
+<link rel="stylesheet" href="../../assets/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">FRAUD CAP</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="../../index.html#work">Home</a>
+      <a href="../../initiatives/index.html">Initiatives</a>
+      <a href="../../registry/index.html">Registry</a>
+      <a href="../../curricula/index.html">Curricula</a>
+      <a href="../../how-to-use/index.html">How to use this</a>
+      <a href="../../access/index.html">Verify your institution</a>
+    </nav>
+    <details class="nav-disclosure">
+      <summary aria-label="Open menu">Menu</summary>
+      <nav class="mobile-nav-panel" aria-label="Primary, mobile">
+        <a href="../../index.html">Home</a>
+        <a href="../../initiatives/index.html">Initiatives</a>
+        <a href="../../registry/index.html">Registry</a>
+        <a href="../../curricula/index.html">Curricula</a>
+        <a href="../../how-to-use/index.html">How to use this</a>
+        <a href="../../access/index.html">Verify your institution</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="../../index.html">Home</a><span class="sep">/</span><a href="../../registry/index.html">Registry</a><span class="sep">/</span><span aria-current="page">AYENI-2026-0014</span>
+  </div>
+</div>
+<main id="main">
+
+<div class="page-header">
+  <div class="wrap">
+    <p class="kicker">Implementation</p>
+    <h1>Reference implementation, transaction fraud detection</h1>
+    <div class="status-line">
+      <ul class="status-list">
+        <li><span class="label">Identifier</span><span class="value"><code>AYENI-2026-0014</code></span></li>
+        <li><span class="label">Version</span><span class="value">1</span></li>
+        <li><span class="label">Published</span><span class="value">2026-08-08</span></li>
+        <li><span class="label">Access</span><span class="value"><span class="tier-badge tier-2">Tier 2: verified institutions</span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<section class="section" id="description">
+  <div class="wrap">
+    <h2 class="section-heading">Description <a class="anchor-link" href="#description" aria-label="Link to Description section">#</a></h2>
+    <p>The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.</p>
+  </div>
+</section>
+
+
+<section class="section" id="files">
+  <div class="wrap">
+    <h2 class="section-heading">Files <a class="anchor-link" href="#files" aria-label="Link to Files section">#</a></h2>
+    <div class="table-scroll">
+    <table class="registry-table hash-table">
+      <thead><tr><th>Path</th><th>Size</th><th>SHA-256</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>files/data-visualization.ipynb</code></td>
+          <td>3,769,898 bytes</td>
+          <td class="hash-cell"><code>83b40fd55623b5b86148d8c4a371831cf6e5886a581faf8ecbcafcf6e2eb1827</code></td>
+        </tr>
+        <tr>
+          <td><code>files/decision-tree.ipynb</code></td>
+          <td>92,594 bytes</td>
+          <td class="hash-cell"><code>3174eada35120e8dbb6731215b2422624408bd1582e34f63bb29febb3d730a80</code></td>
+        </tr>
+        <tr>
+          <td><code>files/k-nearest-neighbours.ipynb</code></td>
+          <td>97,591 bytes</td>
+          <td class="hash-cell"><code>11779b62174c7f18b50a189d6a493444db472a443046c6f89af024cb1f22012a</code></td>
+        </tr>
+        <tr>
+          <td><code>files/logistic-regression.ipynb</code></td>
+          <td>103,598 bytes</td>
+          <td class="hash-cell"><code>9074d7fd19b670c2181db91aa7cd90bb72eb8b502dc1a1616d85622c676e24f2</code></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="verify-line">Each file's SHA-256 is listed above. To confirm a download is unmodified: <code>shasum -a 256 filename</code></p>
+    
+    <p>Available to verified institutions at no cost. Verification confirms institutional identity, not eligibility.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="../../access/how-it-works/index.html">How verification works →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="parent-initiative">
+  <div class="wrap">
+    <p><span class="k">Licence:</span> Available to verified institutions</p>
+    <p><a href="../../initiatives/synthetic-identity-detection/index.html">← Back to Initiative 2</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../../initiatives/index.html">Initiatives</a>
+      <a href="../../registry/index.html">Registry</a>
+      <a href="../../how-to-use/index.html">How to use this</a>
+      <a href="../../curricula/index.html">Curricula</a>
+      <a href="../../about/index.html">About</a>
+      <a href="../../index.html#changelog">Changelog</a>
+      <a href="../../about/index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+<p class="print-citation">This document: /registry/AYENI-2026-0014/. Retrieved from the printing browser's own header/footer date stamp when available.</p>
+</body>
+</html>

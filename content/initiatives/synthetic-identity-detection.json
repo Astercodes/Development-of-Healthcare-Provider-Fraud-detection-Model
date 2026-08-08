@@ -11,7 +11,7 @@
     { "label": "Threat model note (synthetic identity)", "value": "Published 2026-08-08" },
     { "label": "Implementation guide", "value": "Published 2026-08-08" },
     { "label": "Methodology paper", "value": "Published 2026-08-08" },
-    { "label": "Reference implementation", "value": "[PLACEHOLDER: publication status and date]" }
+    { "label": "Reference implementation", "value": "Partial deposit 2026-08-08, in progress" }
   ],
   "problem": [
     {
@@ -104,8 +104,8 @@
       "type": "Code",
       "tier": 2,
       "tierLabel": "Tier 2: verified institutions",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-08",
+      "link": "../../registry/AYENI-2026-0014/index.html"
     }
   ]
 }

@@ -1,0 +1,31 @@
+identifier: AYENI-2026-0014
+title: Reference implementation, transaction fraud detection
+initiative: 2
+type: implementation
+tier: 2
+licence: Available to verified institutions
+published: 2026-08-08
+version: 1
+description: >
+  The working code behind the transaction fraud detection methodology paper:
+  four Jupyter notebooks covering exploratory data analysis and three of the
+  four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic
+  Regression, each with training, an overfitting check, a classification
+  report, ROC and precision recall curves, a confusion matrix, and a
+  calibration curve. This deposit is not yet complete. The Random Forest
+  notebook, the paper's recommended model for deployment, and the shared
+  DataPreProcessing notebook that all three classifier notebooks import from,
+  are not yet included and will be added to bring this to a runnable state.
+files:
+  - path: files/data-visualization.ipynb
+    size: 3769898
+    sha256: 83b40fd55623b5b86148d8c4a371831cf6e5886a581faf8ecbcafcf6e2eb1827
+  - path: files/decision-tree.ipynb
+    size: 92594
+    sha256: 3174eada35120e8dbb6731215b2422624408bd1582e34f63bb29febb3d730a80
+  - path: files/k-nearest-neighbours.ipynb
+    size: 97591
+    sha256: 11779b62174c7f18b50a189d6a493444db472a443046c6f89af024cb1f22012a
+  - path: files/logistic-regression.ipynb
+    size: 103598
+    sha256: 9074d7fd19b670c2181db91aa7cd90bb72eb8b502dc1a1616d85622c676e24f2

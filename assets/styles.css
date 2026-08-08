@@ -205,6 +205,32 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-bottom: 4px solid var(--brand-yellow);
 }
 
+.hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+}
+
+.hero-content {
+  flex: 1 1 560px;
+  min-width: 0;
+}
+
+.hero-photo {
+  flex: 0 0 auto;
+  width: 280px;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 3px solid var(--brand-yellow);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
 .hero h1 {
   color: var(--on-brand-purple);
   font-size: clamp(2rem, 1.4rem + 2.4vw, 3.1rem);
@@ -400,6 +426,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .footer-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
 /* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero-grid { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .hero-photo { width: 200px; align-self: center; }
+}
 
 @media (max-width: 760px) {
   .primary-nav { display: none; }

@@ -20,7 +20,7 @@ const CONTENT_DIR = path.join(ROOT, "content", "initiatives");
 const OUT_DIR = path.join(ROOT, "initiatives");
 const REGISTRY_SOURCE_DIR = path.join(ROOT, "registry-source");
 const REGISTRY_OUT_DIR = path.join(ROOT, "registry");
-const SITE_NAME = "Open Fraud Detection Methodology";
+const SITE_NAME = "FRAUD CAP";
 
 const ARTIFACT_TYPE_LABELS = {
   methodology: "Methodology",
