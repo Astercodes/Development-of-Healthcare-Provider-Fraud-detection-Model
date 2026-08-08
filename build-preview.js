@@ -18,6 +18,14 @@ function inlineAssets(htmlPath) {
   const dir = path.dirname(htmlPath);
   let html = fs.readFileSync(htmlPath, "utf8");
 
+  // The real site's CSP (style-src 'self', script-src 'none') is correct
+  // for the deployed pages, which load CSS via <link> and have no <script>
+  // at all. This preview combiner inlines CSS as literal <style> blocks
+  // instead, which that same CSP then blocks as "unsafe inline" the moment
+  // it's carried into the srcdoc iframe, rendering every page unstyled.
+  // Strip it here: this file is a local review tool, not the deployed site.
+  html = html.replace(/<meta http-equiv="Content-Security-Policy"[^>]*>\n?/, "");
+
   html = html.replace(
     /<link rel="stylesheet" href="([^"]+)"( media="([^"]+)")?>/g,
     (match, href, _m, media) => {
