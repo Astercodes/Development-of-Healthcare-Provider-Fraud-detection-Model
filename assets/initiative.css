@@ -83,6 +83,7 @@ h1, h2, h3 {
 }
 
 p, li { margin: 0 0 1.1em; color: var(--ink-soft); max-width: var(--measure); }
+p { text-align: justify; text-align-last: left; }
 p:last-child { margin-bottom: 0; }
 
 a { color: var(--accent); }

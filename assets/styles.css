@@ -74,7 +74,7 @@ h1, h2, h3 {
   margin: 0 0 0.6em;
 }
 
-p { margin: 0 0 1.1em; color: var(--ink-soft); }
+p { margin: 0 0 1.1em; color: var(--ink-soft); text-align: justify; text-align-last: left; }
 p:last-child { margin-bottom: 0; }
 
 a { color: var(--accent); }

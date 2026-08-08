@@ -1,4 +1,4 @@
-# FRAUD CAP
+# Ayomide Ayeni
 
 Static site publishing fraud-detection methodology and fraud-prevention curricula. No
 JavaScript, no external requests, no trackers, no forms, no build framework: plain HTML and
