@@ -333,7 +333,11 @@ function renderInitiativePage(content, assetPrefix) {
 
   const artifactCards = content.artifacts
     .map((a) => {
-      const linkIsReal = /^(https?:)?\//.test(a.link || "");
+      // A real link is any concretely-written path or URL, relative or
+      // absolute — this site's own convention is relative paths (see the
+      // note on homeHref above), so "starts with /" is not the right test.
+      // Only an unfilled "[...]" placeholder means "not deposited yet".
+      const linkIsReal = !!a.link && !a.link.trim().startsWith("[");
       let accessLine;
       if (a.tier === 2) {
         accessLine = `<li><span class="k">Access:</span>Available to verified institutions</li>`;

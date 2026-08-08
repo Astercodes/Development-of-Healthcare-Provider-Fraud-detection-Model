@@ -1,0 +1,23 @@
+identifier: AYENI-2026-0009
+title: Feature engineering specification: transaction and synthetic identity fraud detection for smaller financial institutions
+initiative: 2
+type: specification
+tier: 1
+licence: CC BY 4.0
+published: 2026-08-08
+version: 1
+description: >
+  The complete feature construction for transaction and synthetic identity
+  fraud detection, validated on two structurally unrelated payment datasets,
+  card transactions and account transfers, so that a measurement computed at
+  one institution is comparable to one computed at another. Defines the
+  retained and excluded fields for each validated environment, six specified
+  extensions addressing measurements the validated work identified as
+  available and did not construct, and twenty specified synthetic identity
+  features across six families ordered by how early in a scheme they become
+  observable. Records a known encoder defect in the published implementation
+  and its correction.
+files:
+  - path: files/feature-engineering-specification-transaction-synthetic-identity.pdf
+    size: 127389
+    sha256: 5abed5c688039389ac37971347b650aa1bf7ed1dc2470b5005bead530b3c6b17

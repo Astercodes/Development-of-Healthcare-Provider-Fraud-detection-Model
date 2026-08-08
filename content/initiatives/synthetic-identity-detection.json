@@ -7,9 +7,9 @@
   "audience": "For community banks, credit unions, regional lenders, and smaller origination platforms.",
   "indexStatus": "available",
   "status": [
-    { "label": "Feature engineering specification", "value": "[PLACEHOLDER: publication status and date]" },
-    { "label": "Threat model note (synthetic identity)", "value": "[PLACEHOLDER: publication status and date]" },
-    { "label": "Implementation guide", "value": "[PLACEHOLDER: publication status and date]" },
+    { "label": "Feature engineering specification", "value": "Published 2026-08-08" },
+    { "label": "Threat model note (synthetic identity)", "value": "Published 2026-08-08" },
+    { "label": "Implementation guide", "value": "Published 2026-08-08" },
     { "label": "Reference implementation", "value": "[PLACEHOLDER: publication status and date]" }
   ],
   "problem": [
@@ -71,24 +71,24 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-08",
+      "link": "../../registry/AYENI-2026-0009/index.html"
     },
     {
       "title": "Threat model note (synthetic identity)",
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-08",
+      "link": "../../registry/AYENI-2026-0007/index.html"
     },
     {
       "title": "Implementation guide for smaller institutions",
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-08",
+      "link": "../../registry/AYENI-2026-0008/index.html"
     },
     {
       "title": "Reference implementation: transaction fraud detection",

@@ -1,5 +1,95 @@
 [
   {
+    "identifier": "AYENI-2026-0007",
+    "title": "Threat model note: why field validation fails against synthetic identities",
+    "initiative": "2",
+    "type": "note",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-08-08",
+    "version": "1",
+    "description": "An analytical note explaining why per element identity verification structurally cannot detect synthetic identity fraud: every element of a fabricated identity passes its own check because every element is genuine, and only the binding between them is false. Sets out the five phase lifecycle from assembly through bust out, evaluates nine standard verification controls against this threat one by one, including the one genuine structural counter available today, and argues that detection capability distributed across smaller institutions is the relevant countermeasure because the scheme depends on the weakest entry point. Companion to the feature engineering specification and implementation guide in the same initiative.",
+    "files": [
+      {
+        "path": "files/threat-model-note-synthetic-identity.pdf",
+        "size": 94375,
+        "sha256": "1a015602014a6f7a541daf59e550aeeb3d1362e1d7b261df67ed51168f75c3e5"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0008",
+    "title": "Implementation guide: synthetic identity and transaction fraud detection for smaller financial institutions",
+    "initiative": "2",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-08-08",
+    "version": "1",
+    "description": "A practical adoption guide for community banks, credit unions, and regional lenders with no data science team, setting out three tiers of investment: a no code manual review queue built from an institution's own application history, a scripted scoring batch process, and full origination flow integration. Includes a cost and benefit worksheet built around reviewer hours rather than compute, a ninety day rollout plan to a scored queue, six documented failure modes with their preventions, and the regulatory obligations that attach once a score contributes to a credit decision.",
+    "files": [
+      {
+        "path": "files/implementation-guide-synthetic-identity-transaction-detection.pdf",
+        "size": 96203,
+        "sha256": "1910dca753232887e549b0557cf35a604717ab704a5e3191db84e7c66c5e62cf"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0009",
+    "title": "Feature engineering specification: transaction and synthetic identity fraud detection for smaller financial institutions",
+    "initiative": "2",
+    "type": "specification",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-08-08",
+    "version": "1",
+    "description": "The complete feature construction for transaction and synthetic identity fraud detection, validated on two structurally unrelated payment datasets, card transactions and account transfers, so that a measurement computed at one institution is comparable to one computed at another. Defines the retained and excluded fields for each validated environment, six specified extensions addressing measurements the validated work identified as available and did not construct, and twenty specified synthetic identity features across six families ordered by how early in a scheme they become observable. Records a known encoder defect in the published implementation and its correction.",
+    "files": [
+      {
+        "path": "files/feature-engineering-specification-transaction-synthetic-identity.pdf",
+        "size": 127389,
+        "sha256": "5abed5c688039389ac37971347b650aa1bf7ed1dc2470b5005bead530b3c6b17"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0010",
+    "title": "Validation protocol: institutional self test for provider level fraud detection in federal healthcare programmes",
+    "initiative": "1",
+    "type": "protocol",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-08-08",
+    "version": "1",
+    "description": "A twelve stage, eight gate self test that lets a state Medicaid programme integrity unit, HHS OIG contractor, Medicare Administrative Contractor, or Unified Program Integrity Contractor determine whether provider level fraud detection works on its own claims data, entirely inside its own environment, without contacting the author or sending any data anywhere. Every stage has a written stop condition and the acceptance criteria are fixed before results are seen. The blind investigator review, the only stage that measures value rather than a proxy for it, is placed last by design, and a one page validation record documents whichever decision the exercise produces, including a documented no.",
+    "files": [
+      {
+        "path": "files/validation-protocol-healthcare-provider-fraud-detection.pdf",
+        "size": 129770,
+        "sha256": "7bad5c5c62e3935f1c89529a4709be4a772e673ec47cb475be1092025d754473"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0011",
+    "title": "Feature dictionary: provider level fraud detection for federal healthcare programmes",
+    "initiative": "1",
+    "type": "specification",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-08-08",
+    "version": "1",
+    "description": "The complete specification of the feature space behind the provider level healthcare claims anomaly detection work: 29 entries covering identifiers, demographics, coverage, clinical indicators, financial fields, and engineered measurements, of which 19 are implemented in the published reference model and 10 specify a not yet implemented provider level aggregation layer. Documents the exact, order dependent computation for every engineered feature, an unresolved chronic condition coding ambiguity that can silently invert the health burden index, and the fairness restrictions that exclude race from any deployed scoring model.",
+    "files": [
+      {
+        "path": "files/feature-dictionary-healthcare-provider-fraud-detection.pdf",
+        "size": 159167,
+        "sha256": "3cff96f873397e067cd1989bf181879298ed471756237d49f1836785a51f15a7"
+      }
+    ]
+  },
+  {
     "identifier": "AYENI-2026-0001",
     "title": "Curriculum module 01: Account takeover and synthetic identity",
     "initiative": "3",

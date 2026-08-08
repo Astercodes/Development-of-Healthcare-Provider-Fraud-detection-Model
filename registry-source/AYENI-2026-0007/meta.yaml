@@ -1,0 +1,24 @@
+identifier: AYENI-2026-0007
+title: Threat model note: why field validation fails against synthetic identities
+initiative: 2
+type: note
+tier: 1
+licence: CC BY 4.0
+published: 2026-08-08
+version: 1
+description: >
+  An analytical note explaining why per element identity verification
+  structurally cannot detect synthetic identity fraud: every element of a
+  fabricated identity passes its own check because every element is genuine,
+  and only the binding between them is false. Sets out the five phase
+  lifecycle from assembly through bust out, evaluates nine standard
+  verification controls against this threat one by one, including the one
+  genuine structural counter available today, and argues that detection
+  capability distributed across smaller institutions is the relevant
+  countermeasure because the scheme depends on the weakest entry point.
+  Companion to the feature engineering specification and implementation guide
+  in the same initiative.
+files:
+  - path: files/threat-model-note-synthetic-identity.pdf
+    size: 94375
+    sha256: 1a015602014a6f7a541daf59e550aeeb3d1362e1d7b261df67ed51168f75c3e5

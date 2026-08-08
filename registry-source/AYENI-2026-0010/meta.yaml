@@ -1,0 +1,23 @@
+identifier: AYENI-2026-0010
+title: Validation protocol: institutional self test for provider level fraud detection in federal healthcare programmes
+initiative: 1
+type: protocol
+tier: 1
+licence: CC BY 4.0
+published: 2026-08-08
+version: 1
+description: >
+  A twelve stage, eight gate self test that lets a state Medicaid programme
+  integrity unit, HHS OIG contractor, Medicare Administrative Contractor, or
+  Unified Program Integrity Contractor determine whether provider level fraud
+  detection works on its own claims data, entirely inside its own environment,
+  without contacting the author or sending any data anywhere. Every stage has
+  a written stop condition and the acceptance criteria are fixed before
+  results are seen. The blind investigator review, the only stage that
+  measures value rather than a proxy for it, is placed last by design, and a
+  one page validation record documents whichever decision the exercise
+  produces, including a documented no.
+files:
+  - path: files/validation-protocol-healthcare-provider-fraud-detection.pdf
+    size: 129770
+    sha256: 7bad5c5c62e3935f1c89529a4709be4a772e673ec47cb475be1092025d754473

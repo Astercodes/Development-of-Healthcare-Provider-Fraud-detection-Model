@@ -1,0 +1,21 @@
+identifier: AYENI-2026-0008
+title: Implementation guide: synthetic identity and transaction fraud detection for smaller financial institutions
+initiative: 2
+type: guide
+tier: 1
+licence: CC BY 4.0
+published: 2026-08-08
+version: 1
+description: >
+  A practical adoption guide for community banks, credit unions, and regional
+  lenders with no data science team, setting out three tiers of investment: a
+  no code manual review queue built from an institution's own application
+  history, a scripted scoring batch process, and full origination flow
+  integration. Includes a cost and benefit worksheet built around reviewer
+  hours rather than compute, a ninety day rollout plan to a scored queue, six
+  documented failure modes with their preventions, and the regulatory
+  obligations that attach once a score contributes to a credit decision.
+files:
+  - path: files/implementation-guide-synthetic-identity-transaction-detection.pdf
+    size: 96203
+    sha256: 1910dca753232887e549b0557cf35a604717ab704a5e3191db84e7c66c5e62cf
