@@ -10,11 +10,10 @@
     "method": "How the curricula are built"
   },
   "status": [
-    { "label": "Curriculum module: AI generated impersonation", "value": "[PLACEHOLDER: publication status and date]" },
-    { "label": "Curriculum module: account takeover and synthetic identity misuse", "value": "[PLACEHOLDER: publication status and date]" },
-    { "label": "Curriculum module: Medicare and Medicaid billing fraud", "value": "[PLACEHOLDER: publication status and date]" },
-    { "label": "Facilitator guide", "value": "[PLACEHOLDER: publication status and date]" },
-    { "label": "Participant handouts", "value": "[PLACEHOLDER: publication status and date]" }
+    { "label": "Curriculum module: account takeover and synthetic identity misuse", "value": "Published 2026-08-07" },
+    { "label": "Curriculum module: Medicare and Medicaid billing fraud", "value": "Published 2026-08-07" },
+    { "label": "Facilitator guides", "value": "Published 2026-08-07" },
+    { "label": "Participant handouts", "value": "Published 2026-08-07" }
   ],
   "problem": [
     {
@@ -37,7 +36,7 @@
     },
     {
       "heading": "Build reusable modules, not one off talks",
-      "body": "Each module covers one scheme family, with a fixed structure: how the scheme works, the specific signals to watch for, the single action to take, and where to report. Three module families are covered initially: AI generated impersonation of family members and officials; account takeover and synthetic identity misuse of a participant's own credit; and Medicare and Medicaid billing fraud in which a beneficiary's number is used without their knowledge."
+      "body": "Each module covers one scheme family, with a fixed structure: how the scheme works, the specific signals to watch for, the single action to take, and where to report. Two module families are covered initially: account takeover and synthetic identity misuse of a participant's own credit, and Medicare and Medicaid billing fraud in which a beneficiary's number is used without their knowledge."
     },
     {
       "heading": "Deliver through an established national channel",
@@ -69,44 +68,52 @@
   },
   "artifacts": [
     {
-      "title": "Curriculum module: AI generated impersonation",
+      "title": "Curriculum module: account takeover and synthetic identity",
       "type": "Curriculum module",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
-    },
-    {
-      "title": "Curriculum module: account takeover and synthetic identity misuse",
-      "type": "Curriculum module",
-      "tier": 1,
-      "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-07",
+      "link": "../../registry/AYENI-2026-0001/index.html"
     },
     {
       "title": "Curriculum module: Medicare and Medicaid billing fraud",
       "type": "Curriculum module",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-07",
+      "link": "../../registry/AYENI-2026-0002/index.html"
     },
     {
-      "title": "Facilitator guide",
+      "title": "Participant handout, Module 01: account takeover and synthetic identity",
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-07",
+      "link": "../../registry/AYENI-2026-0003/index.html"
     },
     {
-      "title": "Participant handouts",
+      "title": "Participant handout, Module 02: Medicare and Medicaid billing fraud",
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-07",
+      "link": "../../registry/AYENI-2026-0004/index.html"
+    },
+    {
+      "title": "Facilitator guide, Module 01: account takeover and synthetic identity",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1: public",
+      "date": "2026-08-07",
+      "link": "../../registry/AYENI-2026-0005/index.html"
+    },
+    {
+      "title": "Facilitator guide, Module 02: Medicare and Medicaid billing fraud",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1: public",
+      "date": "2026-08-07",
+      "link": "../../registry/AYENI-2026-0006/index.html"
     }
   ]
 }
