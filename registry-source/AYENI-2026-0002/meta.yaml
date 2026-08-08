@@ -1,5 +1,5 @@
 identifier: AYENI-2026-0002
-title: Curriculum module 02 — Medicare and Medicaid billing fraud
+title: Curriculum module 02: Medicare and Medicaid billing fraud
 initiative: 3
 type: curriculum
 tier: 1
@@ -7,14 +7,14 @@ licence: CC BY 4.0
 published: 2026-08-07
 version: 1
 description: >
-  A 45-minute reusable teaching module on Medicare and Medicaid billing fraud,
+  A 45 minute reusable teaching module on Medicare and Medicaid billing fraud,
   written to be delivered by a trained volunteer with no clinical or technical
   background. Covers how a beneficiary's number is misused to generate false
   claims, the specific signals in the approach and in the paperwork afterward,
   the single action to take, and where to report. Includes delivery timing, a
   specimen Medicare Summary Notice exercise, facilitator notes for handling
   disclosures, and a derivation table showing that each recognition cue is a
-  direct restatement of a measurement from the provider-level claims anomaly
+  direct restatement of a measurement from the provider level claims anomaly
   detection work in Initiative 1.
 files:
   - path: files/module-02-medicare-and-medicaid-billing-fraud.pdf

@@ -8,16 +8,16 @@ published: 2026-08-07
 version: 1
 supersededBy: REGISTRY-DEMO-0001-v2
 description: >
-  Demonstrates the artifact registry's file table, SHA-256 hashing, per-file
-  downloads, whole-deposit zip, and version-supersession banner, using real
+  Demonstrates the artifact registry's file table, SHA-256 hashing, per file
+  downloads, whole deposit zip, and version supersession banner, using real
   files and real computed hashes. This is a template demonstration for the
-  registry mechanism itself — it is not a published methodology artifact from
-  any initiative, and carries no fraud-detection content. Superseded by
+  registry mechanism itself. It is not a published methodology artifact from
+  any initiative, and carries no fraud detection content. Superseded by
   REGISTRY-DEMO-0001-v2.
 files:
   - path: files/README.md
-    size: 1426
-    sha256: ec51b2e2adf33e687bd3571adaaf0a25f98d3f960efd24885c3bd5198dfdfe14
+    size: 1414
+    sha256: eb5d23ca89db2f44c1bf241c12ece7a8189e138201ea1523101e9dc89f9714a0
   - path: files/example-config.json
     size: 205
     sha256: 5b1b48c981792d7e47459caaceb612869bdcf5a6470837b0e50b902bd39bf2db

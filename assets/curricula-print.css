@@ -31,7 +31,7 @@
   }
 
   /* File links resolve to a relative path on paper, which is not
-     usable by itself — print the label and format/size clearly
+     usable by itself, so print the label and format/size clearly
      instead of relying on the (now inert) link. */
   .cta-row .btn {
     display: block;

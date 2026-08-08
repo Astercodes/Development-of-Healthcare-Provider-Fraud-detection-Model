@@ -20,7 +20,7 @@ const CONTENT_DIR = path.join(ROOT, "content", "initiatives");
 const OUT_DIR = path.join(ROOT, "initiatives");
 const REGISTRY_SOURCE_DIR = path.join(ROOT, "registry-source");
 const REGISTRY_OUT_DIR = path.join(ROOT, "registry");
-const SITE_NAME = "Open Fraud-Detection Methodology";
+const SITE_NAME = "Open Fraud Detection Methodology";
 
 const ARTIFACT_TYPE_LABELS = {
   methodology: "Methodology",
@@ -186,7 +186,7 @@ function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath, e
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(title)} — ${SITE_NAME}</title>
+<title>${esc(title)} · ${SITE_NAME}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="stylesheet" href="${assetPrefix}/assets/initiative.css">
 <link rel="stylesheet" href="${assetPrefix}/assets/print.css" media="print">${extraLink}${extraPrintLink}
@@ -342,8 +342,8 @@ function renderInitiativePage(content, assetPrefix) {
 
   const hasTier2 = content.artifacts.some((a) => a.tier === 2);
   const tierNote = hasTier2
-    ? `<p class="tier2-note">Tier 2 artifacts are reference implementations, available at no cost after institutional identity verification. Tier 1 artifacts — documentation, protocols, and papers — are open to anyone without registration.</p>`
-    : `<p class="tier2-note">All artifacts on this page are Tier 1 — open to anyone, without registration.</p>`;
+    ? `<p class="tier2-note">Tier 2 artifacts are reference implementations, available at no cost after institutional identity verification. Tier 1 artifacts, including documentation, protocols, and papers, are open to anyone without registration.</p>`
+    : `<p class="tier2-note">All artifacts on this page are Tier 1, open to anyone, without registration.</p>`;
 
   const sectionArtifacts = `
 <section class="section" id="artifacts">
@@ -479,7 +479,7 @@ function renderHowToUsePage(content, assetPrefix) {
     .map(
       (r) => `
       <div class="routing-card">
-        <p><strong>${esc(r.condition)}</strong> — ${esc(r.body)}</p>
+        <p><strong>${esc(r.condition)}:</strong> ${esc(r.body)}</p>
         <a class="entry-link" href="${initiativeHref(assetPrefix, r.initiativeSlug)}">${esc(r.linkText)}</a>
       </div>`
     )
@@ -651,7 +651,7 @@ function renderCurriculaPage(content, assetPrefix) {
   const downloadLink = (file, btnClass) => {
     if (!file) return "";
     const href = registryFileHref(assetPrefix, file.identifier, file.filename);
-    return `<a class="btn ${btnClass}" href="${esc(href)}">${esc(file.label)} <span class="file-format">— ${esc(formatSizeLabel(file.sizeBytes))}</span></a>`;
+    return `<a class="btn ${btnClass}" href="${esc(href)}">${esc(file.label)} <span class="file-format">(${esc(formatSizeLabel(file.sizeBytes))})</span></a>`;
   };
 
   const moduleCards = content.modules
@@ -825,7 +825,7 @@ ${siteFooter(assetPrefix)}`;
 // ---------------------------------------------------------------
 
 function tierBadge(tier) {
-  const label = tier === 2 || tier === "2" ? "Tier 2 — verified institutions" : "Tier 1 — public";
+  const label = tier === 2 || tier === "2" ? "Tier 2: verified institutions" : "Tier 1: public";
   return `<span class="tier-badge tier-${tier}">${esc(label)}</span>`;
 }
 
@@ -882,7 +882,7 @@ function renderRegistryIndexPage(
     .map((a) => {
       const initiativeCell = a.initiative
         ? `<a href="${initiativeHref(assetPrefix, initiativeSlugByNumber[a.initiative] || "")}">Initiative ${esc(a.initiative)}</a>`
-        : `<span class="muted">—</span>`;
+        : `<span class="muted">N/A</span>`;
       return `
         <tr>
           <td><a href="${registryArtifactHref(assetPrefix, a.identifier)}"><code>${esc(a.identifier)}</code></a></td>
@@ -1067,7 +1067,7 @@ ${sectionFooterNav}
 ${siteFooter(assetPrefix)}`;
 
   return pageShell({
-    title: `${meta.identifier} — ${meta.title}`,
+    title: `${meta.identifier} · ${meta.title}`,
     description: meta.description,
     assetPrefix,
     bodyHtml: body,
@@ -1178,7 +1178,7 @@ function buildRegistry(initiativeSlugByNumber) {
       renderRegistryIndexPage(
         {
           artifacts: filtered,
-          pageTitle: `Registry — ${label}`,
+          pageTitle: `Registry · ${label}`,
           introText: `Artifacts filtered to ${label}.`,
           typesPresent,
           activeFilter: { dimension, value },

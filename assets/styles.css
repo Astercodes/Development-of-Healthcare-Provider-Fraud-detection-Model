@@ -1,7 +1,9 @@
 /* ---------------------------------------------------------------
-   Open Fraud-Detection Methodology — homepage styles
+   Open Fraud Detection Methodology: homepage styles.
    Editorial / institutional tone: restrained palette, generous
-   whitespace, serif headings over a plain sans body.
+   whitespace, serif headings over a plain sans body. Two brand
+   colors: purple (--accent) as the primary interactive color, gold
+   (--accent-2) as a secondary accent used sparingly for emphasis.
 --------------------------------------------------------------- */
 
 :root {
@@ -10,9 +12,13 @@
   --paper: #fbfaf7;
   --paper-alt: #f1efe8;
   --line: #dcd8cd;
-  --accent: #0b4f4a;
-  --accent-strong: #083a36;
-  --accent-tint: #e4efed;
+  --accent: #5b2a86;
+  --accent-strong: #431f61;
+  --accent-tint: #efe6f7;
+  --accent-2: #d6a400;
+  --accent-2-strong: #8a6300;
+  --accent-2-tint: #fbf0d6;
+  --on-accent: #fff;
 
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
@@ -28,9 +34,13 @@
     --paper: #14161a;
     --paper-alt: #1b1e23;
     --line: #33363c;
-    --accent: #6fb8ae;
-    --accent-strong: #8fcdc3;
-    --accent-tint: #1c2a29;
+    --accent: #c9a0f5;
+    --accent-strong: #dfc4fb;
+    --accent-tint: #2a1f38;
+    --accent-2: #e8c34a;
+    --accent-2-strong: #f2d98a;
+    --accent-2-tint: #332812;
+    --on-accent: #2a1338;
   }
 }
 
@@ -76,7 +86,7 @@ a { color: var(--accent); }
   left: -999px;
   top: 0;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   padding: 0.75em 1.25em;
   z-index: 100;
   border-radius: 0 0 6px 0;
@@ -125,6 +135,8 @@ a { color: var(--accent); }
   height: 10px;
   border-radius: 2px;
   background: var(--accent);
+  border: 2px solid var(--accent-2);
+  box-sizing: border-box;
   flex: none;
 }
 
@@ -205,7 +217,7 @@ a { color: var(--accent); }
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
 }
 .btn-primary:hover { background: var(--accent-strong); }
 
@@ -238,6 +250,9 @@ a { color: var(--accent); }
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 1em;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2);
+  display: inline-block;
 }
 
 .section-lead {

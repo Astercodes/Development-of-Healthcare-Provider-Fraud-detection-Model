@@ -1,12 +1,12 @@
 {
   "title": "Initiatives",
-  "intro": "Three published or in-progress initiatives, each addressing a fraud-detection gap that existing systems do not cover.",
+  "intro": "Three published or in progress initiatives, each addressing a fraud detection gap that existing systems do not cover.",
   "entries": [
     {
       "number": 1,
       "slug": "provider-anomaly-detection",
-      "title": "Provider-Level Claims Anomaly Detection",
-      "summary": "Scores the biller, not the bill. Identifies providers whose billing behavior deviates from peers of the same specialty, region, and patient mix — surfacing schemes that were never enumerated in a rule set.",
+      "title": "Provider Level Claims Anomaly Detection",
+      "summary": "Scores the biller, not the bill. Identifies providers whose billing behavior deviates from peers of the same specialty, region, and patient mix, surfacing schemes that were never enumerated in a rule set.",
       "audience": "For state Medicaid program integrity units, HHS OIG contractors, and Medicare Administrative Contractors.",
       "status": "available",
       "href": "initiatives/provider-anomaly-detection/index.html"
@@ -14,8 +14,8 @@
     {
       "number": 2,
       "slug": "synthetic-identity-detection",
-      "title": "Transaction and Synthetic-Identity Detection",
-      "summary": "Transaction fraud detection validated across multiple payment environments, extended to synthetic-identity detection at account origination — where every data element is individually valid and the falsehood lives in the combination.",
+      "title": "Transaction and Synthetic Identity Detection",
+      "summary": "Transaction fraud detection validated across multiple payment environments, extended to synthetic identity detection at account origination, where every data element is individually valid and the falsehood lives in the combination.",
       "audience": "For community banks, credit unions, regional lenders, and smaller origination platforms.",
       "status": "available",
       "href": "initiatives/synthetic-identity-detection/index.html"
@@ -23,7 +23,7 @@
     {
       "number": 3,
       "slug": "fraud-prevention-curricula",
-      "title": "Fraud-Prevention Curricula for Older Americans",
+      "title": "Fraud Prevention Curricula for Older Americans",
       "summary": "Each detection pattern, reversed, becomes a recognition heuristic taught to the population that pattern targets. Structured modules with a facilitator guide, built to be delivered by any trained volunteer.",
       "audience": "For AARP's Fraud Fighter Network and community organizations serving older adults.",
       "status": "available",

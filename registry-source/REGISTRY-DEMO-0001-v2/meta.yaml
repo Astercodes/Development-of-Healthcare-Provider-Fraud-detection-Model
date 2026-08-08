@@ -10,13 +10,13 @@ supersedes: REGISTRY-DEMO-0001
 description: >
   Revised version of the registry mechanism demonstration. Demonstrates that a
   revision publishes at a new identifier rather than editing the original in
-  place, and that both versions stay live and cross-linked. This is a template
-  demonstration for the registry mechanism itself — it is not a published
+  place, and that both versions stay live and cross linked. This is a template
+  demonstration for the registry mechanism itself. It is not a published
   methodology artifact from any initiative.
 files:
   - path: files/README.md
-    size: 809
-    sha256: b5b0a59dfa205ea00f9981d27eabf3c238b307b63828898fcfcb210b4413c48c
+    size: 803
+    sha256: 6ef5151ff639915da7f5f1ee43d53f355209ef888861b0681d381a030ac2938d
   - path: files/example-config.json
     size: 205
     sha256: 5b1b48c981792d7e47459caaceb612869bdcf5a6470837b0e50b902bd39bf2db

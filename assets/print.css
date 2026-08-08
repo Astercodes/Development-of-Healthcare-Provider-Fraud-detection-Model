@@ -2,7 +2,7 @@
    Print stylesheet for initiative pages.
    Goal: a clean, complete, black-on-white legal-exhibit rendering.
    Browsers print their own header/footer (title, URL, date, page
-   number) by default — this sheet adds a citation line inside the
+   number) by default, so this sheet adds a citation line inside the
    page as a fallback for environments where that is disabled.
 --------------------------------------------------------------- */
 
@@ -114,7 +114,7 @@
   .registry-table tr {
     break-inside: avoid;
   }
-  /* The Files section can contain many rows — let the table itself
+  /* The Files section can contain many rows, so let the table itself
      paginate rather than forcing the whole section onto one page. */
   #files.section {
     break-inside: auto;

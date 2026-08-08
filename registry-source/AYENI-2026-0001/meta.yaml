@@ -1,5 +1,5 @@
 identifier: AYENI-2026-0001
-title: Curriculum module 01 — Account takeover and synthetic identity
+title: Curriculum module 01: Account takeover and synthetic identity
 initiative: 3
 type: curriculum
 tier: 1
@@ -7,13 +7,13 @@ licence: CC BY 4.0
 published: 2026-08-07
 version: 1
 description: >
-  A 45-minute reusable teaching module on account takeover and synthetic
+  A 45 minute reusable teaching module on account takeover and synthetic
   identity, written to be delivered by a trained volunteer with no technical
   background. Covers how both schemes work, the specific signals for each, the
   single action to take, and where to report. Includes delivery timing, a
   specimen exercise, facilitator notes for handling disclosures, and a
   derivation table showing that each recognition cue is a direct restatement
-  of a measurement from the transaction and synthetic-identity detection work
+  of a measurement from the transaction and synthetic identity detection work
   in Initiative 2.
 files:
   - path: files/module-01-account-takeover-and-synthetic-identity.pdf

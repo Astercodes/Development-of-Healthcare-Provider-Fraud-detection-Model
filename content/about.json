@@ -1,26 +1,26 @@
 {
   "title": "About this work",
-  "standfirst": "This site publishes fraud-detection models and fraud-prevention curricula developed by Ayomide Ayeni.",
+  "standfirst": "This site publishes fraud detection models and fraud prevention curricula developed by Ayomide Ayeni.",
   "theWork": {
     "heading": "The work",
-    "intro": "Three initiatives, described in full on their own pages: provider-level anomaly detection in federal healthcare claims; transaction and synthetic-identity detection for financial institutions below the largest tier; and fraud-prevention curricula for older Americans delivered through AARP's Fraud Fighter Network.",
+    "intro": "Three initiatives, described in full on their own pages: provider level anomaly detection in federal healthcare claims; transaction and synthetic identity detection for financial institutions below the largest tier; and fraud prevention curricula for older Americans delivered through AARP's Fraud Fighter Network.",
     "access": "The methodology is published without restriction. Reference implementations are available to verified institutions at no cost."
   },
   "background": {
     "heading": "Background",
     "paragraphs": [
       "Ayomide Ayeni holds a Master of Science in Computer Science with a concentration in Cybersecurity and Privacy from Georgia State University, awarded August 2025, and a Bachelor of Technology in Computer Science from the Federal University of Technology, Akure.",
-      "Her graduate research spanned machine-learning fraud detection and cryptographic security design. Work in the first area produced validated classifiers across healthcare provider fraud, credit card transaction fraud, combined debit and credit environments, and credit-behaviour modelling. Work in the second produced a secure financial data system and, at undergraduate level, an attribute-based encryption scheme for cloud-hosted electronic health records.",
+      "Her graduate research spanned machine learning fraud detection and cryptographic security design. Work in the first area produced validated classifiers across healthcare provider fraud, credit card transaction fraud, combined debit and credit environments, and credit behaviour modelling. Work in the second produced a secure financial data system and, at undergraduate level, an attribute based encryption scheme for cloud hosted electronic health records.",
       "The healthcare provider fraud research was supervised by Dr. Zhipeng Cai, IEEE Fellow and NSF CAREER Award recipient. The cryptographic work was supervised by Dr. Wei Li."
     ]
   },
   "education": {
-    "heading": "Fraud-prevention education",
-    "body": "She has delivered fraud-prevention education to Americans through AARP's Fraud Fighter Network since May 2024. The curricula published on this site formalise that material into modules any trained volunteer can deliver."
+    "heading": "Fraud prevention education",
+    "body": "She has delivered fraud prevention education to Americans through AARP's Fraud Fighter Network since May 2024. The curricula published on this site formalise that material into modules any trained volunteer can deliver."
   },
   "whyPublished": {
     "heading": "Why this is published openly",
-    "body": "Operational fraud-detection methodology is usually proprietary and unpublished. Institutions solve the same problems separately, and the solutions stay unavailable to everyone who could not afford to solve them independently — which means capability is allocated by budget rather than by exposure. Publishing the methodology, with implementations free to any verified institution, is intended to correct that allocation."
+    "body": "Operational fraud detection methodology is usually proprietary and unpublished. Institutions solve the same problems separately, and the solutions stay unavailable to everyone who could not afford to solve them independently, which means capability is allocated by budget rather than by exposure. Publishing the methodology, with implementations free to any verified institution, is intended to correct that allocation."
   },
   "contact": {
     "heading": "Contact",

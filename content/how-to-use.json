@@ -7,14 +7,14 @@
     "entries": [
       {
         "condition": "If you are a state Medicaid program integrity unit, HHS OIG or one of its analytic contractors, a Medicare Administrative Contractor, or a Unified Program Integrity Contractor",
-        "body": "start with Provider-Level Claims Anomaly Detection. It scores providers against peers using claims data you already hold, and flags aggregate billing patterns that claim-by-claim review cannot see.",
-        "linkText": "Provider-Level Claims Anomaly Detection →",
+        "body": "start with Provider Level Claims Anomaly Detection. It scores providers against peers using claims data you already hold, and flags aggregate billing patterns that claim by claim review cannot see.",
+        "linkText": "Provider Level Claims Anomaly Detection →",
         "initiativeSlug": "provider-anomaly-detection"
       },
       {
         "condition": "If you are a community bank, credit union, regional lender, or smaller origination platform",
-        "body": "start with Transaction and Synthetic-Identity Detection. It scores transactions and applications using data you already hold, and reaches synthetic identities that pass every individual verification check because the falsehood is in the combination, not any single field.",
-        "linkText": "Transaction and Synthetic-Identity Detection →",
+        "body": "start with Transaction and Synthetic Identity Detection. It scores transactions and applications using data you already hold, and reaches synthetic identities that pass every individual verification check because the falsehood is in the combination, not any single field.",
+        "linkText": "Transaction and Synthetic Identity Detection →",
         "initiativeSlug": "synthetic-identity-detection"
       }
     ]
@@ -24,59 +24,59 @@
     "intro": "Neither method requires new data collection. Both read data in the form your institution already stores it.",
     "entries": [
       {
-        "label": "Provider-Level Claims Anomaly Detection needs",
+        "label": "Provider Level Claims Anomaly Detection needs",
         "body": "Historical claims records in the form federal and state programs already store them: provider identifiers, procedure and diagnosis codes, service dates, billed and paid amounts, place of service, and beneficiary identifiers. Every field it uses is already captured in the normal course of claims adjudication.",
         "initiativeSlug": "provider-anomaly-detection"
       },
       {
-        "label": "Transaction and Synthetic-Identity Detection needs",
-        "body": "Transaction records as your institution already holds them — amount, timestamp, merchant category, location, and account history — and, for synthetic-identity detection, credit-file and application-behavior data: credit-history depth, account-opening sequence, debt-to-income relationships, revolving-balance trajectories, and delinquency patterning.",
+        "label": "Transaction and Synthetic Identity Detection needs",
+        "body": "Transaction records as your institution already holds them, including amount, timestamp, merchant category, location, and account history, and, for synthetic identity detection, credit file and application behavior data: credit history depth, account opening sequence, debt to income relationships, revolving balance trajectories, and delinquency patterning.",
         "initiativeSlug": "synthetic-identity-detection"
       }
     ]
   },
 
   "cost": {
-    "body": "Both methods run on the general-purpose computing infrastructure your institution's IT department already operates — a standard server or analyst workstation, not a specialized cluster. There is no commercial license to buy and no vendor contract to negotiate: the code is published under an open license, and your own technical staff — commonly one or two people at a community bank or credit union, or a program integrity analyst at a state agency — run it directly against your own data.",
-    "note": "[PLACEHOLDER — specific minimum hardware and expected runtime, once benchmarked against production-scale data, if you want a precise figure stated here rather than the general claim above]"
+    "body": "Both methods run on the general purpose computing infrastructure your institution's IT department already operates, a standard server or analyst workstation, not a specialized cluster. There is no commercial license to buy and no vendor contract to negotiate: the code is published under an open license, and your own technical staff, commonly one or two people at a community bank or credit union, or a program integrity analyst at a state agency, run it directly against your own data.",
+    "note": "[PLACEHOLDER: specific minimum hardware and expected runtime, once benchmarked against production scale data, if you want a precise figure stated here rather than the general claim above]"
   },
 
   "validationSteps": [
     {
       "heading": "Assemble your historical data",
-      "body": "Pull the claims or transaction records you already have, including cases you already know were fraudulent. You are not sending this anywhere — the validation protocol runs on your own systems, against your own data."
+      "body": "Pull the claims or transaction records you already have, including cases you already know were fraudulent. You are not sending this anywhere: the validation protocol runs on your own systems, against your own data."
     },
     {
       "heading": "Run the protocol",
-      "body": "Apply the published validation procedure to that data using the reference implementation. The protocol is a fixed, written procedure, not a judgment call — the same steps every time, so the result is something you can defend, not something you tuned."
+      "body": "Apply the published validation procedure to that data using the reference implementation. The protocol is a fixed, written procedure, not a judgment call: the same steps every time, so the result is something you can defend, not something you tuned."
     },
     {
-      "heading": "Measure detection and false-positive rates",
-      "body": "On your own historical cases — how many of the known-fraudulent cases the method catches, and how many false alarms it produces. This is the number that matters, not a published figure from someone else's data."
+      "heading": "Measure detection and false positive rates",
+      "body": "On your own historical cases: how many of the known fraudulent cases the method catches, and how many false alarms it produces. This is the number that matters, not a published figure from someone else's data."
     },
     {
       "heading": "Compare against your current process",
-      "body": "Check how many of those same known cases your current screening — rule-based or manual — would actually have caught. This is the comparison that tells you whether the method adds anything."
+      "body": "Check how many of those same known cases your current screening, rule based or manual, would actually have caught. This is the comparison that tells you whether the method adds anything."
     },
     {
       "heading": "Decide",
-      "body": "Deploy it, adjust how it's configured, or set it aside. The decision is yours, made on your own evidence — not on a claim you were asked to take on faith."
+      "body": "Deploy it, adjust how it's configured, or set it aside. The decision is yours, made on your own evidence, not on a claim you were asked to take on faith."
     }
   ],
 
   "readingOutput": {
-    "body": "A flag is a provider, a transaction, or an application, together with a score, a rank relative to peers, and an itemized list of the specific measured behaviors that produced it — for example, that a provider bills the highest-intensity variant of a common procedure far above peers of the same specialty, or that an application's credit history was assembled in a pattern inconsistent with an organic identity. Every contributing measurement is documented in the feature dictionary, so a flag can be traced back to exactly what drove it.",
+    "body": "A flag is a provider, a transaction, or an application, together with a score, a rank relative to peers, and an itemized list of the specific measured behaviors that produced it. For example, that a provider bills the highest intensity variant of a common procedure far above peers of the same specialty, or that an application's credit history was assembled in a pattern inconsistent with an organic identity. Every contributing measurement is documented in the feature dictionary, so a flag can be traced back to exactly what drove it.",
     "calloutLabel": "Important",
-    "callout": "These methods score risk. They prioritize investigation; they do not determine fraud. Each flag is a starting point for a human analyst — not a conclusion — and is only as useful as the investigative or underwriting judgment applied to it afterward."
+    "callout": "These methods score risk. They prioritize investigation; they do not determine fraud. Each flag is a starting point for a human analyst, not a conclusion, and is only as useful as the investigative or underwriting judgment applied to it afterward."
   },
 
   "verification": {
-    "body": "Reference implementations are available at no cost once your institution is verified. Verification is an identity check, not an approval decision: it confirms your institution against public regulatory registries — NCUA charter numbers, FDIC certificate numbers, state agency identifiers. There is no fee, no discretion, and no institution excluded by size, budget, sector, or geography.",
+    "body": "Reference implementations are available at no cost once your institution is verified. Verification is an identity check, not an approval decision: it confirms your institution against public regulatory registries, including NCUA charter numbers, FDIC certificate numbers, and state agency identifiers. There is no fee, no discretion, and no institution excluded by size, budget, sector, or geography.",
     "linkText": "How verification works →"
   },
 
   "reportingBack": {
-    "intro": "This methodology is published, not finished. What institutions report back after running it is what turns a published method into deployment-tested methodology — findings are incorporated and republished for every future adopter. Tell us about:",
+    "intro": "This methodology is published, not finished. What institutions report back after running it is what turns a published method into deployment tested methodology: findings are incorporated and republished for every future adopter. Tell us about:",
     "items": [
       "Features that fail to compute against your data",
       "Peer groupings that don't fit your context",
@@ -87,7 +87,7 @@
 
   "contact": {
     "intro": "For technical questions about deployment.",
-    "email": "[PLACEHOLDER — contact email address]",
-    "guidance": "Include your institution's name, which initiative you're working with, and what you're seeing. No claims data, application data, or other institutional records — describe the issue in your own words; do not paste or attach records."
+    "email": "[PLACEHOLDER: contact email address]",
+    "guidance": "Include your institution's name, which initiative you're working with, and what you're seeing. No claims data, application data, or other institutional records: describe the issue in your own words; do not paste or attach records."
   }
 }

@@ -1,5 +1,5 @@
 identifier: AYENI-2026-0003
-title: Participant handout — Module 01, account takeover and synthetic identity
+title: Participant handout, Module 01: account takeover and synthetic identity
 initiative: 3
 type: guide
 tier: 1
@@ -7,10 +7,10 @@ licence: CC BY 4.0
 published: 2026-08-07
 version: 1
 description: >
-  One-page, plain-language take-home sheet for Module 01, printable at large
+  One page, plain language take home sheet for Module 01, printable at large
   type. Carries the one rule, the one setting (a credit freeze), and the
-  reporting numbers — nothing else. Includes a tear-off strip with the rule
-  and the numbers to keep by the phone.
+  reporting numbers, nothing else. Includes a tear off strip with the rule and
+  the numbers to keep by the phone.
 files:
   - path: files/handout-module-01-account-takeover-and-synthetic-identity.pdf
     size: 36043

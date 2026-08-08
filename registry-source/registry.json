@@ -1,14 +1,14 @@
 [
   {
     "identifier": "AYENI-2026-0001",
-    "title": "Curriculum module 01 — Account takeover and synthetic identity",
+    "title": "Curriculum module 01: Account takeover and synthetic identity",
     "initiative": "3",
     "type": "curriculum",
     "tier": "1",
     "licence": "CC BY 4.0",
     "published": "2026-08-07",
     "version": "1",
-    "description": "A 45-minute reusable teaching module on account takeover and synthetic identity, written to be delivered by a trained volunteer with no technical background. Covers how both schemes work, the specific signals for each, the single action to take, and where to report. Includes delivery timing, a specimen exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the transaction and synthetic-identity detection work in Initiative 2.",
+    "description": "A 45 minute reusable teaching module on account takeover and synthetic identity, written to be delivered by a trained volunteer with no technical background. Covers how both schemes work, the specific signals for each, the single action to take, and where to report. Includes delivery timing, a specimen exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the transaction and synthetic identity detection work in Initiative 2.",
     "files": [
       {
         "path": "files/module-01-account-takeover-and-synthetic-identity.pdf",
@@ -19,14 +19,14 @@
   },
   {
     "identifier": "AYENI-2026-0002",
-    "title": "Curriculum module 02 — Medicare and Medicaid billing fraud",
+    "title": "Curriculum module 02: Medicare and Medicaid billing fraud",
     "initiative": "3",
     "type": "curriculum",
     "tier": "1",
     "licence": "CC BY 4.0",
     "published": "2026-08-07",
     "version": "1",
-    "description": "A 45-minute reusable teaching module on Medicare and Medicaid billing fraud, written to be delivered by a trained volunteer with no clinical or technical background. Covers how a beneficiary's number is misused to generate false claims, the specific signals in the approach and in the paperwork afterward, the single action to take, and where to report. Includes delivery timing, a specimen Medicare Summary Notice exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the provider-level claims anomaly detection work in Initiative 1.",
+    "description": "A 45 minute reusable teaching module on Medicare and Medicaid billing fraud, written to be delivered by a trained volunteer with no clinical or technical background. Covers how a beneficiary's number is misused to generate false claims, the specific signals in the approach and in the paperwork afterward, the single action to take, and where to report. Includes delivery timing, a specimen Medicare Summary Notice exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the provider level claims anomaly detection work in Initiative 1.",
     "files": [
       {
         "path": "files/module-02-medicare-and-medicaid-billing-fraud.pdf",
@@ -37,14 +37,14 @@
   },
   {
     "identifier": "AYENI-2026-0003",
-    "title": "Participant handout — Module 01, account takeover and synthetic identity",
+    "title": "Participant handout, Module 01: account takeover and synthetic identity",
     "initiative": "3",
     "type": "guide",
     "tier": "1",
     "licence": "CC BY 4.0",
     "published": "2026-08-07",
     "version": "1",
-    "description": "One-page, plain-language take-home sheet for Module 01, printable at large type. Carries the one rule, the one setting (a credit freeze), and the reporting numbers — nothing else. Includes a tear-off strip with the rule and the numbers to keep by the phone.",
+    "description": "One page, plain language take home sheet for Module 01, printable at large type. Carries the one rule, the one setting (a credit freeze), and the reporting numbers, nothing else. Includes a tear off strip with the rule and the numbers to keep by the phone.",
     "files": [
       {
         "path": "files/handout-module-01-account-takeover-and-synthetic-identity.pdf",
@@ -55,14 +55,14 @@
   },
   {
     "identifier": "AYENI-2026-0004",
-    "title": "Participant handout — Module 02, Medicare and Medicaid billing fraud",
+    "title": "Participant handout, Module 02: Medicare and Medicaid billing fraud",
     "initiative": "3",
     "type": "guide",
     "tier": "1",
     "licence": "CC BY 4.0",
     "published": "2026-08-07",
     "version": "1",
-    "description": "One-page, plain-language take-home sheet for Module 02, printable at large type. Carries the one rule, the habit of reading the Medicare Summary Notice, and the reporting numbers — nothing else. Includes a tear-off strip with the rule and the numbers to keep by the phone.",
+    "description": "One page, plain language take home sheet for Module 02, printable at large type. Carries the one rule, the habit of reading the Medicare Summary Notice, and the reporting numbers, nothing else. Includes a tear off strip with the rule and the numbers to keep by the phone.",
     "files": [
       {
         "path": "files/handout-module-02-medicare-and-medicaid-billing-fraud.pdf",
@@ -73,14 +73,14 @@
   },
   {
     "identifier": "AYENI-2026-0005",
-    "title": "Facilitator guide, Module 01 — account takeover and synthetic identity",
+    "title": "Facilitator guide, Module 01: account takeover and synthetic identity",
     "initiative": "3",
     "type": "guide",
     "tier": "1",
     "licence": "CC BY 4.0",
     "published": "2026-08-07",
     "version": "1",
-    "description": "Everything a volunteer needs to deliver Module 01 competently: a timed delivery script broken into five-to-twelve-minute segments, a 30-minute cut version, a specimen credit-file exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room-management guidance, a list of things never to say and why, and a printable session-record form.",
+    "description": "Everything a volunteer needs to deliver Module 01 competently: a timed delivery script broken into five to twelve minute segments, a 30 minute cut version, a specimen credit file exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room management guidance, a list of things never to say and why, and a printable session record form.",
     "files": [
       {
         "path": "files/facilitator-guide-module-01-account-takeover-and-synthetic-identity.pdf",
@@ -91,14 +91,14 @@
   },
   {
     "identifier": "AYENI-2026-0006",
-    "title": "Facilitator guide, Module 02 — Medicare and Medicaid billing fraud",
+    "title": "Facilitator guide, Module 02: Medicare and Medicaid billing fraud",
     "initiative": "3",
     "type": "guide",
     "tier": "1",
     "licence": "CC BY 4.0",
     "published": "2026-08-07",
     "version": "1",
-    "description": "Everything a volunteer needs to deliver Module 02 competently: a timed delivery script broken into five-to-twelve-minute segments, a 30-minute cut version, a specimen Medicare Summary Notice / Explanation of Benefits exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room-management guidance, a list of things never to say and why, and a printable session-record form.",
+    "description": "Everything a volunteer needs to deliver Module 02 competently: a timed delivery script broken into five to twelve minute segments, a 30 minute cut version, a specimen Medicare Summary Notice / Explanation of Benefits exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room management guidance, a list of things never to say and why, and a printable session record form.",
     "files": [
       {
         "path": "files/facilitator-guide-module-02-medicare-and-medicaid-billing-fraud.pdf",
@@ -117,12 +117,12 @@
     "published": "2026-08-07",
     "version": "1",
     "supersededBy": "REGISTRY-DEMO-0001-v2",
-    "description": "Demonstrates the artifact registry's file table, SHA-256 hashing, per-file downloads, whole-deposit zip, and version-supersession banner, using real files and real computed hashes. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative, and carries no fraud-detection content. Superseded by REGISTRY-DEMO-0001-v2.",
+    "description": "Demonstrates the artifact registry's file table, SHA-256 hashing, per file downloads, whole deposit zip, and version supersession banner, using real files and real computed hashes. This is a template demonstration for the registry mechanism itself. It is not a published methodology artifact from any initiative, and carries no fraud detection content. Superseded by REGISTRY-DEMO-0001-v2.",
     "files": [
       {
         "path": "files/README.md",
-        "size": 1426,
-        "sha256": "ec51b2e2adf33e687bd3571adaaf0a25f98d3f960efd24885c3bd5198dfdfe14"
+        "size": 1414,
+        "sha256": "eb5d23ca89db2f44c1bf241c12ece7a8189e138201ea1523101e9dc89f9714a0"
       },
       {
         "path": "files/example-config.json",
@@ -141,12 +141,12 @@
     "published": "2026-08-07",
     "version": "2",
     "supersedes": "REGISTRY-DEMO-0001",
-    "description": "Revised version of the registry mechanism demonstration. Demonstrates that a revision publishes at a new identifier rather than editing the original in place, and that both versions stay live and cross-linked. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative.",
+    "description": "Revised version of the registry mechanism demonstration. Demonstrates that a revision publishes at a new identifier rather than editing the original in place, and that both versions stay live and cross linked. This is a template demonstration for the registry mechanism itself. It is not a published methodology artifact from any initiative.",
     "files": [
       {
         "path": "files/README.md",
-        "size": 809,
-        "sha256": "b5b0a59dfa205ea00f9981d27eabf3c238b307b63828898fcfcb210b4413c48c"
+        "size": 803,
+        "sha256": "6ef5151ff639915da7f5f1ee43d53f355209ef888861b0681d381a030ac2938d"
       },
       {
         "path": "files/example-config.json",
@@ -164,12 +164,12 @@
     "licence": "Available to verified institutions",
     "published": "2026-08-07",
     "version": "1",
-    "description": "Demonstrates the Tier 2 artifact page: the file table and full SHA-256 hashes still display, but the download links are replaced by a verification link, since Tier 2 artifacts are available only to verified institutions. This is a template demonstration for the registry mechanism itself — it is not a published methodology artifact from any initiative.",
+    "description": "Demonstrates the Tier 2 artifact page: the file table and full SHA-256 hashes still display, but the download links are replaced by a verification link, since Tier 2 artifacts are available only to verified institutions. This is a template demonstration for the registry mechanism itself. It is not a published methodology artifact from any initiative.",
     "files": [
       {
         "path": "files/notes.md",
-        "size": 508,
-        "sha256": "6b3c7cfd8ed7c05951549c1396a0017fb41c5164173b81c929b0999f0332d09c"
+        "size": 505,
+        "sha256": "cb5d5feac084e15c41bd2e607bcf8ba360faf84f20e44c6801c0f4ff7a407ec9"
       }
     ]
   }

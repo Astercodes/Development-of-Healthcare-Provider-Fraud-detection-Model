@@ -10,9 +10,9 @@ description: >
   Demonstrates the Tier 2 artifact page: the file table and full SHA-256
   hashes still display, but the download links are replaced by a verification
   link, since Tier 2 artifacts are available only to verified institutions.
-  This is a template demonstration for the registry mechanism itself — it is
+  This is a template demonstration for the registry mechanism itself. It is
   not a published methodology artifact from any initiative.
 files:
   - path: files/notes.md
-    size: 508
-    sha256: 6b3c7cfd8ed7c05951549c1396a0017fb41c5164173b81c929b0999f0332d09c
+    size: 505
+    sha256: cb5d5feac084e15c41bd2e607bcf8ba360faf84f20e44c6801c0f4ff7a407ec9

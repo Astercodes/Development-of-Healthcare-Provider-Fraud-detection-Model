@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Provider-Level Claims Anomaly Detection — Open Fraud-Detection Methodology</title>
-<meta name="description" content="Scores the biller, not the bill. Identifies providers whose billing behavior deviates from peers of the same specialty, region, and patient mix — surfacing schemes that were never enumerated in a rule set.">
+<title>Provider Level Claims Anomaly Detection · Open Fraud Detection Methodology</title>
+<meta name="description" content="Scores the biller, not the bill. Identifies providers whose billing behavior deviates from peers of the same specialty, region, and patient mix, surfacing schemes that were never enumerated in a rule set.">
 <link rel="stylesheet" href="../../assets/initiative.css">
 <link rel="stylesheet" href="../../assets/print.css" media="print">
 </head>
@@ -16,7 +16,7 @@
   <div class="wrap header-inner">
     <a class="brand" href="../../index.html">
       <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-name">Open Fraud-Detection Methodology</span>
+      <span class="brand-name">Open Fraud Detection Methodology</span>
     </a>
     <nav class="primary-nav" aria-label="Primary">
       <a href="../../index.html#work">Home</a>
@@ -42,7 +42,7 @@
 
 <div class="breadcrumb">
   <div class="wrap">
-    <a href="../../index.html">Home</a><span class="sep">/</span><a href="../../initiatives/index.html">Initiatives</a><span class="sep">/</span><span aria-current="page">Provider-Level Claims Anomaly Detection</span>
+    <a href="../../index.html">Home</a><span class="sep">/</span><a href="../../initiatives/index.html">Initiatives</a><span class="sep">/</span><span aria-current="page">Provider Level Claims Anomaly Detection</span>
   </div>
 </div>
 <main id="main">
@@ -50,15 +50,15 @@
 <div class="page-header">
   <div class="wrap">
     <p class="kicker">Initiative 1</p>
-    <h1>Provider-Level Claims Anomaly Detection</h1>
-    <p class="standfirst">A provider-level anomaly detection model for state Medicaid program integrity units, HHS OIG and its analytic contractors, Medicare Administrative Contractors, and Unified Program Integrity Contractors.</p>
+    <h1>Provider Level Claims Anomaly Detection</h1>
+    <p class="standfirst">A provider level anomaly detection model for state Medicaid program integrity units, HHS OIG and its analytic contractors, Medicare Administrative Contractors, and Unified Program Integrity Contractors.</p>
     <div class="status-line">
       <h2 id="status">Status</h2>
       <ul class="status-list">
-        <li><span class="label">Feature dictionary</span><span class="value">[PLACEHOLDER — publication status and date]</span></li>
-        <li><span class="label">Validation protocol</span><span class="value">[PLACEHOLDER — publication status and date]</span></li>
-        <li><span class="label">Reference implementation</span><span class="value">[PLACEHOLDER — publication status and date]</span></li>
-        <li><span class="label">Methodology paper</span><span class="value">[PLACEHOLDER — preprint / submission status and date]</span></li>
+        <li><span class="label">Feature dictionary</span><span class="value">[PLACEHOLDER: publication status and date]</span></li>
+        <li><span class="label">Validation protocol</span><span class="value">[PLACEHOLDER: publication status and date]</span></li>
+        <li><span class="label">Reference implementation</span><span class="value">[PLACEHOLDER: publication status and date]</span></li>
+        <li><span class="label">Methodology paper</span><span class="value">[PLACEHOLDER: preprint / submission status and date]</span></li>
       </ul>
     </div>
   </div>
@@ -69,15 +69,15 @@
     <h2 class="section-heading" id="the-problem-heading">The problem <a class="anchor-link" href="#the-problem" aria-label="Link to The problem section">#</a></h2>
     <div class="problem-list">
         <div class="problem-item">
-          <h3>Rule-based review cannot reach uncharacterized schemes</h3>
-          <p>This is definitional. Detection coverage bounded by rules is bounded by the enumeration of known patterns: a rule-based system detects only the fraud schemes that have already been identified and written down, and cannot detect a billing pattern no one has yet characterized. Fraud schemes adapt faster than rule sets are revised, and the gap between adaptation and revision is where loss concentrates.</p>
+          <h3>Rule based review cannot reach uncharacterized schemes</h3>
+          <p>This is definitional. Detection coverage bounded by rules is bounded by the enumeration of known patterns: a rule based system detects only the fraud schemes that have already been identified and written down, and cannot detect a billing pattern no one has yet characterized. Fraud schemes adapt faster than rule sets are revised, and the gap between adaptation and revision is where loss concentrates.</p>
         </div>
         <div class="problem-item">
-          <h3>Claim-level review misses aggregate provider behavior</h3>
-          <p>A rule evaluating one claim at a time cannot observe that a provider's overall pattern is implausible when each individual claim is defensible in isolation. This is the specific evasion strategy that sophisticated billing fraud employs, and it is invisible to claim-level logic by construction — a provider whose individual claims each appear defensible remains unflagged even when their aggregate billing behavior is a statistical outlier against peers of the same specialty, region, and patient mix.</p>
+          <h3>Claim level review misses aggregate provider behavior</h3>
+          <p>A rule evaluating one claim at a time cannot observe that a provider's overall pattern is implausible when each individual claim is defensible in isolation. This is the specific evasion strategy that sophisticated billing fraud employs, and it is invisible to claim level logic by construction: a provider whose individual claims each appear defensible remains unflagged even when their aggregate billing behavior is a statistical outlier against peers of the same specialty, region, and patient mix.</p>
         </div>
         <div class="problem-item">
-          <h3>Post-payment recovery yields less than prevention</h3>
+          <h3>Post payment recovery yields less than prevention</h3>
           <p>Money paid out and later determined improper must be recovered through administrative or judicial process against parties who may be insolvent, dissolved, or beyond reach. Detection that improves prioritization before or shortly after payment converts a recovery problem into a prevention problem, and the two have materially different yields.</p>
         </div>
     </div>
@@ -97,7 +97,7 @@
         <li>
           <div>
             <h3>Behavioral feature computation</h3>
-            <p>The model combines measurements taken directly from claims data — among them, how often a provider bills the highest-intensity variant of a common procedure, and how many patient encounters a provider logs per day relative to peers. It reads claims data in the standardized administrative formats federal and state programs already use, rather than requiring an agency to reformat its data first.</p>
+            <p>The model combines measurements taken directly from claims data, among them how often a provider bills the highest intensity variant of a common procedure, and how many patient encounters a provider logs per day relative to peers. It reads claims data in the standardized administrative formats federal and state programs already use, rather than requiring an agency to reformat its data first.</p>
           </div>
         </li>
         <li>
@@ -109,13 +109,13 @@
         <li>
           <div>
             <h3>Explanation generation</h3>
-            <p>Every measurement the model uses is documented — how it is calculated, and why it bears on fraud risk — and each score is accompanied by an itemized account of the specific measured behaviors that produced it. A fraud referral that cannot be explained cannot be defended, so a detection tool that cannot show its reasoning is not usable by a government investigator.</p>
+            <p>Every measurement the model uses is documented: how it is calculated, and why it bears on fraud risk. Each score is accompanied by an itemized account of the specific measured behaviors that produced it. A fraud referral that cannot be explained cannot be defended, so a detection tool that cannot show its reasoning is not usable by a government investigator.</p>
           </div>
         </li>
         <li>
           <div>
             <h3>Validation before deployment</h3>
-            <p>A written validation protocol lets an agency's own analysts run the model against their own historical claims — including cases already known to be fraudulent — and measure independently how many the model catches and how many false alarms it produces. An agency deploys nothing on the strength of a published accuracy figure; it verifies performance on its own data first.</p>
+            <p>A written validation protocol lets an agency's own analysts run the model against their own historical claims, including cases already known to be fraudulent, and measure independently how many the model catches and how many false alarms it produces. An agency deploys nothing on the strength of a published accuracy figure; it verifies performance on its own data first.</p>
           </div>
         </li>
     </ol>
@@ -128,16 +128,16 @@
     <div class="produces-grid">
       <div>
         <h3>What it consumes</h3>
-        <p>Historical claims records in the form federal and state programs already store them: provider identifiers, procedure and diagnosis codes, service dates, billed and paid amounts, place of service, and beneficiary identifiers. No new data collection is required — every field the model uses is already captured in the normal course of claims adjudication.</p>
+        <p>Historical claims records in the form federal and state programs already store them: provider identifiers, procedure and diagnosis codes, service dates, billed and paid amounts, place of service, and beneficiary identifiers. No new data collection is required. Every field the model uses is already captured in the normal course of claims adjudication.</p>
       </div>
       <div>
         <h3>What it emits</h3>
-        <p>For each provider: a risk score, a rank relative to peers, and an itemized account of which measured behaviors drove that score — for example, that a provider bills the highest-intensity variant of a common procedure at a rate several standard deviations above peers of the same specialty and region, while also showing an implausible number of patient encounters per day.</p>
+        <p>For each provider: a risk score, a rank relative to peers, and an itemized account of which measured behaviors drove that score. For example, that a provider bills the highest intensity variant of a common procedure at a rate several standard deviations above peers of the same specialty and region, while also showing an implausible number of patient encounters per day.</p>
       </div>
     </div>
     <aside class="callout" role="note" aria-label="Important">
       <span class="callout-label">Important</span>
-      <p>This model prioritizes investigation. It does not determine fraud. The output directs finite investigative capacity toward the providers where scrutiny is most likely to be warranted — it does not conclude that fraud occurred.</p>
+      <p>This model prioritizes investigation. It does not determine fraud. The output directs finite investigative capacity toward the providers where scrutiny is most likely to be warranted. It does not conclude that fraud occurred.</p>
     </aside>
   </div>
 </section>
@@ -145,7 +145,7 @@
 <section class="section section-alt" id="who-uses-it">
   <div class="wrap">
     <h2 class="section-heading">Who uses it <a class="anchor-link" href="#who-uses-it" aria-label="Link to Who uses it section">#</a></h2>
-    <p>Program integrity analysts and investigators with claims-data familiarity, not machine-learning specialists — which is why the feature dictionary, implementation guide, and validation protocol are treated as first-class deliverables alongside the model itself.</p>
+    <p>Program integrity analysts and investigators with claims data familiarity, not machine learning specialists, which is why the feature dictionary, implementation guide, and validation protocol are treated as first class deliverables alongside the model itself.</p>
     <ul class="audience-list"><li>State Medicaid program integrity units</li><li>HHS OIG and its analytic contractors</li><li>Medicare Administrative Contractors</li><li>Unified Program Integrity Contractors</li></ul>
   </div>
 </section>
@@ -155,7 +155,7 @@
     <h2 class="section-heading">Artifacts <a class="anchor-link" href="#artifacts" aria-label="Link to Artifacts section">#</a></h2>
     <div class="artifact-grid">
         <div class="artifact-card">
-          <span class="tier-badge tier-1">Tier 1 — public</span>
+          <span class="tier-badge tier-1">Tier 1: public</span>
           <h3>Feature dictionary</h3>
           <ul class="artifact-meta">
             <li><span class="k">Type:</span>Documentation</li>
@@ -164,7 +164,7 @@
           </ul>
         </div>
         <div class="artifact-card">
-          <span class="tier-badge tier-1">Tier 1 — public</span>
+          <span class="tier-badge tier-1">Tier 1: public</span>
           <h3>Validation protocol</h3>
           <ul class="artifact-meta">
             <li><span class="k">Type:</span>Documentation</li>
@@ -173,7 +173,7 @@
           </ul>
         </div>
         <div class="artifact-card">
-          <span class="tier-badge tier-1">Tier 1 — public</span>
+          <span class="tier-badge tier-1">Tier 1: public</span>
           <h3>Methodology paper</h3>
           <ul class="artifact-meta">
             <li><span class="k">Type:</span>Paper / preprint</li>
@@ -182,7 +182,7 @@
           </ul>
         </div>
         <div class="artifact-card">
-          <span class="tier-badge tier-2">Tier 2 — verified institutions</span>
+          <span class="tier-badge tier-2">Tier 2: verified institutions</span>
           <h3>Reference implementation</h3>
           <ul class="artifact-meta">
             <li><span class="k">Type:</span>Code</li>
@@ -191,7 +191,7 @@
           </ul>
         </div>
     </div>
-    <p class="tier2-note">Tier 2 artifacts are reference implementations, available at no cost after institutional identity verification. Tier 1 artifacts — documentation, protocols, and papers — are open to anyone without registration.</p>
+    <p class="tier2-note">Tier 2 artifacts are reference implementations, available at no cost after institutional identity verification. Tier 1 artifacts, including documentation, protocols, and papers, are open to anyone without registration.</p>
   </div>
 </section>
 

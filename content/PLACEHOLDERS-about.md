@@ -13,10 +13,10 @@ what you typed in the brief rather than silently "correcting" it to the on-file 
 can't tell from here which one is the typo. If `ayeniayomide5@gmail.com` isn't the address you
 want live on the site, say the word and I'll swap it — it's one line in `content/about.json`.
 
-## Two pre-existing dead anchors on the home page, out of scope for this page
+## Update: the two dead anchors flagged above are now fixed
 
-While fixing the `#curricula` and `#about` footer links (same bug class as earlier
-pages — a hand-authored anchor pointing nowhere until the real page existed), I noticed the home
-page's hero and "Access" section both link to `#verification` / `#verify`, and neither id exists
-anywhere in `index.html`. That predates this page and wasn't part of the `/about` brief, so I
-left it alone rather than scope-creeping a fix in — flagging it here in case it's next.
+The `#verify` and `#verification` dead anchors this note originally flagged as out of scope were
+fixed in the follow-up pass that removed dashes and audited every link site-wide. "Verify your
+institution" now points at `about/index.html#contact` (the only real, functional path to start
+verification today, since no dedicated verification flow exists yet), and "How verification
+works" points at the home page's own `#access` section, which already explains it in prose.

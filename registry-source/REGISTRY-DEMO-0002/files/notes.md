@@ -6,6 +6,6 @@ template correctly omitting the rendered-README section when an
 artifact has none.
 
 Because this entry is Tier 2, this file is never copied into the
-public site output and has no download link anywhere — only its path,
+public site output and has no download link anywhere. Only its path,
 size, and SHA-256 are shown, exactly as they would be for a real Tier 2
 artifact once one exists.
