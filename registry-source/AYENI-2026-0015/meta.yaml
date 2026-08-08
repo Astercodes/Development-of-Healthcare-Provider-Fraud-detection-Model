@@ -1,0 +1,21 @@
+identifier: AYENI-2026-0015
+title: Reference implementation, provider level claims anomaly detection
+initiative: 1
+type: implementation
+tier: 2
+licence: Available to verified institutions
+published: 2026-08-08
+version: 1
+description: >
+  The working code behind the healthcare provider fraud detection methodology
+  paper: a single end to end notebook covering exploratory analysis of the
+  beneficiary data, feature engineering including the derived Age and Alive
+  fields and the chronic condition indicators, construction of the discharge
+  and admission fields from the inpatient and outpatient claims, merging
+  beneficiary, claims, and provider level fraud labels into one training set,
+  and training and evaluating three classifiers, Random Forest, Support Vector
+  Machine, and K Nearest Neighbors.
+files:
+  - path: files/healthcare-provider-fraud.ipynb
+    size: 2175881
+    sha256: 24734460939fa31228ae2659022b149d37c4875ea5ce52fb72fb23bee7f72be2

@@ -9,7 +9,7 @@
   "status": [
     { "label": "Feature dictionary", "value": "Published 2026-08-08" },
     { "label": "Validation protocol", "value": "Published 2026-08-08" },
-    { "label": "Reference implementation", "value": "[PLACEHOLDER: publication status and date]" },
+    { "label": "Reference implementation", "value": "Published 2026-08-08" },
     { "label": "Methodology paper", "value": "Published 2026-08-08" }
   ],
   "problem": [
@@ -95,8 +95,8 @@
       "type": "Code",
       "tier": 2,
       "tierLabel": "Tier 2: verified institutions",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-08",
+      "link": "../../registry/AYENI-2026-0015/index.html"
     }
   ]
 }

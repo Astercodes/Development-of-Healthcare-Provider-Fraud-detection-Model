@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>AYENI-2026-0014 · Reference implementation, transaction fraud detection · Ayomide Ayeni</title>
-<meta name="description" content="The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.">
+<meta name="description" content="The working code behind the transaction fraud detection methodology paper: the shared DataPreProcessing notebook (column selection, categorical encoding, the train test split, and feature scaling) that every classifier notebook imports from, an exploratory data analysis notebook, and all four trained classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. Random Forest is the paper's recommended model for deployment.">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ayomide Ayeni">
 <meta property="og:title" content="AYENI-2026-0014 · Reference implementation, transaction fraud detection">
-<meta property="og:description" content="The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.">
+<meta property="og:description" content="The working code behind the transaction fraud detection methodology paper: the shared DataPreProcessing notebook (column selection, categorical encoding, the train test split, and feature scaling) that every classifier notebook imports from, an exploratory data analysis notebook, and all four trained classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. Random Forest is the paper's recommended model for deployment.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AYENI-2026-0014 · Reference implementation, transaction fraud detection">
-<meta name="twitter:description" content="The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.">
+<meta name="twitter:description" content="The working code behind the transaction fraud detection methodology paper: the shared DataPreProcessing notebook (column selection, categorical encoding, the train test split, and feature scaling) that every classifier notebook imports from, an exploratory data analysis notebook, and all four trained classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. Random Forest is the paper's recommended model for deployment.">
 <link rel="stylesheet" href="../../assets/initiative.css">
 <link rel="stylesheet" href="../../assets/print.css" media="print">
 </head>
@@ -75,7 +75,7 @@
 <section class="section" id="description">
   <div class="wrap">
     <h2 class="section-heading">Description <a class="anchor-link" href="#description" aria-label="Link to Description section">#</a></h2>
-    <p>The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.</p>
+    <p>The working code behind the transaction fraud detection methodology paper: the shared DataPreProcessing notebook (column selection, categorical encoding, the train test split, and feature scaling) that every classifier notebook imports from, an exploratory data analysis notebook, and all four trained classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. Random Forest is the paper's recommended model for deployment.</p>
   </div>
 </section>
 
@@ -87,6 +87,11 @@
     <table class="registry-table hash-table">
       <thead><tr><th>Path</th><th>Size</th><th>SHA-256</th></tr></thead>
       <tbody>
+        <tr>
+          <td><code>files/data-pre-processing.ipynb</code></td>
+          <td>15,543 bytes</td>
+          <td class="hash-cell"><code>ad77aabc9e117229544ac5645c4e54d0a39eb86d403f5ba1c0eccbcf3028b74a</code></td>
+        </tr>
         <tr>
           <td><code>files/data-visualization.ipynb</code></td>
           <td>3,769,898 bytes</td>
@@ -106,6 +111,11 @@
           <td><code>files/logistic-regression.ipynb</code></td>
           <td>103,598 bytes</td>
           <td class="hash-cell"><code>9074d7fd19b670c2181db91aa7cd90bb72eb8b502dc1a1616d85622c676e24f2</code></td>
+        </tr>
+        <tr>
+          <td><code>files/random-forest.ipynb</code></td>
+          <td>92,055 bytes</td>
+          <td class="hash-cell"><code>30a70244a638af1a5f6e340767e49da03a358a8dff5bf0df425fc9a895fae4d7</code></td>
         </tr>
       </tbody>
     </table>

@@ -134,8 +134,13 @@
     "licence": "Available to verified institutions",
     "published": "2026-08-08",
     "version": "1",
-    "description": "The working code behind the transaction fraud detection methodology paper: four Jupyter notebooks covering exploratory data analysis and three of the four trained classifiers, Decision Tree, K Nearest Neighbors, and Logistic Regression, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. This deposit is not yet complete. The Random Forest notebook, the paper's recommended model for deployment, and the shared DataPreProcessing notebook that all three classifier notebooks import from, are not yet included and will be added to bring this to a runnable state.",
+    "description": "The working code behind the transaction fraud detection methodology paper: the shared DataPreProcessing notebook (column selection, categorical encoding, the train test split, and feature scaling) that every classifier notebook imports from, an exploratory data analysis notebook, and all four trained classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. Random Forest is the paper's recommended model for deployment.",
     "files": [
+      {
+        "path": "files/data-pre-processing.ipynb",
+        "size": 15543,
+        "sha256": "ad77aabc9e117229544ac5645c4e54d0a39eb86d403f5ba1c0eccbcf3028b74a"
+      },
       {
         "path": "files/data-visualization.ipynb",
         "size": 3769898,
@@ -155,6 +160,29 @@
         "path": "files/logistic-regression.ipynb",
         "size": 103598,
         "sha256": "9074d7fd19b670c2181db91aa7cd90bb72eb8b502dc1a1616d85622c676e24f2"
+      },
+      {
+        "path": "files/random-forest.ipynb",
+        "size": 92055,
+        "sha256": "30a70244a638af1a5f6e340767e49da03a358a8dff5bf0df425fc9a895fae4d7"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0015",
+    "title": "Reference implementation, provider level claims anomaly detection",
+    "initiative": "1",
+    "type": "implementation",
+    "tier": "2",
+    "licence": "Available to verified institutions",
+    "published": "2026-08-08",
+    "version": "1",
+    "description": "The working code behind the healthcare provider fraud detection methodology paper: a single end to end notebook covering exploratory analysis of the beneficiary data, feature engineering including the derived Age and Alive fields and the chronic condition indicators, construction of the discharge and admission fields from the inpatient and outpatient claims, merging beneficiary, claims, and provider level fraud labels into one training set, and training and evaluating three classifiers, Random Forest, Support Vector Machine, and K Nearest Neighbors.",
+    "files": [
+      {
+        "path": "files/healthcare-provider-fraud.ipynb",
+        "size": 2175881,
+        "sha256": "24734460939fa31228ae2659022b149d37c4875ea5ce52fb72fb23bee7f72be2"
       }
     ]
   },
