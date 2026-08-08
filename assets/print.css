@@ -25,7 +25,8 @@
   .breadcrumb,
   .skip-link,
   .nav-disclosure,
-  .primary-nav {
+  .primary-nav,
+  .about-hero {
     display: none !important;
   }
 

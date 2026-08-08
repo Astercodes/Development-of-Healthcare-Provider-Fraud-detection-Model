@@ -1,6 +1,12 @@
 {
   "title": "About this work",
   "standfirst": "This site publishes fraud detection models and fraud prevention curricula developed by Ayomide Ayeni.",
+  "heroImage": {
+    "filename": "ayomide-ayeni-portrait.jpg",
+    "alt": "Portrait of Ayomide Ayeni",
+    "width": 704,
+    "height": 1019
+  },
   "theWork": {
     "heading": "The work",
     "intro": "Three initiatives, described in full on their own pages: provider level anomaly detection in federal healthcare claims; transaction and synthetic identity detection for financial institutions below the largest tier; and fraud prevention curricula for older Americans delivered through AARP's Fraud Fighter Network.",

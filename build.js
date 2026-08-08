@@ -186,8 +186,17 @@ function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath, e
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>${esc(title)} · ${SITE_NAME}</title>
 <meta name="description" content="${esc(description)}">
+<link rel="icon" href="${assetPrefix}/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${esc(SITE_NAME)}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(description)}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
 <link rel="stylesheet" href="${assetPrefix}/assets/initiative.css">
 <link rel="stylesheet" href="${assetPrefix}/assets/print.css" media="print">${extraLink}${extraPrintLink}
 </head>
@@ -578,9 +587,6 @@ function renderHowToUsePage(content, assetPrefix) {
   </div>
 </section>`;
 
-  const mailHref = content.contact.email.startsWith("[")
-    ? "#contact"
-    : `mailto:${content.contact.email}`;
   const emailDisplay = content.contact.email.startsWith("[")
     ? content.contact.email
     : `<a href="mailto:${esc(content.contact.email)}">${esc(content.contact.email)}</a>`;
@@ -744,6 +750,13 @@ function renderAboutPage(content, assetPrefix) {
   </div>
 </div>`;
 
+  const hero = content.heroImage
+    ? `
+<div class="about-hero">
+  <img src="${assetPrefix}/assets/images/${esc(content.heroImage.filename)}" alt="${esc(content.heroImage.alt)}" width="${esc(content.heroImage.width)}" height="${esc(content.heroImage.height)}">
+</div>`
+    : "";
+
   const pageHeader = `
 <div class="page-header">
   <div class="wrap">
@@ -802,6 +815,7 @@ function renderAboutPage(content, assetPrefix) {
 ${siteHeader(assetPrefix)}
 ${breadcrumb}
 <main id="main">
+${hero}
 ${pageHeader}
 ${sectionWork}
 ${sectionBackground}

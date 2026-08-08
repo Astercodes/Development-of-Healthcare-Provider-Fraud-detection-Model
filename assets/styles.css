@@ -70,6 +70,10 @@ p { margin: 0 0 1.1em; color: var(--ink-soft); }
 p:last-child { margin-bottom: 0; }
 
 a { color: var(--accent); }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
 .sr-only {
   position: absolute;
@@ -152,24 +156,37 @@ a { color: var(--accent); }
 }
 .primary-nav a:hover { color: var(--accent); }
 
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  background: none;
+/* Mobile nav: <details>/<summary> disclosure, works with no JS */
+.nav-disclosure { display: none; }
+.nav-disclosure summary {
+  list-style: none;
+  cursor: pointer;
   border: 1px solid var(--line);
   border-radius: 6px;
-  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--ink);
 }
-.nav-toggle span {
+.nav-disclosure summary::-webkit-details-marker { display: none; }
+.nav-disclosure[open] summary { border-color: var(--accent); }
+.nav-disclosure .mobile-nav-panel {
+  position: fixed;
+  left: 0; right: 0;
+  top: 64px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 24px 16px;
+  z-index: 60;
+}
+.nav-disclosure .mobile-nav-panel a {
   display: block;
-  height: 2px;
-  margin: 0 8px;
-  background: var(--ink);
+  padding: 10px 0;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
 }
+.nav-disclosure .mobile-nav-panel a:last-child { border-bottom: 0; }
 
 /* ---------- Hero ---------- */
 
@@ -358,21 +375,8 @@ a { color: var(--accent); }
 /* ---------- Responsive ---------- */
 
 @media (max-width: 760px) {
-  .nav-toggle { display: flex; }
-
-  .primary-nav {
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    padding: 12px 24px 20px;
-    gap: 14px;
-    display: none;
-  }
-  .primary-nav.open { display: flex; }
+  .primary-nav { display: none; }
+  .nav-disclosure { display: block; position: relative; }
 
   .hero { padding: 56px 0 48px; }
   .section { padding: 48px 0; }

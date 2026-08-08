@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>Open Fraud Detection Methodology</title>
 <meta name="description" content="Published methods, documented feature construction, and validation protocols for provider level anomaly detection in federal healthcare claims and synthetic identity detection in consumer lending. Free, verifiable, and available to any qualifying institution.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Open Fraud Detection Methodology">
+<meta property="og:title" content="Open Fraud Detection Methodology">
+<meta property="og:description" content="Published methods, documented feature construction, and validation protocols for provider level anomaly detection in federal healthcare claims and synthetic identity detection in consumer lending. Free, verifiable, and available to any qualifying institution.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Open Fraud Detection Methodology">
+<meta name="twitter:description" content="Published methods, documented feature construction, and validation protocols for provider level anomaly detection in federal healthcare claims and synthetic identity detection in consumer lending.">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -17,16 +26,21 @@
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-name">Open Fraud Detection Methodology</span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
-      <span></span><span></span><span></span>
-      <span class="sr-only">Menu</span>
-    </button>
-    <nav class="primary-nav" id="primaryNav">
+    <nav class="primary-nav" aria-label="Primary">
       <a href="#work">Initiatives</a>
       <a href="registry/index.html">Registry</a>
       <a href="how-to-use/index.html">How to use this</a>
       <a href="#access">Verify your institution</a>
     </nav>
+    <details class="nav-disclosure">
+      <summary aria-label="Open menu">Menu</summary>
+      <nav class="mobile-nav-panel" aria-label="Primary, mobile">
+        <a href="#work">Initiatives</a>
+        <a href="registry/index.html">Registry</a>
+        <a href="how-to-use/index.html">How to use this</a>
+        <a href="#access">Verify your institution</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -252,6 +266,5 @@
   </div>
 </footer>
 
-<script src="assets/main.js"></script>
 </body>
 </html>

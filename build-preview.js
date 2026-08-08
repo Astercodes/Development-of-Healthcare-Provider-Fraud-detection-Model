@@ -37,6 +37,24 @@ function inlineAssets(htmlPath) {
     }
   );
 
+  // Inline <img> sources as data URIs too: this file is a standalone
+  // artifact hosted at a different origin from the real site, so a
+  // relative image path that resolves fine on the deployed site would
+  // otherwise render broken here.
+  const IMAGE_MIME = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml", ".webp": "image/webp" };
+  html = html.replace(
+    /<img ([^>]*?)src="([^"]+)"/g,
+    (match, attrsBefore, src) => {
+      if (/^(https?:)?\/\/|^data:/.test(src)) return match;
+      const ext = path.extname(src).toLowerCase();
+      const mime = IMAGE_MIME[ext];
+      if (!mime) return match;
+      const imgPath = path.join(dir, src);
+      const data = fs.readFileSync(imgPath).toString("base64");
+      return `<img ${attrsBefore}src="data:${mime};base64,${data}"`;
+    }
+  );
+
   return html;
 }
 
