@@ -38,7 +38,7 @@
 
   "cost": {
     "body": "Both methods run on the general purpose computing infrastructure your institution's IT department already operates, a standard server or analyst workstation, not a specialized cluster. There is no commercial license to buy and no vendor contract to negotiate: the code is published under an open license, and your own technical staff, commonly one or two people at a community bank or credit union, or a program integrity analyst at a state agency, run it directly against your own data.",
-    "note": "[PLACEHOLDER: specific minimum hardware and expected runtime, once benchmarked against production scale data, if you want a precise figure stated here rather than the general claim above]"
+    "note": "Both reference implementations use standard ensemble tree based models (scikit-learn Random Forest, entropy criterion, 100 estimators) rather than deep learning architectures, and are trainable and executable on conventional commodity hardware without GPU acceleration or a compute cluster. Precise runtime and hardware benchmarks against production scale data will be published alongside the implementation guide as institutions begin validation."
   },
 
   "validationSteps": [
@@ -87,7 +87,7 @@
 
   "contact": {
     "intro": "For technical questions about deployment.",
-    "email": "[PLACEHOLDER: contact email address]",
+    "email": "ayeniayomide5@gmail.com",
     "guidance": "Include your institution's name, which initiative you're working with, and what you're seeing. No claims data, application data, or other institutional records: describe the issue in your own words; do not paste or attach records."
   }
 }

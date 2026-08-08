@@ -43,11 +43,9 @@ form code). Submit one real test entry through the live, deployed page yourself 
 lands in the Formspree dashboard/inbox for `xwlevryj` before telling institutions the form is
 live.
 
-## "[X business days]" is a literal placeholder from your own copy
+## Resolved: verification turnaround
 
-"Most requests are verified within [X business days]" is carried through verbatim in
-`whatHappensNext.paragraphs`. Replace `[X business days]` with a real number once you know your
-actual turnaround.
+"Most requests are verified within 3 to 7 business days" — set per your instruction.
 
 ## Your side of verification is still manual, by design
 

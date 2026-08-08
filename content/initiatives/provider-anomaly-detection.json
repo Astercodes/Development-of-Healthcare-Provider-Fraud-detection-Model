@@ -10,7 +10,7 @@
     { "label": "Feature dictionary", "value": "Published 2026-08-08" },
     { "label": "Validation protocol", "value": "Published 2026-08-08" },
     { "label": "Reference implementation", "value": "[PLACEHOLDER: publication status and date]" },
-    { "label": "Methodology paper", "value": "[PLACEHOLDER: preprint / submission status and date]" }
+    { "label": "Methodology paper", "value": "Published 2026-08-08" }
   ],
   "problem": [
     {
@@ -87,8 +87,8 @@
       "type": "Paper / preprint",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "[PLACEHOLDER]",
-      "link": "[PLACEHOLDER: registry entry URL]"
+      "date": "2026-08-08",
+      "link": "../../registry/AYENI-2026-0012/index.html"
     },
     {
       "title": "Reference implementation",

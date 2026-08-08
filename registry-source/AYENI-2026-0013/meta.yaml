@@ -1,0 +1,24 @@
+identifier: AYENI-2026-0013
+title: Full Financial (Credit and Debit Card) Fraud Detection Using Machine Learning Classifiers
+initiative: 2
+type: methodology
+tier: 1
+licence: CC BY 4.0
+published: 2026-08-08
+version: 1
+description: >
+  The methodology paper behind the transaction fraud detection half of this
+  initiative: a comparative study of four supervised classifiers, Decision
+  Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, on a 6.36
+  million record synthetic mobile money transactions dataset at a fraud
+  prevalence of 0.0536 percent. Decision Tree and Random Forest tie for the
+  best ROC AUC at 0.84, and Random Forest achieves the strongest balance of
+  precision and recall for the fraud class, an F1 score of 0.74, with the best
+  calibrated probability estimates of the four. Fraudulent transactions occur
+  exclusively in the transfer and cash out categories, never in payment,
+  debit, or cash in, which the companion feature engineering specification
+  carries forward as a structural signal.
+files:
+  - path: files/full-financial-credit-debit-card-fraud-detection.pdf
+    size: 289954
+    sha256: cad35307e29c9689b76ab8a889e1b6d275792ce1f01273e71239f2e50d92cf64

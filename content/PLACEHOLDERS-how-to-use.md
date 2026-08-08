@@ -1,11 +1,11 @@
 # Placeholders and decisions — "How to Use This" page
 
-## Placeholders
+## Placeholders — resolved
 
-| Location | Value needed |
+| Location | Resolution |
 |---|---|
-| "What it costs to run" note | Specific minimum hardware and expected runtime, if you want a precise benchmark stated instead of the general "ordinary infrastructure, no cluster, no license" claim. Nothing in the source document gives institution-side runtime figures (it describes the author's own training-time compute, not an adopter's inference cost), so a number here would be invented — left as `[PLACEHOLDER]`. |
-| Contact email | `[PLACEHOLDER — contact email address]`. No public program contact address exists anywhere in the source. |
+| "What it costs to run" note | Replaced with your real text: both reference implementations are scikit-learn Random Forest (entropy criterion, 100 estimators), run on ordinary commodity hardware with no GPU or cluster, with precise runtime/hardware benchmarks to follow the implementation guide once institutions begin validation. |
+| Contact email | `ayeniayomide5@gmail.com`, confirmed as the correct address (no zero) — matches the About page. |
 
 ## A deliberate scope decision: no contact form
 
@@ -20,15 +20,12 @@ isn't would be worse than a mailto link — it implies a working submission path
 exist. If you get real backend infrastructure later, converting the mailto link to a proper form
 is a small, contained change.
 
-## "Getting the implementation" links to the home page's Access section, not a dedicated flow
+## Resolved: "Getting the implementation" now links to a real verification flow
 
-The brief says "how verification works... link through." There is no dedicated verification page
-or flow — that's one of the still-unbuilt items flagged after the last round (the home page's own
-"Verify your institution" button points at a `#verify` anchor that doesn't exist). Rather than
-invent a fake verification flow, this page's "How verification works" button links to the home
-page's real `#access` section, which already describes the verification concept in the site's
-published voice. If you want an actual verification start page (with the identity-check mechanism
-made concrete), that's a good candidate for what to build next.
+This section originally noted that no dedicated verification page existed, so the "How
+verification works" button pointed at the home page's Access section instead. That's since been
+built: `/access/` (a real form) and `/access/how-it-works/` now exist, and this page's button
+points at the real `/access/how-it-works/` page.
 
 ## Every "How to use this" link site-wide now points here
 
