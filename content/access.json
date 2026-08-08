@@ -1,0 +1,89 @@
+{
+  "verify": {
+    "title": "Verify your institution",
+    "standfirst": "Reference implementations are available at no cost to any verified institution. Verification confirms that you are a genuine institution of the kind these methods are built for. It is not an approval decision, and no institution is excluded by size, budget, sector, or geography.",
+
+    "requirements": {
+      "heading": "What you'll need",
+      "items": [
+        "Your institution's regulatory identifier (NCUA charter number, FDIC certificate number, or equivalent, see below)",
+        "A work email address at your institution's own domain",
+        "A named contact"
+      ]
+    },
+
+    "form": {
+      "heading": "The form",
+      "action": "https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID",
+      "institutionTypes": [
+        "State Medicaid integrity unit",
+        "HHS OIG contractor",
+        "Medicare Administrative Contractor",
+        "Credit union",
+        "Community bank",
+        "Regional lender",
+        "Fintech originator",
+        "Other"
+      ],
+      "stages": ["Evaluating", "Validating", "Piloting", "Deployed"],
+      "conditionalNotes": {
+        "creditUnion": "If credit union: NCUA charter number",
+        "bank": "If bank: FDIC certificate number",
+        "government": "If government unit: confirmed via your .gov email domain, no additional ID needed",
+        "other": "If other: briefly describe your institution and its regulatory identifier, if any"
+      }
+    },
+
+    "whatHappensNext": {
+      "heading": "What happens next",
+      "paragraphs": [
+        "Your submission is checked against public regulatory records. Most requests are verified within [X business days]. You'll receive access by email once confirmed. No further steps required on your end.",
+        "If your institution doesn't have a charter or certificate number that maps cleanly to these categories, this is common for smaller state units, say so in the form. We'll verify by another means rather than turn you away."
+      ],
+      "dataWarning": "We do not accept, and you should never send us, any claims data, credit records, protected health information, or other production data. Verification concerns your institution's identity only."
+    }
+  },
+
+  "howItWorks": {
+    "title": "How verification works",
+    "standfirst": "The short version: we confirm you're a real institution. We don't decide whether you deserve access.",
+
+    "whyGate": {
+      "heading": "Why there's a gate at all",
+      "body": "The methodology behind every method here is published without restriction: read it, adapt it, build your own implementation from it, no verification required. The working reference implementations are verified access only, for one reason: detection logic that's freely downloadable by anyone is detection logic that fraud operators can read and route around. Publishing the method while verifying who receives the running code is standard practice for security tooling."
+    },
+
+    "whatItChecks": {
+      "heading": "What verification checks",
+      "intro": "Only that your institution is what it says it is.",
+      "items": [
+        "Credit unions: your NCUA charter number, checked against NCUA's public registry",
+        "Banks: your FDIC certificate number, checked against FDIC's public database",
+        "Government units: a .gov or .us email domain, or your agency's public listing",
+        "Other lenders: an NMLS ID, state charter, or equivalent"
+      ]
+    },
+
+    "whatItDoesNotCheck": {
+      "heading": "What verification does not check",
+      "body": "Your size, your budget, your technical capacity, or your intended use, beyond the stage you report. There is no minimum institution size and no application review. If you are a genuine institution of the kind these methods are built for, you qualify."
+    },
+
+    "dontFitNeatly": {
+      "heading": "What if I don't fit neatly into these categories?",
+      "body": "Say so on the form. Some state agencies and smaller entities don't map cleanly onto a public database, and we'd rather verify by another route than turn away the institutions this work is meant to reach."
+    },
+
+    "neverAsk": {
+      "heading": "What we never ask for",
+      "body": "Claims data. Credit records. Protected health information. Member or patient identifiers. Any production data of any kind. Verification is about your institution's identity, never about your data."
+    },
+
+    "afterVerification": {
+      "heading": "After verification",
+      "body": "You'll have access to the relevant implementations, and to a private area where you can report issues, log validation results, and receive update notices. Everything you find when testing against your own data, where a feature doesn't compute cleanly, where a peer grouping doesn't fit, where flag volume runs high, feeds back into the published methodology. That's the whole point of verifying institutions individually rather than posting the code for anyone: we can hear from the people actually running it."
+    },
+
+    "cta": "Verify your institution →"
+  }
+}

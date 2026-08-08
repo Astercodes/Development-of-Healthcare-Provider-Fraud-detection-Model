@@ -1,0 +1,15 @@
+/* ---------------------------------------------------------------
+   Print overrides for the verification pages.
+   print.css's universal reset already forces black-on-white for
+   every element, including form fields. The only thing specific to
+   this page: a submit button is meaningless on paper.
+--------------------------------------------------------------- */
+
+@media print {
+  body.access-page .access-form button[type="submit"] {
+    display: none !important;
+  }
+  body.access-page .required-note {
+    display: none !important;
+  }
+}

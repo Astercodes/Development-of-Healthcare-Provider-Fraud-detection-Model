@@ -74,6 +74,12 @@ function curriculaHref(assetPrefix, hash) {
 function aboutHref(assetPrefix, hash) {
   return `${assetPrefix}/about/index.html${hash ? "#" + hash : ""}`;
 }
+function accessHref(assetPrefix, hash) {
+  return `${assetPrefix}/access/index.html${hash ? "#" + hash : ""}`;
+}
+function howVerificationWorksHref(assetPrefix, hash) {
+  return `${assetPrefix}/access/how-it-works/index.html${hash ? "#" + hash : ""}`;
+}
 function registryFileHref(assetPrefix, identifier, filename) {
   return `${assetPrefix}/registry/${identifier}/files/${filename}`;
 }
@@ -138,7 +144,7 @@ function siteHeader(assetPrefix) {
       <a href="${registryIndexHref(assetPrefix)}">Registry</a>
       <a href="${curriculaHref(assetPrefix)}">Curricula</a>
       <a href="${howToUseHref(assetPrefix)}">How to use this</a>
-      <a href="${home("access")}">Verify your institution</a>
+      <a href="${accessHref(assetPrefix)}">Verify your institution</a>
     </nav>
     <details class="nav-disclosure">
       <summary aria-label="Open menu">Menu</summary>
@@ -148,7 +154,7 @@ function siteHeader(assetPrefix) {
         <a href="${registryIndexHref(assetPrefix)}">Registry</a>
         <a href="${curriculaHref(assetPrefix)}">Curricula</a>
         <a href="${howToUseHref(assetPrefix)}">How to use this</a>
-        <a href="${home("access")}">Verify your institution</a>
+        <a href="${accessHref(assetPrefix)}">Verify your institution</a>
       </nav>
     </details>
   </div>
@@ -174,7 +180,7 @@ function siteFooter(assetPrefix) {
 </footer>`;
 }
 
-function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath, extraStylesheet, bodyClass }) {
+function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath, extraStylesheet, bodyClass, formAction }) {
   const extraLink = extraStylesheet
     ? `\n<link rel="stylesheet" href="${assetPrefix}/assets/${extraStylesheet}">`
     : "";
@@ -186,7 +192,7 @@ function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath, e
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action ${formAction || "'none'"}">
 <title>${esc(title)} · ${SITE_NAME}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="icon" href="${assetPrefix}/assets/favicon.svg" type="image/svg+xml">
@@ -370,7 +376,7 @@ function renderInitiativePage(content, assetPrefix) {
     <h2 class="section-heading">${esc(headings.nextSteps)} <a class="anchor-link" href="#next-steps" aria-label="Link to ${esc(headings.nextSteps)} section">#</a></h2>
     <div class="cta-row">
       <a class="btn btn-primary" href="${howToUseHref(assetPrefix)}">How to use this</a>
-      <a class="btn btn-secondary" href="${homeHref(assetPrefix, "access")}">Verify your institution</a>
+      <a class="btn btn-secondary" href="${accessHref(assetPrefix)}">Verify your institution</a>
     </div>
   </div>
 </section>`;
@@ -572,7 +578,7 @@ function renderHowToUsePage(content, assetPrefix) {
     <h2 class="section-heading">Getting the implementation <a class="anchor-link" href="#getting-the-implementation" aria-label="Link to Getting the implementation section">#</a></h2>
     <p>${esc(content.verification.body)}</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="${homeHref(assetPrefix, "access")}">${esc(content.verification.linkText)}</a>
+      <a class="btn btn-primary" href="${howVerificationWorksHref(assetPrefix)}">${esc(content.verification.linkText)}</a>
     </div>
   </div>
 </section>`;
@@ -835,6 +841,228 @@ ${siteFooter(assetPrefix)}`;
 }
 
 // ---------------------------------------------------------------
+// Institution verification: form page and "how it works" page
+// ---------------------------------------------------------------
+
+function renderAccessFormPage(content, assetPrefix) {
+  const breadcrumb = `
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
+  </div>
+</div>`;
+
+  const pageHeader = `
+<div class="page-header">
+  <div class="wrap">
+    <h1>${esc(content.title)}</h1>
+    <p class="standfirst">${esc(content.standfirst)}</p>
+    <p class="access-subnote"><a href="${howVerificationWorksHref(assetPrefix)}">How verification works →</a></p>
+  </div>
+</div>`;
+
+  const requirementItems = content.requirements.items.map((i) => `<li>${esc(i)}</li>`).join("");
+  const sectionRequirements = `
+<section class="section" id="what-youll-need">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.requirements.heading)} <a class="anchor-link" href="#what-youll-need" aria-label="Link to ${esc(content.requirements.heading)} section">#</a></h2>
+    <ul class="audience-list">${requirementItems}</ul>
+  </div>
+</section>`;
+
+  const f = content.form;
+  const institutionTypeOptions = f.institutionTypes
+    .map((t) => `<option value="${esc(t)}">${esc(t)}</option>`)
+    .join("");
+  const stageOptions = f.stages.map((s) => `<option value="${esc(s)}">${esc(s)}</option>`).join("");
+  const notes = f.conditionalNotes;
+
+  const sectionForm = `
+<section class="section section-alt" id="the-form">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(f.heading)} <a class="anchor-link" href="#the-form" aria-label="Link to ${esc(f.heading)} section">#</a></h2>
+    <form class="access-form" method="POST" action="${esc(f.action)}">
+      <p class="required-note">Fields marked <span class="required" aria-hidden="true">*</span> are required.</p>
+      <input type="hidden" name="_subject" value="Institution verification request">
+      <label class="honeypot" aria-hidden="true">
+        Leave this field blank
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+      </label>
+
+      <fieldset>
+        <legend>Institution</legend>
+        <div class="form-field">
+          <label for="institution_name">Institution legal name <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="institution_name" name="institution_name" required autocomplete="organization">
+        </div>
+        <div class="form-field">
+          <label for="institution_type">Institution type <span class="required" aria-hidden="true">*</span></label>
+          <select id="institution_type" name="institution_type" required>
+            <option value="" disabled selected>Select one</option>
+            ${institutionTypeOptions}
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="ncua_charter_number">NCUA charter number</label>
+          <p class="field-note">${esc(notes.creditUnion)}</p>
+          <input type="text" id="ncua_charter_number" name="ncua_charter_number">
+        </div>
+        <div class="form-field">
+          <label for="fdic_certificate_number">FDIC certificate number</label>
+          <p class="field-note">${esc(notes.bank)}</p>
+          <input type="text" id="fdic_certificate_number" name="fdic_certificate_number">
+        </div>
+        <p class="field-note field-note-standalone">${esc(notes.government)}</p>
+        <div class="form-field">
+          <label for="other_description">Other institution: description and identifier</label>
+          <p class="field-note">${esc(notes.other)}</p>
+          <textarea id="other_description" name="other_description" rows="3"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contact</legend>
+        <div class="form-field">
+          <label for="contact_name">Contact name <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="contact_name" name="contact_name" required autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="contact_role">Contact role <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="contact_role" name="contact_role" required autocomplete="organization-title">
+        </div>
+        <div class="form-field">
+          <label for="email">Work email <span class="required" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Request</legend>
+        <div class="form-field">
+          <label for="materials_of_interest">Which materials you're interested in <span class="required" aria-hidden="true">*</span></label>
+          <textarea id="materials_of_interest" name="materials_of_interest" rows="3" required></textarea>
+        </div>
+        <div class="form-field">
+          <label for="current_stage">Current stage <span class="required" aria-hidden="true">*</span></label>
+          <select id="current_stage" name="current_stage" required>
+            <option value="" disabled selected>Select one</option>
+            ${stageOptions}
+          </select>
+        </div>
+      </fieldset>
+
+      <div class="cta-row">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>`;
+
+  const nextParagraphs = content.whatHappensNext.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("\n    ");
+  const sectionNext = `
+<section class="section" id="what-happens-next">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(content.whatHappensNext.heading)} <a class="anchor-link" href="#what-happens-next" aria-label="Link to ${esc(content.whatHappensNext.heading)} section">#</a></h2>
+    ${nextParagraphs}
+    <aside class="callout" role="note" aria-label="What we never ask for">
+      <span class="callout-label">What we never ask for</span>
+      <p>${esc(content.whatHappensNext.dataWarning)}</p>
+    </aside>
+  </div>
+</section>`;
+
+  const body = `
+${siteHeader(assetPrefix)}
+${breadcrumb}
+<main id="main">
+${pageHeader}
+${sectionRequirements}
+${sectionForm}
+${sectionNext}
+</main>
+${siteFooter(assetPrefix)}`;
+
+  return pageShell({
+    title: content.title,
+    description: content.standfirst,
+    assetPrefix,
+    bodyHtml: body,
+    canonicalPath: `/access/`,
+    extraStylesheet: "access.css",
+    bodyClass: "access-page",
+    formAction: esc(new URL(content.form.action).origin),
+  });
+}
+
+function renderHowVerificationWorksPage(content, assetPrefix) {
+  const breadcrumb = `
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="${homeHref(assetPrefix)}">Home</a><span class="sep">/</span><a href="${accessHref(assetPrefix)}">Verify your institution</a><span class="sep">/</span><span aria-current="page">${esc(content.title)}</span>
+  </div>
+</div>`;
+
+  const pageHeader = `
+<div class="page-header">
+  <div class="wrap">
+    <h1>${esc(content.title)}</h1>
+    <p class="standfirst">${esc(content.standfirst)}</p>
+  </div>
+</div>`;
+
+  const section = (id, block, alt) => `
+<section class="section${alt ? " section-alt" : ""}" id="${id}">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">${esc(block.heading)} <a class="anchor-link" href="#${id}" aria-label="Link to ${esc(block.heading)} section">#</a></h2>
+    ${block.body ? `<p>${esc(block.body)}</p>` : ""}
+    ${block.intro ? `<p>${esc(block.intro)}</p>` : ""}
+    ${block.items ? `<ul class="audience-list">${block.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
+  </div>
+</section>`;
+
+  const sectionWhyGate = section("why-theres-a-gate-at-all", content.whyGate, false);
+  const sectionWhatChecks = section("what-verification-checks", content.whatItChecks, true);
+  const sectionWhatDoesNotCheck = section("what-verification-does-not-check", content.whatItDoesNotCheck, false);
+  const sectionDontFit = section("what-if-i-dont-fit-neatly-into-these-categories", content.dontFitNeatly, true);
+  const sectionNeverAsk = section("what-we-never-ask-for", content.neverAsk, false);
+  const sectionAfter = section("after-verification", content.afterVerification, true);
+
+  const sectionCta = `
+<section class="section" id="verify-cta">
+  <div class="wrap wrap-narrow">
+    <div class="cta-row">
+      <a class="btn btn-primary" href="${accessHref(assetPrefix)}">${esc(content.cta)}</a>
+    </div>
+  </div>
+</section>`;
+
+  const body = `
+${siteHeader(assetPrefix)}
+${breadcrumb}
+<main id="main">
+${pageHeader}
+${sectionWhyGate}
+${sectionWhatChecks}
+${sectionWhatDoesNotCheck}
+${sectionDontFit}
+${sectionNeverAsk}
+${sectionAfter}
+${sectionCta}
+</main>
+${siteFooter(assetPrefix)}`;
+
+  return pageShell({
+    title: content.title,
+    description: content.standfirst,
+    assetPrefix,
+    bodyHtml: body,
+    canonicalPath: `/access/how-it-works/`,
+    extraStylesheet: "access.css",
+    bodyClass: "access-page",
+  });
+}
+
+// ---------------------------------------------------------------
 // Registry: index (+ static filter pages) and artifact page
 // ---------------------------------------------------------------
 
@@ -1026,7 +1254,7 @@ function renderArtifactPage(meta, initiativeSlugByNumber, readmeMarkdown, assetP
       ? `
     <p>Available to verified institutions at no cost. Verification confirms institutional identity, not eligibility.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="${homeHref(assetPrefix, "access")}">How verification works →</a>
+      <a class="btn btn-primary" href="${howVerificationWorksHref(assetPrefix)}">How verification works →</a>
     </div>`
       : `
     <div class="cta-row">
@@ -1151,6 +1379,26 @@ function build() {
       renderAboutPage(aboutContent, "..")
     );
     console.log("Wrote about/index.html");
+  }
+
+  const accessFile = path.join(ROOT, "content", "access.json");
+  if (fs.existsSync(accessFile)) {
+    const accessContent = readJSON(accessFile);
+    const accessDir = path.join(ROOT, "access");
+    fs.mkdirSync(accessDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(accessDir, "index.html"),
+      renderAccessFormPage(accessContent.verify, "..")
+    );
+    console.log("Wrote access/index.html");
+
+    const howItWorksDir = path.join(accessDir, "how-it-works");
+    fs.mkdirSync(howItWorksDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(howItWorksDir, "index.html"),
+      renderHowVerificationWorksPage(accessContent.howItWorks, "../..")
+    );
+    console.log("Wrote access/how-it-works/index.html");
   }
 
   const initiativeSlugByNumber = {};

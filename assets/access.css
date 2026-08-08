@@ -1,0 +1,129 @@
+/* ---------------------------------------------------------------
+   Institution verification pages (/access, /access/how-it-works).
+   Loads after initiative.css: page chrome, section rhythm, callouts,
+   and buttons are already styled there. This sheet adds the form
+   itself and a couple of page-specific notes, scoped under
+   body.access-page so it never leaks onto other pages.
+--------------------------------------------------------------- */
+
+body.access-page .access-subnote {
+  margin-top: 20px;
+}
+body.access-page .access-subnote a {
+  color: var(--on-brand-purple);
+  font-weight: 600;
+  text-decoration: none;
+}
+body.access-page .access-subnote a:hover {
+  color: var(--brand-yellow);
+}
+
+body.access-page .access-form {
+  max-width: 560px;
+}
+
+body.access-page fieldset {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px 22px;
+  margin: 0 0 28px;
+}
+body.access-page fieldset:last-of-type {
+  margin-bottom: 24px;
+}
+
+body.access-page legend {
+  padding: 0 8px;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+body.access-page .required-note {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+body.access-page .required {
+  color: var(--accent-strong);
+}
+
+body.access-page .honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.access-page .form-field {
+  margin-bottom: 18px;
+}
+body.access-page .form-field:last-child {
+  margin-bottom: 0;
+}
+
+body.access-page label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+body.access-page .field-note {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: -2px 0 8px;
+}
+body.access-page .field-note-standalone {
+  margin: -6px 0 18px;
+}
+
+body.access-page input[type="text"],
+body.access-page input[type="email"],
+body.access-page select,
+body.access-page textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+body.access-page textarea {
+  resize: vertical;
+  min-height: 5em;
+}
+
+body.access-page input:focus-visible,
+body.access-page select:focus-visible,
+body.access-page textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+body.access-page .access-form .cta-row {
+  margin-top: 4px;
+}
+
+body.access-page .access-form button.btn {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+@media (max-width: 760px) {
+  body.access-page fieldset {
+    padding: 16px 16px 18px;
+  }
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action https://formspree.io">
+<title>Verify your institution · Open Fraud Detection Methodology</title>
+<meta name="description" content="Reference implementations are available at no cost to any verified institution. Verification confirms that you are a genuine institution of the kind these methods are built for. It is not an approval decision, and no institution is excluded by size, budget, sector, or geography.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Open Fraud Detection Methodology">
+<meta property="og:title" content="Verify your institution">
+<meta property="og:description" content="Reference implementations are available at no cost to any verified institution. Verification confirms that you are a genuine institution of the kind these methods are built for. It is not an approval decision, and no institution is excluded by size, budget, sector, or geography.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Verify your institution">
+<meta name="twitter:description" content="Reference implementations are available at no cost to any verified institution. Verification confirms that you are a genuine institution of the kind these methods are built for. It is not an approval decision, and no institution is excluded by size, budget, sector, or geography.">
+<link rel="stylesheet" href="../assets/initiative.css">
+<link rel="stylesheet" href="../assets/print.css" media="print">
+<link rel="stylesheet" href="../assets/access.css">
+<link rel="stylesheet" href="../assets/access-print.css" media="print">
+</head>
+<body class="access-page">
+<a class="skip-link" href="#main">Skip to content</a>
+
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Open Fraud Detection Methodology</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="../index.html#work">Home</a>
+      <a href="../initiatives/index.html">Initiatives</a>
+      <a href="../registry/index.html">Registry</a>
+      <a href="../curricula/index.html">Curricula</a>
+      <a href="../how-to-use/index.html">How to use this</a>
+      <a href="../access/index.html">Verify your institution</a>
+    </nav>
+    <details class="nav-disclosure">
+      <summary aria-label="Open menu">Menu</summary>
+      <nav class="mobile-nav-panel" aria-label="Primary, mobile">
+        <a href="../index.html">Home</a>
+        <a href="../initiatives/index.html">Initiatives</a>
+        <a href="../registry/index.html">Registry</a>
+        <a href="../curricula/index.html">Curricula</a>
+        <a href="../how-to-use/index.html">How to use this</a>
+        <a href="../access/index.html">Verify your institution</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="../index.html">Home</a><span class="sep">/</span><span aria-current="page">Verify your institution</span>
+  </div>
+</div>
+<main id="main">
+
+<div class="page-header">
+  <div class="wrap">
+    <h1>Verify your institution</h1>
+    <p class="standfirst">Reference implementations are available at no cost to any verified institution. Verification confirms that you are a genuine institution of the kind these methods are built for. It is not an approval decision, and no institution is excluded by size, budget, sector, or geography.</p>
+    <p class="access-subnote"><a href="../access/how-it-works/index.html">How verification works →</a></p>
+  </div>
+</div>
+
+<section class="section" id="what-youll-need">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">What you'll need <a class="anchor-link" href="#what-youll-need" aria-label="Link to What you'll need section">#</a></h2>
+    <ul class="audience-list"><li>Your institution's regulatory identifier (NCUA charter number, FDIC certificate number, or equivalent, see below)</li><li>A work email address at your institution's own domain</li><li>A named contact</li></ul>
+  </div>
+</section>
+
+<section class="section section-alt" id="the-form">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">The form <a class="anchor-link" href="#the-form" aria-label="Link to The form section">#</a></h2>
+    <form class="access-form" method="POST" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID">
+      <p class="required-note">Fields marked <span class="required" aria-hidden="true">*</span> are required.</p>
+      <input type="hidden" name="_subject" value="Institution verification request">
+      <label class="honeypot" aria-hidden="true">
+        Leave this field blank
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+      </label>
+
+      <fieldset>
+        <legend>Institution</legend>
+        <div class="form-field">
+          <label for="institution_name">Institution legal name <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="institution_name" name="institution_name" required autocomplete="organization">
+        </div>
+        <div class="form-field">
+          <label for="institution_type">Institution type <span class="required" aria-hidden="true">*</span></label>
+          <select id="institution_type" name="institution_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="State Medicaid integrity unit">State Medicaid integrity unit</option><option value="HHS OIG contractor">HHS OIG contractor</option><option value="Medicare Administrative Contractor">Medicare Administrative Contractor</option><option value="Credit union">Credit union</option><option value="Community bank">Community bank</option><option value="Regional lender">Regional lender</option><option value="Fintech originator">Fintech originator</option><option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="ncua_charter_number">NCUA charter number</label>
+          <p class="field-note">If credit union: NCUA charter number</p>
+          <input type="text" id="ncua_charter_number" name="ncua_charter_number">
+        </div>
+        <div class="form-field">
+          <label for="fdic_certificate_number">FDIC certificate number</label>
+          <p class="field-note">If bank: FDIC certificate number</p>
+          <input type="text" id="fdic_certificate_number" name="fdic_certificate_number">
+        </div>
+        <p class="field-note field-note-standalone">If government unit: confirmed via your .gov email domain, no additional ID needed</p>
+        <div class="form-field">
+          <label for="other_description">Other institution: description and identifier</label>
+          <p class="field-note">If other: briefly describe your institution and its regulatory identifier, if any</p>
+          <textarea id="other_description" name="other_description" rows="3"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contact</legend>
+        <div class="form-field">
+          <label for="contact_name">Contact name <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="contact_name" name="contact_name" required autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="contact_role">Contact role <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="contact_role" name="contact_role" required autocomplete="organization-title">
+        </div>
+        <div class="form-field">
+          <label for="email">Work email <span class="required" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Request</legend>
+        <div class="form-field">
+          <label for="materials_of_interest">Which materials you're interested in <span class="required" aria-hidden="true">*</span></label>
+          <textarea id="materials_of_interest" name="materials_of_interest" rows="3" required></textarea>
+        </div>
+        <div class="form-field">
+          <label for="current_stage">Current stage <span class="required" aria-hidden="true">*</span></label>
+          <select id="current_stage" name="current_stage" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Evaluating">Evaluating</option><option value="Validating">Validating</option><option value="Piloting">Piloting</option><option value="Deployed">Deployed</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <div class="cta-row">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="what-happens-next">
+  <div class="wrap wrap-narrow">
+    <h2 class="section-heading">What happens next <a class="anchor-link" href="#what-happens-next" aria-label="Link to What happens next section">#</a></h2>
+    <p>Your submission is checked against public regulatory records. Most requests are verified within [X business days]. You'll receive access by email once confirmed. No further steps required on your end.</p>
+    <p>If your institution doesn't have a charter or certificate number that maps cleanly to these categories, this is common for smaller state units, say so in the form. We'll verify by another means rather than turn you away.</p>
+    <aside class="callout" role="note" aria-label="What we never ask for">
+      <span class="callout-label">What we never ask for</span>
+      <p>We do not accept, and you should never send us, any claims data, credit records, protected health information, or other production data. Verification concerns your institution's identity only.</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../initiatives/index.html">Initiatives</a>
+      <a href="../registry/index.html">Registry</a>
+      <a href="../how-to-use/index.html">How to use this</a>
+      <a href="../curricula/index.html">Curricula</a>
+      <a href="../about/index.html">About</a>
+      <a href="../index.html#changelog">Changelog</a>
+      <a href="../about/index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+<p class="print-citation">This document: /access/. Retrieved from the printing browser's own header/footer date stamp when available.</p>
+</body>
+</html>

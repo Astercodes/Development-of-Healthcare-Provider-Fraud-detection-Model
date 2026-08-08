@@ -1,0 +1,65 @@
+# Placeholders and decisions — /access (Phase 1: verify your institution)
+
+## What this ships
+
+Two real pages, generated the same way as every other page on the site (JSON content in
+`content/access.json`, rendered by `renderAccessFormPage`/`renderHowVerificationWorksPage` in
+`build.js`):
+
+- `/access/` — "Verify your institution", with a working HTML form
+- `/access/how-it-works/` — "How verification works"
+
+All prior dead links to these pages (`home("access")` anchors on other pages, and the home
+page's own Access section CTA, which pointed at `about/index.html#contact`, a mismatch) now
+point at the real pages.
+
+## Form backend: Formspree, with a placeholder endpoint
+
+You didn't answer when asked which backend to use (Formspree, a Vercel serverless function with
+an email API, or a serverless function with no durable log). I went with **Formspree**, the
+first option you listed in the build task, because it needs no server code and no secrets
+committed to this zero-dependency repo: the `<form>` posts straight to Formspree, which emails
+you the submission and keeps it in their dashboard. That dashboard **is** the "plain append-only
+log... so you have a record even before any portal exists" for Phase 1 — a static site with no
+serverless function has nowhere else to durably write one.
+
+**This will not work until you do two things:**
+
+1. Create a free account at formspree.io and a new form.
+2. Replace the placeholder action URL in `content/access.json` → `verify.form.action`
+   (currently `https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID`) with your real form
+   endpoint, then run `node build.js` to regenerate `access/index.html`.
+
+The CSP on `/access/` (`form-action https://formspree.io`) already allows submission to
+Formspree's domain — every other page keeps `form-action 'none'`, since this is the only page
+with a real form. If you ever point the form at a different domain, that CSP line in
+`renderAccessFormPage`'s `pageShell()` call needs to change too, or the browser will silently
+block the submission.
+
+## "[X business days]" is a literal placeholder from your own copy
+
+"Most requests are verified within [X business days]" is carried through verbatim in
+`whatHappensNext.paragraphs`. Replace `[X business days]` with a real number once you know your
+actual turnaround.
+
+## Your side of verification is still manual, by design
+
+Per the build task: submissions are checked by hand against NCUA's and FDIC's free public
+lookup tools, and access is granted by replying to the submission email with a link or
+attachment for the relevant Tier 2 artifact. Nothing in this phase performs a live registry
+lookup or grants access automatically — the form only collects and required-field-validates
+(via native HTML `required`, no JavaScript) and emails you.
+
+## No JS, so conditional fields are always visible
+
+The copy's "If credit union: ...", "If bank: ...", "If other: ..." fields can't be shown or
+hidden based on the Institution type selection without JavaScript, and this site ships none. All
+of them are always visible, each with its own helper text saying who should fill it in, plus a
+line of static text for the ".gov domain, no additional ID" case (which isn't a field, since
+nothing needs to be typed for it).
+
+## Honeypot field
+
+`_gotcha` is a hidden (visually and to assistive tech, via `aria-hidden` plus a clip-based
+offscreen technique) trap field Formspree uses to silently drop bot submissions that fill in
+every field. Leave it in place; it needs no configuration on your end.
