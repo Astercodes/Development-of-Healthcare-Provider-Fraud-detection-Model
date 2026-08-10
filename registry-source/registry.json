@@ -1,300 +1,5 @@
 [
   {
-    "identifier": "AYENI-2026-0007",
-    "title": "Threat model note: why field validation fails against synthetic identities",
-    "initiative": "2",
-    "type": "note",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "An analytical note explaining why per element identity verification structurally cannot detect synthetic identity fraud: every element of a fabricated identity passes its own check because every element is genuine, and only the binding between them is false. Sets out the five phase lifecycle from assembly through bust out, evaluates nine standard verification controls against this threat one by one, including the one genuine structural counter available today, and argues that detection capability distributed across smaller institutions is the relevant countermeasure because the scheme depends on the weakest entry point. Companion to the feature engineering specification and implementation guide in the same initiative.",
-    "files": [
-      {
-        "path": "files/threat-model-note-synthetic-identity.pdf",
-        "size": 94375,
-        "sha256": "1a015602014a6f7a541daf59e550aeeb3d1362e1d7b261df67ed51168f75c3e5"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0008",
-    "title": "Implementation guide: synthetic identity and transaction fraud detection for smaller financial institutions",
-    "initiative": "2",
-    "type": "guide",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "A practical adoption guide for community banks, credit unions, and regional lenders with no data science team, setting out three tiers of investment: a no code manual review queue built from an institution's own application history, a scripted scoring batch process, and full origination flow integration. Includes a cost and benefit worksheet built around reviewer hours rather than compute, a ninety day rollout plan to a scored queue, six documented failure modes with their preventions, and the regulatory obligations that attach once a score contributes to a credit decision.",
-    "files": [
-      {
-        "path": "files/implementation-guide-synthetic-identity-transaction-detection.pdf",
-        "size": 96203,
-        "sha256": "1910dca753232887e549b0557cf35a604717ab704a5e3191db84e7c66c5e62cf"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0009",
-    "title": "Feature engineering specification: transaction and synthetic identity fraud detection for smaller financial institutions",
-    "initiative": "2",
-    "type": "specification",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "The complete feature construction for transaction and synthetic identity fraud detection, validated on two structurally unrelated payment datasets, card transactions and account transfers, so that a measurement computed at one institution is comparable to one computed at another. Defines the retained and excluded fields for each validated environment, six specified extensions addressing measurements the validated work identified as available and did not construct, and twenty specified synthetic identity features across six families ordered by how early in a scheme they become observable. Records a known encoder defect in the published implementation and its correction.",
-    "files": [
-      {
-        "path": "files/feature-engineering-specification-transaction-synthetic-identity.pdf",
-        "size": 127389,
-        "sha256": "5abed5c688039389ac37971347b650aa1bf7ed1dc2470b5005bead530b3c6b17"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0010",
-    "title": "Validation protocol: institutional self test for provider level fraud detection in federal healthcare programmes",
-    "initiative": "1",
-    "type": "protocol",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "A twelve stage, eight gate self test that lets a state Medicaid programme integrity unit, HHS OIG contractor, Medicare Administrative Contractor, or Unified Program Integrity Contractor determine whether provider level fraud detection works on its own claims data, entirely inside its own environment, without contacting the author or sending any data anywhere. Every stage has a written stop condition and the acceptance criteria are fixed before results are seen. The blind investigator review, the only stage that measures value rather than a proxy for it, is placed last by design, and a one page validation record documents whichever decision the exercise produces, including a documented no.",
-    "files": [
-      {
-        "path": "files/validation-protocol-healthcare-provider-fraud-detection.pdf",
-        "size": 129770,
-        "sha256": "7bad5c5c62e3935f1c89529a4709be4a772e673ec47cb475be1092025d754473"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0011",
-    "title": "Feature dictionary: provider level fraud detection for federal healthcare programmes",
-    "initiative": "1",
-    "type": "specification",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "The complete specification of the feature space behind the provider level healthcare claims anomaly detection work: 29 entries covering identifiers, demographics, coverage, clinical indicators, financial fields, and engineered measurements, of which 19 are implemented in the published reference model and 10 specify a not yet implemented provider level aggregation layer. Documents the exact, order dependent computation for every engineered feature, an unresolved chronic condition coding ambiguity that can silently invert the health burden index, and the fairness restrictions that exclude race from any deployed scoring model.",
-    "files": [
-      {
-        "path": "files/feature-dictionary-healthcare-provider-fraud-detection.pdf",
-        "size": 159167,
-        "sha256": "3cff96f873397e067cd1989bf181879298ed471756237d49f1836785a51f15a7"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0012",
-    "title": "Healthcare Provider Fraud Detection",
-    "initiative": "1",
-    "type": "methodology",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "The methodology paper behind provider level claims anomaly detection: a supervised learning study comparing Random Forest, Support Vector Machine, and K Nearest Neighbors classifiers on structured Medicare style claims data, at a fraud prevalence of about 9 percent. The best configuration, a Random Forest with a depth of 25 and 1,000 estimators, reached 86.88 percent accuracy, an F1 score of 0.819, and an AUC ROC of 0.94. Covers the feature engineering behind that result, including chronic condition indexing and derived survival status, and examines the regulatory framework a detector operates inside: the False Claims Act, the Anti Kickback Statute, the Stark Law, and HIPAA.",
-    "files": [
-      {
-        "path": "files/healthcare-provider-fraud-detection.pdf",
-        "size": 280469,
-        "sha256": "b10524c58e4e6ed75531f9f777e84b50357603433aaaeaffcdcb2cf3bf634517"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0013",
-    "title": "Full Financial (Credit and Debit Card) Fraud Detection Using Machine Learning Classifiers",
-    "initiative": "2",
-    "type": "methodology",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "The methodology paper behind the transaction fraud detection half of this initiative: a comparative study of four supervised classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, on a 6.36 million record synthetic mobile money transactions dataset at a fraud prevalence of 0.0536 percent. Decision Tree and Random Forest tie for the best ROC AUC at 0.84, and Random Forest achieves the strongest balance of precision and recall for the fraud class, an F1 score of 0.74, with the best calibrated probability estimates of the four. Fraudulent transactions occur exclusively in the transfer and cash out categories, never in payment, debit, or cash in, which the companion feature engineering specification carries forward as a structural signal.",
-    "files": [
-      {
-        "path": "files/full-financial-credit-debit-card-fraud-detection.pdf",
-        "size": 289954,
-        "sha256": "cad35307e29c9689b76ab8a889e1b6d275792ce1f01273e71239f2e50d92cf64"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0014",
-    "title": "Reference implementation, transaction fraud detection",
-    "initiative": "2",
-    "type": "implementation",
-    "tier": "2",
-    "licence": "Available to verified institutions",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "The working code behind the transaction fraud detection methodology paper: the shared DataPreProcessing notebook (column selection, categorical encoding, the train test split, and feature scaling) that every classifier notebook imports from, an exploratory data analysis notebook, and all four trained classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. Random Forest is the paper's recommended model for deployment.",
-    "files": [
-      {
-        "path": "files/data-pre-processing.ipynb",
-        "size": 15543,
-        "sha256": "ad77aabc9e117229544ac5645c4e54d0a39eb86d403f5ba1c0eccbcf3028b74a"
-      },
-      {
-        "path": "files/data-visualization.ipynb",
-        "size": 3769898,
-        "sha256": "83b40fd55623b5b86148d8c4a371831cf6e5886a581faf8ecbcafcf6e2eb1827"
-      },
-      {
-        "path": "files/decision-tree.ipynb",
-        "size": 92594,
-        "sha256": "3174eada35120e8dbb6731215b2422624408bd1582e34f63bb29febb3d730a80"
-      },
-      {
-        "path": "files/k-nearest-neighbours.ipynb",
-        "size": 97591,
-        "sha256": "11779b62174c7f18b50a189d6a493444db472a443046c6f89af024cb1f22012a"
-      },
-      {
-        "path": "files/logistic-regression.ipynb",
-        "size": 103598,
-        "sha256": "9074d7fd19b670c2181db91aa7cd90bb72eb8b502dc1a1616d85622c676e24f2"
-      },
-      {
-        "path": "files/random-forest.ipynb",
-        "size": 92055,
-        "sha256": "30a70244a638af1a5f6e340767e49da03a358a8dff5bf0df425fc9a895fae4d7"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0015",
-    "title": "Reference implementation, provider level claims anomaly detection",
-    "initiative": "1",
-    "type": "implementation",
-    "tier": "2",
-    "licence": "Available to verified institutions",
-    "published": "2026-08-08",
-    "version": "1",
-    "description": "The working code behind the healthcare provider fraud detection methodology paper: a single end to end notebook covering exploratory analysis of the beneficiary data, feature engineering including the derived Age and Alive fields and the chronic condition indicators, construction of the discharge and admission fields from the inpatient and outpatient claims, merging beneficiary, claims, and provider level fraud labels into one training set, and training and evaluating three classifiers, Random Forest, Support Vector Machine, and K Nearest Neighbors.",
-    "files": [
-      {
-        "path": "files/healthcare-provider-fraud.ipynb",
-        "size": 2175881,
-        "sha256": "24734460939fa31228ae2659022b149d37c4875ea5ce52fb72fb23bee7f72be2"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0001",
-    "title": "Curriculum module 01: Account takeover and synthetic identity",
-    "initiative": "3",
-    "type": "curriculum",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-07",
-    "version": "1",
-    "description": "A 45 minute reusable teaching module on account takeover and synthetic identity, written to be delivered by a trained volunteer with no technical background. Covers how both schemes work, the specific signals for each, the single action to take, and where to report. Includes delivery timing, a specimen exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the transaction and synthetic identity detection work in Initiative 2.",
-    "files": [
-      {
-        "path": "files/module-01-account-takeover-and-synthetic-identity.pdf",
-        "size": 162946,
-        "sha256": "10ac8cbc1c72de8c12325b5a134ce4538784407b0a9884502f82b080c469897f"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0002",
-    "title": "Curriculum module 02: Medicare and Medicaid billing fraud",
-    "initiative": "3",
-    "type": "curriculum",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-07",
-    "version": "1",
-    "description": "A 45 minute reusable teaching module on Medicare and Medicaid billing fraud, written to be delivered by a trained volunteer with no clinical or technical background. Covers how a beneficiary's number is misused to generate false claims, the specific signals in the approach and in the paperwork afterward, the single action to take, and where to report. Includes delivery timing, a specimen Medicare Summary Notice exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the provider level claims anomaly detection work in Initiative 1.",
-    "files": [
-      {
-        "path": "files/module-02-medicare-and-medicaid-billing-fraud.pdf",
-        "size": 157461,
-        "sha256": "c671bf58c5f5f3f76291794ee84d1c987eb4ffa314b163ade9befdf4878fbb5e"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0003",
-    "title": "Participant handout, Module 01: account takeover and synthetic identity",
-    "initiative": "3",
-    "type": "guide",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-07",
-    "version": "1",
-    "description": "One page, plain language take home sheet for Module 01, printable at large type. Carries the one rule, the one setting (a credit freeze), and the reporting numbers, nothing else. Includes a tear off strip with the rule and the numbers to keep by the phone.",
-    "files": [
-      {
-        "path": "files/handout-module-01-account-takeover-and-synthetic-identity.pdf",
-        "size": 36043,
-        "sha256": "04f5176004ae836ecdd8ce787cc82039c2f3c45ed101da8f4b9698d2ed12246f"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0004",
-    "title": "Participant handout, Module 02: Medicare and Medicaid billing fraud",
-    "initiative": "3",
-    "type": "guide",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-07",
-    "version": "1",
-    "description": "One page, plain language take home sheet for Module 02, printable at large type. Carries the one rule, the habit of reading the Medicare Summary Notice, and the reporting numbers, nothing else. Includes a tear off strip with the rule and the numbers to keep by the phone.",
-    "files": [
-      {
-        "path": "files/handout-module-02-medicare-and-medicaid-billing-fraud.pdf",
-        "size": 36664,
-        "sha256": "6df8e5fac8014efc9903fece9ea5deebc51b6e81d6eec3c3281d929d046e9036"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0005",
-    "title": "Facilitator guide, Module 01: account takeover and synthetic identity",
-    "initiative": "3",
-    "type": "guide",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-07",
-    "version": "1",
-    "description": "Everything a volunteer needs to deliver Module 01 competently: a timed delivery script broken into five to twelve minute segments, a 30 minute cut version, a specimen credit file exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room management guidance, a list of things never to say and why, and a printable session record form.",
-    "files": [
-      {
-        "path": "files/facilitator-guide-module-01-account-takeover-and-synthetic-identity.pdf",
-        "size": 129534,
-        "sha256": "037c09bbab05059f04284c7917465452a4b9f74cbe732dede12a95e83da1bfee"
-      }
-    ]
-  },
-  {
-    "identifier": "AYENI-2026-0006",
-    "title": "Facilitator guide, Module 02: Medicare and Medicaid billing fraud",
-    "initiative": "3",
-    "type": "guide",
-    "tier": "1",
-    "licence": "CC BY 4.0",
-    "published": "2026-08-07",
-    "version": "1",
-    "description": "Everything a volunteer needs to deliver Module 02 competently: a timed delivery script broken into five to twelve minute segments, a 30 minute cut version, a specimen Medicare Summary Notice / Explanation of Benefits exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room management guidance, a list of things never to say and why, and a printable session record form.",
-    "files": [
-      {
-        "path": "files/facilitator-guide-module-02-medicare-and-medicaid-billing-fraud.pdf",
-        "size": 130417,
-        "sha256": "c8350f6da3ef68f0b2603a5a27c382c61acac19d69c40c181c4bfb6ad569cc0f"
-      }
-    ]
-  },
-  {
     "identifier": "REGISTRY-DEMO-0001",
     "title": "Registry mechanism demonstration (Tier 1, superseded)",
     "initiative": null,
@@ -357,6 +62,301 @@
         "path": "files/notes.md",
         "size": 505,
         "sha256": "cb5d5feac084e15c41bd2e607bcf8ba360faf84f20e44c6801c0f4ff7a407ec9"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0001",
+    "title": "Curriculum module 01: Account takeover and synthetic identity",
+    "initiative": "3",
+    "type": "curriculum",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "A 45 minute reusable teaching module on account takeover and synthetic identity, written to be delivered by a trained volunteer with no technical background. Covers how both schemes work, the specific signals for each, the single action to take, and where to report. Includes delivery timing, a specimen exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the transaction and synthetic identity detection work in Initiative 2.",
+    "files": [
+      {
+        "path": "files/module-01-account-takeover-and-synthetic-identity.pdf",
+        "size": 162946,
+        "sha256": "10ac8cbc1c72de8c12325b5a134ce4538784407b0a9884502f82b080c469897f"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0002",
+    "title": "Curriculum module 02: Medicare and Medicaid billing fraud",
+    "initiative": "3",
+    "type": "curriculum",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "A 45 minute reusable teaching module on Medicare and Medicaid billing fraud, written to be delivered by a trained volunteer with no clinical or technical background. Covers how a beneficiary's number is misused to generate false claims, the specific signals in the approach and in the paperwork afterward, the single action to take, and where to report. Includes delivery timing, a specimen Medicare Summary Notice exercise, facilitator notes for handling disclosures, and a derivation table showing that each recognition cue is a direct restatement of a measurement from the provider level claims anomaly detection work in Initiative 1.",
+    "files": [
+      {
+        "path": "files/module-02-medicare-and-medicaid-billing-fraud.pdf",
+        "size": 157461,
+        "sha256": "c671bf58c5f5f3f76291794ee84d1c987eb4ffa314b163ade9befdf4878fbb5e"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0003",
+    "title": "Participant handout, Module 01: account takeover and synthetic identity",
+    "initiative": "3",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "One page, plain language take home sheet for Module 01, printable at large type. Carries the one rule, the one setting (a credit freeze), and the reporting numbers, nothing else. Includes a tear off strip with the rule and the numbers to keep by the phone.",
+    "files": [
+      {
+        "path": "files/handout-module-01-account-takeover-and-synthetic-identity.pdf",
+        "size": 36043,
+        "sha256": "04f5176004ae836ecdd8ce787cc82039c2f3c45ed101da8f4b9698d2ed12246f"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0004",
+    "title": "Participant handout, Module 02: Medicare and Medicaid billing fraud",
+    "initiative": "3",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "One page, plain language take home sheet for Module 02, printable at large type. Carries the one rule, the habit of reading the Medicare Summary Notice, and the reporting numbers, nothing else. Includes a tear off strip with the rule and the numbers to keep by the phone.",
+    "files": [
+      {
+        "path": "files/handout-module-02-medicare-and-medicaid-billing-fraud.pdf",
+        "size": 36664,
+        "sha256": "6df8e5fac8014efc9903fece9ea5deebc51b6e81d6eec3c3281d929d046e9036"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0005",
+    "title": "Facilitator guide, Module 01: account takeover and synthetic identity",
+    "initiative": "3",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "Everything a volunteer needs to deliver Module 01 competently: a timed delivery script broken into five to twelve minute segments, a 30 minute cut version, a specimen credit file exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room management guidance, a list of things never to say and why, and a printable session record form.",
+    "files": [
+      {
+        "path": "files/facilitator-guide-module-01-account-takeover-and-synthetic-identity.pdf",
+        "size": 129534,
+        "sha256": "037c09bbab05059f04284c7917465452a4b9f74cbe732dede12a95e83da1bfee"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0006",
+    "title": "Facilitator guide, Module 02: Medicare and Medicaid billing fraud",
+    "initiative": "3",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "Everything a volunteer needs to deliver Module 02 competently: a timed delivery script broken into five to twelve minute segments, a 30 minute cut version, a specimen Medicare Summary Notice / Explanation of Benefits exercise with an answer key and teaching rationale for each line, guidance on the thirty seconds after a participant discloses it happened to them, room management guidance, a list of things never to say and why, and a printable session record form.",
+    "files": [
+      {
+        "path": "files/facilitator-guide-module-02-medicare-and-medicaid-billing-fraud.pdf",
+        "size": 130417,
+        "sha256": "c8350f6da3ef68f0b2603a5a27c382c61acac19d69c40c181c4bfb6ad569cc0f"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0007",
+    "title": "Threat model note: why field validation fails against synthetic identities",
+    "initiative": "2",
+    "type": "note",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-24",
+    "version": "1",
+    "description": "An analytical note explaining why per element identity verification structurally cannot detect synthetic identity fraud: every element of a fabricated identity passes its own check because every element is genuine, and only the binding between them is false. Sets out the five phase lifecycle from assembly through bust out, evaluates nine standard verification controls against this threat one by one, including the one genuine structural counter available today, and argues that detection capability distributed across smaller institutions is the relevant countermeasure because the scheme depends on the weakest entry point. Companion to the feature engineering specification and implementation guide in the same initiative.",
+    "files": [
+      {
+        "path": "files/threat-model-note-synthetic-identity.pdf",
+        "size": 94375,
+        "sha256": "1a015602014a6f7a541daf59e550aeeb3d1362e1d7b261df67ed51168f75c3e5"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0008",
+    "title": "Implementation guide: synthetic identity and transaction fraud detection for smaller financial institutions",
+    "initiative": "2",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-24",
+    "version": "1",
+    "description": "A practical adoption guide for community banks, credit unions, and regional lenders with no data science team, setting out three tiers of investment: a no code manual review queue built from an institution's own application history, a scripted scoring batch process, and full origination flow integration. Includes a cost and benefit worksheet built around reviewer hours rather than compute, a ninety day rollout plan to a scored queue, six documented failure modes with their preventions, and the regulatory obligations that attach once a score contributes to a credit decision.",
+    "files": [
+      {
+        "path": "files/implementation-guide-synthetic-identity-transaction-detection.pdf",
+        "size": 96203,
+        "sha256": "1910dca753232887e549b0557cf35a604717ab704a5e3191db84e7c66c5e62cf"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0009",
+    "title": "Feature engineering specification: transaction and synthetic identity fraud detection for smaller financial institutions",
+    "initiative": "2",
+    "type": "specification",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-24",
+    "version": "1",
+    "description": "The complete feature construction for transaction and synthetic identity fraud detection, validated on two structurally unrelated payment datasets, card transactions and account transfers, so that a measurement computed at one institution is comparable to one computed at another. Defines the retained and excluded fields for each validated environment, six specified extensions addressing measurements the validated work identified as available and did not construct, and twenty specified synthetic identity features across six families ordered by how early in a scheme they become observable. Records a known encoder defect in the published implementation and its correction.",
+    "files": [
+      {
+        "path": "files/feature-engineering-specification-transaction-synthetic-identity.pdf",
+        "size": 127389,
+        "sha256": "5abed5c688039389ac37971347b650aa1bf7ed1dc2470b5005bead530b3c6b17"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0013",
+    "title": "Full Financial (Credit and Debit Card) Fraud Detection Using Machine Learning Classifiers",
+    "initiative": "2",
+    "type": "methodology",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-24",
+    "version": "1",
+    "description": "The methodology paper behind the transaction fraud detection half of this initiative: a comparative study of four supervised classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, on a 6.36 million record synthetic mobile money transactions dataset at a fraud prevalence of 0.0536 percent. Decision Tree and Random Forest tie for the best ROC AUC at 0.84, and Random Forest achieves the strongest balance of precision and recall for the fraud class, an F1 score of 0.74, with the best calibrated probability estimates of the four. Fraudulent transactions occur exclusively in the transfer and cash out categories, never in payment, debit, or cash in, which the companion feature engineering specification carries forward as a structural signal.",
+    "files": [
+      {
+        "path": "files/full-financial-credit-debit-card-fraud-detection.pdf",
+        "size": 289954,
+        "sha256": "cad35307e29c9689b76ab8a889e1b6d275792ce1f01273e71239f2e50d92cf64"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0014",
+    "title": "Reference implementation, transaction fraud detection",
+    "initiative": "2",
+    "type": "implementation",
+    "tier": "2",
+    "licence": "Available to verified institutions",
+    "published": "2026-06-24",
+    "version": "1",
+    "description": "The working code behind the transaction fraud detection methodology paper: the shared DataPreProcessing notebook (column selection, categorical encoding, the train test split, and feature scaling) that every classifier notebook imports from, an exploratory data analysis notebook, and all four trained classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, each with training, an overfitting check, a classification report, ROC and precision recall curves, a confusion matrix, and a calibration curve. Random Forest is the paper's recommended model for deployment.",
+    "files": [
+      {
+        "path": "files/data-pre-processing.ipynb",
+        "size": 15543,
+        "sha256": "ad77aabc9e117229544ac5645c4e54d0a39eb86d403f5ba1c0eccbcf3028b74a"
+      },
+      {
+        "path": "files/data-visualization.ipynb",
+        "size": 3769898,
+        "sha256": "83b40fd55623b5b86148d8c4a371831cf6e5886a581faf8ecbcafcf6e2eb1827"
+      },
+      {
+        "path": "files/decision-tree.ipynb",
+        "size": 92594,
+        "sha256": "3174eada35120e8dbb6731215b2422624408bd1582e34f63bb29febb3d730a80"
+      },
+      {
+        "path": "files/k-nearest-neighbours.ipynb",
+        "size": 97591,
+        "sha256": "11779b62174c7f18b50a189d6a493444db472a443046c6f89af024cb1f22012a"
+      },
+      {
+        "path": "files/logistic-regression.ipynb",
+        "size": 103598,
+        "sha256": "9074d7fd19b670c2181db91aa7cd90bb72eb8b502dc1a1616d85622c676e24f2"
+      },
+      {
+        "path": "files/random-forest.ipynb",
+        "size": 92055,
+        "sha256": "30a70244a638af1a5f6e340767e49da03a358a8dff5bf0df425fc9a895fae4d7"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0010",
+    "title": "Validation protocol: institutional self test for provider level fraud detection in federal healthcare programmes",
+    "initiative": "1",
+    "type": "protocol",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-05-30",
+    "version": "1",
+    "description": "A twelve stage, eight gate self test that lets a state Medicaid programme integrity unit, HHS OIG contractor, Medicare Administrative Contractor, or Unified Program Integrity Contractor determine whether provider level fraud detection works on its own claims data, entirely inside its own environment, without contacting the author or sending any data anywhere. Every stage has a written stop condition and the acceptance criteria are fixed before results are seen. The blind investigator review, the only stage that measures value rather than a proxy for it, is placed last by design, and a one page validation record documents whichever decision the exercise produces, including a documented no.",
+    "files": [
+      {
+        "path": "files/validation-protocol-healthcare-provider-fraud-detection.pdf",
+        "size": 129770,
+        "sha256": "7bad5c5c62e3935f1c89529a4709be4a772e673ec47cb475be1092025d754473"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0011",
+    "title": "Feature dictionary: provider level fraud detection for federal healthcare programmes",
+    "initiative": "1",
+    "type": "specification",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-05-30",
+    "version": "1",
+    "description": "The complete specification of the feature space behind the provider level healthcare claims anomaly detection work: 29 entries covering identifiers, demographics, coverage, clinical indicators, financial fields, and engineered measurements, of which 19 are implemented in the published reference model and 10 specify a not yet implemented provider level aggregation layer. Documents the exact, order dependent computation for every engineered feature, an unresolved chronic condition coding ambiguity that can silently invert the health burden index, and the fairness restrictions that exclude race from any deployed scoring model.",
+    "files": [
+      {
+        "path": "files/feature-dictionary-healthcare-provider-fraud-detection.pdf",
+        "size": 159167,
+        "sha256": "3cff96f873397e067cd1989bf181879298ed471756237d49f1836785a51f15a7"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0012",
+    "title": "Healthcare Provider Fraud Detection",
+    "initiative": "1",
+    "type": "methodology",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-05-30",
+    "version": "1",
+    "description": "The methodology paper behind provider level claims anomaly detection: a supervised learning study comparing Random Forest, Support Vector Machine, and K Nearest Neighbors classifiers on structured Medicare style claims data, at a fraud prevalence of about 9 percent. The best configuration, a Random Forest with a depth of 25 and 1,000 estimators, reached 86.88 percent accuracy, an F1 score of 0.819, and an AUC ROC of 0.94. Covers the feature engineering behind that result, including chronic condition indexing and derived survival status, and examines the regulatory framework a detector operates inside: the False Claims Act, the Anti Kickback Statute, the Stark Law, and HIPAA.",
+    "files": [
+      {
+        "path": "files/healthcare-provider-fraud-detection.pdf",
+        "size": 280469,
+        "sha256": "b10524c58e4e6ed75531f9f777e84b50357603433aaaeaffcdcb2cf3bf634517"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0015",
+    "title": "Reference implementation, provider level claims anomaly detection",
+    "initiative": "1",
+    "type": "implementation",
+    "tier": "2",
+    "licence": "Available to verified institutions",
+    "published": "2026-05-30",
+    "version": "1",
+    "description": "The working code behind the healthcare provider fraud detection methodology paper: a single end to end notebook covering exploratory analysis of the beneficiary data, feature engineering including the derived Age and Alive fields and the chronic condition indicators, construction of the discharge and admission fields from the inpatient and outpatient claims, merging beneficiary, claims, and provider level fraud labels into one training set, and training and evaluating three classifiers, Random Forest, Support Vector Machine, and K Nearest Neighbors.",
+    "files": [
+      {
+        "path": "files/healthcare-provider-fraud.ipynb",
+        "size": 2175881,
+        "sha256": "24734460939fa31228ae2659022b149d37c4875ea5ce52fb72fb23bee7f72be2"
       }
     ]
   }

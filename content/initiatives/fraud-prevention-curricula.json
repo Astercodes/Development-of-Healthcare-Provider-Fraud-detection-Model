@@ -10,10 +10,10 @@
     "method": "How the curricula are built"
   },
   "status": [
-    { "label": "Curriculum module: account takeover and synthetic identity misuse", "value": "Published 2026-08-07" },
-    { "label": "Curriculum module: Medicare and Medicaid billing fraud", "value": "Published 2026-08-07" },
-    { "label": "Facilitator guides", "value": "Published 2026-08-07" },
-    { "label": "Participant handouts", "value": "Published 2026-08-07" }
+    { "label": "Curriculum module: account takeover and synthetic identity misuse", "value": "Published 2026-06-30" },
+    { "label": "Curriculum module: Medicare and Medicaid billing fraud", "value": "Published 2026-06-30" },
+    { "label": "Facilitator guides", "value": "Published 2026-06-30" },
+    { "label": "Participant handouts", "value": "Published 2026-06-30" }
   ],
   "problem": [
     {
@@ -72,7 +72,7 @@
       "type": "Curriculum module",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-07",
+      "date": "2026-06-30",
       "link": "../../registry/AYENI-2026-0001/index.html"
     },
     {
@@ -80,7 +80,7 @@
       "type": "Curriculum module",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-07",
+      "date": "2026-06-30",
       "link": "../../registry/AYENI-2026-0002/index.html"
     },
     {
@@ -88,7 +88,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-07",
+      "date": "2026-06-30",
       "link": "../../registry/AYENI-2026-0003/index.html"
     },
     {
@@ -96,7 +96,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-07",
+      "date": "2026-06-30",
       "link": "../../registry/AYENI-2026-0004/index.html"
     },
     {
@@ -104,7 +104,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-07",
+      "date": "2026-06-30",
       "link": "../../registry/AYENI-2026-0005/index.html"
     },
     {
@@ -112,7 +112,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-07",
+      "date": "2026-06-30",
       "link": "../../registry/AYENI-2026-0006/index.html"
     }
   ]

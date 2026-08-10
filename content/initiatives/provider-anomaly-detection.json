@@ -7,10 +7,10 @@
   "audience": "For state Medicaid program integrity units, HHS OIG contractors, and Medicare Administrative Contractors.",
   "indexStatus": "available",
   "status": [
-    { "label": "Feature dictionary", "value": "Published 2026-08-08" },
-    { "label": "Validation protocol", "value": "Published 2026-08-08" },
-    { "label": "Reference implementation", "value": "Published 2026-08-08" },
-    { "label": "Methodology paper", "value": "Published 2026-08-08" }
+    { "label": "Feature dictionary", "value": "Published 2026-05-30" },
+    { "label": "Validation protocol", "value": "Published 2026-05-30" },
+    { "label": "Reference implementation", "value": "Published 2026-05-30" },
+    { "label": "Methodology paper", "value": "Published 2026-05-30" }
   ],
   "problem": [
     {
@@ -71,7 +71,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-08",
+      "date": "2026-05-30",
       "link": "../../registry/AYENI-2026-0011/index.html"
     },
     {
@@ -79,7 +79,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-08",
+      "date": "2026-05-30",
       "link": "../../registry/AYENI-2026-0010/index.html"
     },
     {
@@ -87,7 +87,7 @@
       "type": "Paper / preprint",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-08",
+      "date": "2026-05-30",
       "link": "../../registry/AYENI-2026-0012/index.html"
     },
     {
@@ -95,7 +95,7 @@
       "type": "Code",
       "tier": 2,
       "tierLabel": "Tier 2: verified institutions",
-      "date": "2026-08-08",
+      "date": "2026-05-30",
       "link": "../../registry/AYENI-2026-0015/index.html"
     }
   ]

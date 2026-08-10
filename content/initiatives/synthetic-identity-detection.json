@@ -7,11 +7,11 @@
   "audience": "For community banks, credit unions, regional lenders, and smaller origination platforms.",
   "indexStatus": "available",
   "status": [
-    { "label": "Feature engineering specification", "value": "Published 2026-08-08" },
-    { "label": "Threat model note (synthetic identity)", "value": "Published 2026-08-08" },
-    { "label": "Implementation guide", "value": "Published 2026-08-08" },
-    { "label": "Methodology paper", "value": "Published 2026-08-08" },
-    { "label": "Reference implementation", "value": "Published 2026-08-08" }
+    { "label": "Feature engineering specification", "value": "Published 2026-06-24" },
+    { "label": "Threat model note (synthetic identity)", "value": "Published 2026-06-24" },
+    { "label": "Implementation guide", "value": "Published 2026-06-24" },
+    { "label": "Methodology paper", "value": "Published 2026-06-24" },
+    { "label": "Reference implementation", "value": "Published 2026-06-24" }
   ],
   "problem": [
     {
@@ -72,7 +72,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-08",
+      "date": "2026-06-24",
       "link": "../../registry/AYENI-2026-0009/index.html"
     },
     {
@@ -80,7 +80,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-08",
+      "date": "2026-06-24",
       "link": "../../registry/AYENI-2026-0007/index.html"
     },
     {
@@ -88,7 +88,7 @@
       "type": "Documentation",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-08",
+      "date": "2026-06-24",
       "link": "../../registry/AYENI-2026-0008/index.html"
     },
     {
@@ -96,7 +96,7 @@
       "type": "Paper / preprint",
       "tier": 1,
       "tierLabel": "Tier 1: public",
-      "date": "2026-08-08",
+      "date": "2026-06-24",
       "link": "../../registry/AYENI-2026-0013/index.html"
     },
     {
@@ -104,7 +104,7 @@
       "type": "Code",
       "tier": 2,
       "tierLabel": "Tier 2: verified institutions",
-      "date": "2026-08-08",
+      "date": "2026-06-24",
       "link": "../../registry/AYENI-2026-0014/index.html"
     }
   ]
