@@ -1,0 +1,19 @@
+identifier: AYENI-2026-0017
+title: Participant handout, Module 03: AI generated impersonation
+initiative: 3
+type: guide
+tier: 1
+licence: CC BY 4.0
+published: 2026-06-30
+version: 1
+description: >
+  One page (both sides), plain language take home sheet for Module 03. Carries
+  the one rule (hang up, call back on a number already saved, ask for the
+  codeword), the five signals, instructions for setting up a family codeword,
+  what to do if money has already been sent, and the reporting numbers.
+  Includes a tear off strip with the rule and the numbers to keep by the
+  phone.
+files:
+  - path: files/handout-module-03-ai-generated-impersonation.pdf
+    size: 63268
+    sha256: d276d24dd3a5589094a111b6bae54a3dd2e9138b0a2545f0cf346d5fef0440e1

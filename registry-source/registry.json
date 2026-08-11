@@ -174,6 +174,60 @@
     ]
   },
   {
+    "identifier": "AYENI-2026-0016",
+    "title": "Curriculum module 03: AI generated impersonation",
+    "initiative": "3",
+    "type": "curriculum",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "A 45 minute reusable teaching module on calls and videos built from a real person's cloned voice or face, written to be delivered by a trained volunteer with no technical background. Covers how a scheme built on voice or video cloning works, the specific signals that separate it from a real emergency, the single action to take (hang up and call back on a number already saved, not one given during the call), and where to report. Includes a specimen voicemail exercise, facilitator notes for handling disclosures, and a live in session codeword exercise, the longest single block in the session.",
+    "files": [
+      {
+        "path": "files/module-03-ai-generated-impersonation.pdf",
+        "size": 50004,
+        "sha256": "f0d86896284aba6538f6dcb1ceec39c0fdd940de1a438cc9fe06932c720e8100"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0017",
+    "title": "Participant handout, Module 03: AI generated impersonation",
+    "initiative": "3",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "One page (both sides), plain language take home sheet for Module 03. Carries the one rule (hang up, call back on a number already saved, ask for the codeword), the five signals, instructions for setting up a family codeword, what to do if money has already been sent, and the reporting numbers. Includes a tear off strip with the rule and the numbers to keep by the phone.",
+    "files": [
+      {
+        "path": "files/handout-module-03-ai-generated-impersonation.pdf",
+        "size": 63268,
+        "sha256": "d276d24dd3a5589094a111b6bae54a3dd2e9138b0a2545f0cf346d5fef0440e1"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0018",
+    "title": "Facilitator guide, Module 03: AI generated impersonation",
+    "initiative": "3",
+    "type": "guide",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-30",
+    "version": "1",
+    "description": "Everything a volunteer needs to deliver Module 03 competently: a timed delivery script broken into four fixed parts across 45 minutes, guidance on running the live in session codeword exercise, which is the longest single block and the first thing a nervous facilitator cuts, guidance on the thirty seconds after a participant discloses a version of this happened to their family, and a note that a facilitator does not need to be able to explain how voice cloning software works, only to run the session's fixed structure honestly.",
+    "files": [
+      {
+        "path": "files/facilitator-guide-module-03-ai-generated-impersonation.pdf",
+        "size": 53730,
+        "sha256": "d560def00000848d3a91010d4a36952fb6ddb40cfd65d3180dae3cc5278e8a98"
+      }
+    ]
+  },
+  {
     "identifier": "AYENI-2026-0007",
     "title": "Threat model note: why field validation fails against synthetic identities",
     "initiative": "2",

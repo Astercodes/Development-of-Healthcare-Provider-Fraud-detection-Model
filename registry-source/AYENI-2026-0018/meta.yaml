@@ -1,0 +1,21 @@
+identifier: AYENI-2026-0018
+title: Facilitator guide, Module 03: AI generated impersonation
+initiative: 3
+type: guide
+tier: 1
+licence: CC BY 4.0
+published: 2026-06-30
+version: 1
+description: >
+  Everything a volunteer needs to deliver Module 03 competently: a timed
+  delivery script broken into four fixed parts across 45 minutes, guidance on
+  running the live in session codeword exercise, which is the longest single
+  block and the first thing a nervous facilitator cuts, guidance on the thirty
+  seconds after a participant discloses a version of this happened to their
+  family, and a note that a facilitator does not need to be able to explain
+  how voice cloning software works, only to run the session's fixed structure
+  honestly.
+files:
+  - path: files/facilitator-guide-module-03-ai-generated-impersonation.pdf
+    size: 53730
+    sha256: d560def00000848d3a91010d4a36952fb6ddb40cfd65d3180dae3cc5278e8a98

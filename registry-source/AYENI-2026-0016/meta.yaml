@@ -1,0 +1,22 @@
+identifier: AYENI-2026-0016
+title: Curriculum module 03: AI generated impersonation
+initiative: 3
+type: curriculum
+tier: 1
+licence: CC BY 4.0
+published: 2026-06-30
+version: 1
+description: >
+  A 45 minute reusable teaching module on calls and videos built from a real
+  person's cloned voice or face, written to be delivered by a trained
+  volunteer with no technical background. Covers how a scheme built on voice
+  or video cloning works, the specific signals that separate it from a real
+  emergency, the single action to take (hang up and call back on a number
+  already saved, not one given during the call), and where to report. Includes
+  a specimen voicemail exercise, facilitator notes for handling disclosures,
+  and a live in session codeword exercise, the longest single block in the
+  session.
+files:
+  - path: files/module-03-ai-generated-impersonation.pdf
+    size: 50004
+    sha256: f0d86896284aba6538f6dcb1ceec39c0fdd940de1a438cc9fe06932c720e8100

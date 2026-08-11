@@ -135,7 +135,7 @@ function siteHeader(assetPrefix) {
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="${home()}">
-      <span class="brand-mark" aria-hidden="true"></span>
+      <img class="brand-mark" src="${assetPrefix}/assets/images/logo.png" alt="" width="224" height="200">
       <span class="brand-name">${SITE_NAME}</span>
     </a>
     <nav class="primary-nav" aria-label="Primary">
@@ -195,7 +195,8 @@ function pageShell({ title, description, assetPrefix, bodyHtml, canonicalPath, e
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action ${formAction || "'none'"}">
 <title>${esc(title)} · ${SITE_NAME}</title>
 <meta name="description" content="${esc(description)}">
-<link rel="icon" href="${assetPrefix}/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="${assetPrefix}/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="${assetPrefix}/assets/favicon-180.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(SITE_NAME)}">
 <meta property="og:title" content="${esc(title)}">

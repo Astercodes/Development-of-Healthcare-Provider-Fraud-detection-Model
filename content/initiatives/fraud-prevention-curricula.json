@@ -12,6 +12,7 @@
   "status": [
     { "label": "Curriculum module: account takeover and synthetic identity misuse", "value": "Published 2026-06-30" },
     { "label": "Curriculum module: Medicare and Medicaid billing fraud", "value": "Published 2026-06-30" },
+    { "label": "Curriculum module: AI generated impersonation", "value": "Published 2026-06-30" },
     { "label": "Facilitator guides", "value": "Published 2026-06-30" },
     { "label": "Participant handouts", "value": "Published 2026-06-30" }
   ],
@@ -36,7 +37,7 @@
     },
     {
       "heading": "Build reusable modules, not one off talks",
-      "body": "Each module covers one scheme family, with a fixed structure: how the scheme works, the specific signals to watch for, the single action to take, and where to report. Two module families are covered initially: account takeover and synthetic identity misuse of a participant's own credit, and Medicare and Medicaid billing fraud in which a beneficiary's number is used without their knowledge."
+      "body": "Each module covers one scheme family, with a fixed structure: how the scheme works, the specific signals to watch for, the single action to take, and where to report. Three module families are covered initially: account takeover and synthetic identity misuse of a participant's own credit, Medicare and Medicaid billing fraud in which a beneficiary's number is used without their knowledge, and AI generated impersonation, in which a real person's cloned voice or face is used to fabricate a call or video from someone the target trusts."
     },
     {
       "heading": "Deliver through an established national channel",
@@ -84,6 +85,14 @@
       "link": "../../registry/AYENI-2026-0002/index.html"
     },
     {
+      "title": "Curriculum module: AI generated impersonation",
+      "type": "Curriculum module",
+      "tier": 1,
+      "tierLabel": "Tier 1: public",
+      "date": "2026-06-30",
+      "link": "../../registry/AYENI-2026-0016/index.html"
+    },
+    {
       "title": "Participant handout, Module 01: account takeover and synthetic identity",
       "type": "Documentation",
       "tier": 1,
@@ -100,6 +109,14 @@
       "link": "../../registry/AYENI-2026-0004/index.html"
     },
     {
+      "title": "Participant handout, Module 03: AI generated impersonation",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1: public",
+      "date": "2026-06-30",
+      "link": "../../registry/AYENI-2026-0017/index.html"
+    },
+    {
       "title": "Facilitator guide, Module 01: account takeover and synthetic identity",
       "type": "Documentation",
       "tier": 1,
@@ -114,6 +131,14 @@
       "tierLabel": "Tier 1: public",
       "date": "2026-06-30",
       "link": "../../registry/AYENI-2026-0006/index.html"
+    },
+    {
+      "title": "Facilitator guide, Module 03: AI generated impersonation",
+      "type": "Documentation",
+      "tier": 1,
+      "tierLabel": "Tier 1: public",
+      "date": "2026-06-30",
+      "link": "../../registry/AYENI-2026-0018/index.html"
     }
   ]
 }

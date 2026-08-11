@@ -143,12 +143,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 .brand-mark {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  background: var(--brand-yellow);
-  border: 2px solid var(--on-brand-purple);
-  box-sizing: border-box;
+  width: 40px;
+  height: 36px;
+  object-fit: contain;
   flex: none;
 }
 
