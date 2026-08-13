@@ -145,6 +145,14 @@ function siteHeader(assetPrefix) {
       <a href="${curriculaHref(assetPrefix)}">Curricula</a>
       <a href="${howToUseHref(assetPrefix)}">How to use this</a>
       <a href="${accessHref(assetPrefix)}">Verify your institution</a>
+      <details class="nav-more">
+        <summary aria-label="More links">More</summary>
+        <div class="nav-more-panel">
+          <a href="${aboutHref(assetPrefix)}">About</a>
+          <a href="${home("changelog")}">Changelog</a>
+          <a href="${aboutHref(assetPrefix, "contact")}">Contact</a>
+        </div>
+      </details>
     </nav>
     <details class="nav-disclosure">
       <summary aria-label="Open menu">Menu</summary>
@@ -155,6 +163,9 @@ function siteHeader(assetPrefix) {
         <a href="${curriculaHref(assetPrefix)}">Curricula</a>
         <a href="${howToUseHref(assetPrefix)}">How to use this</a>
         <a href="${accessHref(assetPrefix)}">Verify your institution</a>
+        <a href="${aboutHref(assetPrefix)}">About</a>
+        <a href="${home("changelog")}">Changelog</a>
+        <a href="${aboutHref(assetPrefix, "contact")}">Contact</a>
       </nav>
     </details>
   </div>

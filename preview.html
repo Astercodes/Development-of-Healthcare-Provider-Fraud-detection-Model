@@ -274,6 +274,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -564,16 +610,29 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <nav class=&quot;primary-nav&quot; aria-label=&quot;Primary&quot;>
       <a href=&quot;#work&quot;>Initiatives</a>
       <a href=&quot;registry/index.html&quot;>Registry</a>
+      <a href=&quot;curricula/index.html&quot;>Curricula</a>
       <a href=&quot;how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;#access&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;about/index.html&quot;>About</a>
+          <a href=&quot;#changelog&quot;>Changelog</a>
+          <a href=&quot;about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
       <nav class=&quot;mobile-nav-panel&quot; aria-label=&quot;Primary, mobile&quot;>
         <a href=&quot;#work&quot;>Initiatives</a>
         <a href=&quot;registry/index.html&quot;>Registry</a>
+        <a href=&quot;curricula/index.html&quot;>Curricula</a>
         <a href=&quot;how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;#access&quot;>Verify your institution</a>
+        <a href=&quot;about/index.html&quot;>About</a>
+        <a href=&quot;#changelog&quot;>Changelog</a>
+        <a href=&quot;about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -1003,6 +1062,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -1719,6 +1824,14 @@ code {
       <a href=&quot;../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../about/index.html&quot;>About</a>
+          <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -1729,6 +1842,9 @@ code {
         <a href=&quot;../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../about/index.html&quot;>About</a>
+        <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -1989,6 +2105,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   font-size: 15px;
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
+
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
 
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
@@ -2706,6 +2868,14 @@ code {
       <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../../about/index.html&quot;>About</a>
+          <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -2716,6 +2886,9 @@ code {
         <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../../about/index.html&quot;>About</a>
+        <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -3098,6 +3271,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -3814,6 +4033,14 @@ code {
       <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../../about/index.html&quot;>About</a>
+          <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -3824,6 +4051,9 @@ code {
         <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../../about/index.html&quot;>About</a>
+        <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -4216,6 +4446,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -4932,6 +5208,14 @@ code {
       <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../../about/index.html&quot;>About</a>
+          <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -4942,6 +5226,9 @@ code {
         <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../../about/index.html&quot;>About</a>
+        <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -5370,6 +5657,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -6086,6 +6419,14 @@ code {
       <a href=&quot;../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../about/index.html&quot;>About</a>
+          <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -6096,6 +6437,9 @@ code {
         <a href=&quot;../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../about/index.html&quot;>About</a>
+        <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -6444,6 +6788,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   font-size: 15px;
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
+
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
 
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
@@ -7322,6 +7712,14 @@ body.curricula-page .btn:focus-visible {
       <a href=&quot;../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../about/index.html&quot;>About</a>
+          <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -7332,6 +7730,9 @@ body.curricula-page .btn:focus-visible {
         <a href=&quot;../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../about/index.html&quot;>About</a>
+        <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -7621,6 +8022,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -8337,6 +8784,14 @@ code {
       <a href=&quot;../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../about/index.html&quot;>About</a>
+          <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -8347,6 +8802,9 @@ code {
         <a href=&quot;../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../about/index.html&quot;>About</a>
+        <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -8620,6 +9078,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -9336,6 +9840,14 @@ code {
       <a href=&quot;../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../about/index.html&quot;>About</a>
+          <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -9346,6 +9858,9 @@ code {
         <a href=&quot;../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../about/index.html&quot;>About</a>
+        <a href=&quot;../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -9788,6 +10303,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -10504,6 +11065,14 @@ code {
       <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../../about/index.html&quot;>About</a>
+          <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -10514,6 +11083,9 @@ code {
         <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../../about/index.html&quot;>About</a>
+        <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -10793,6 +11365,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -11509,6 +12127,14 @@ code {
       <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../../about/index.html&quot;>About</a>
+          <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -11519,6 +12145,9 @@ code {
         <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../../about/index.html&quot;>About</a>
+        <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>
@@ -11822,6 +12451,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: &quot;&quot;;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
@@ -12538,6 +13213,14 @@ code {
       <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
       <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
       <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+      <details class=&quot;nav-more&quot;>
+        <summary aria-label=&quot;More links&quot;>More</summary>
+        <div class=&quot;nav-more-panel&quot;>
+          <a href=&quot;../../about/index.html&quot;>About</a>
+          <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+          <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
+        </div>
+      </details>
     </nav>
     <details class=&quot;nav-disclosure&quot;>
       <summary aria-label=&quot;Open menu&quot;>Menu</summary>
@@ -12548,6 +13231,9 @@ code {
         <a href=&quot;../../curricula/index.html&quot;>Curricula</a>
         <a href=&quot;../../how-to-use/index.html&quot;>How to use this</a>
         <a href=&quot;../../access/index.html&quot;>Verify your institution</a>
+        <a href=&quot;../../about/index.html&quot;>About</a>
+        <a href=&quot;../../index.html#changelog&quot;>Changelog</a>
+        <a href=&quot;../../about/index.html#contact&quot;>Contact</a>
       </nav>
     </details>
   </div>

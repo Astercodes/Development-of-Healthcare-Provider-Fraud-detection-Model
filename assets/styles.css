@@ -162,6 +162,52 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .primary-nav a:hover { color: var(--brand-yellow); opacity: 1; }
 
+/* Desktop overflow nav: <details>/<summary> disclosure, works with no JS */
+.nav-more { position: relative; }
+.nav-more summary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--on-brand-purple);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-more summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.nav-more:hover summary, .nav-more[open] summary { color: var(--brand-yellow); opacity: 1; }
+.nav-more-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  z-index: 60;
+}
+.nav-more-panel a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-more-panel a:hover { background: var(--brand-purple-soft); color: var(--brand-purple); }
+
 /* Mobile nav: <details>/<summary> disclosure, works with no JS */
 .nav-disclosure { display: none; }
 .nav-disclosure summary {
