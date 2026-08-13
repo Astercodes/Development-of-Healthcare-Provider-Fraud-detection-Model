@@ -290,6 +290,7 @@
     "licence": "CC BY 4.0",
     "published": "2026-06-24",
     "version": "1",
+    "supersededBy": "AYENI-2026-0020",
     "description": "The methodology paper behind the transaction fraud detection half of this initiative: a comparative study of four supervised classifiers, Decision Tree, K Nearest Neighbors, Logistic Regression, and Random Forest, on a 6.36 million record synthetic mobile money transactions dataset at a fraud prevalence of 0.0536 percent. Decision Tree and Random Forest tie for the best ROC AUC at 0.84, and Random Forest achieves the strongest balance of precision and recall for the fraud class, an F1 score of 0.74, with the best calibrated probability estimates of the four. Fraudulent transactions occur exclusively in the transfer and cash out categories, never in payment, debit, or cash in, which the companion feature engineering specification carries forward as a structural signal.",
     "files": [
       {
@@ -343,6 +344,25 @@
     ]
   },
   {
+    "identifier": "AYENI-2026-0020",
+    "title": "Full Financial (Credit and Debit Card) Fraud Detection Using Machine Learning Classifiers",
+    "initiative": "2",
+    "type": "methodology",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-06-24",
+    "version": "2",
+    "supersedes": "AYENI-2026-0013",
+    "description": "An expanded methodology paper behind the transaction and synthetic identity detection initiative, now validated across two structurally distinct payment environments. In a credit card transaction dataset of about 1.9 million records, Random Forest reaches 99.74 percent accuracy on a held out test set of 555,719 records. In an account transfer dataset of over 6.3 million records at a fraud prevalence of 0.0536 percent, Random Forest reaches 99.95 percent accuracy, an F1 score of 0.74 for the fraud class, and an AUC ROC of 0.84. The cross environment consistency of these results is presented as evidence that the fraud signal lives in the feature construction rather than in any single model architecture. Specifies a 20 measurement synthetic identity feature set across six behavioural families, designed for community banks, credit unions, and regional lenders operating without dedicated analytics staff.",
+    "files": [
+      {
+        "path": "files/full-financial-credit-debit-card-fraud-detection.pdf",
+        "size": 231510,
+        "sha256": "95f249b8df43f50b9b23c199a373374a105da42caf15652a280cd5f91a51cb0a"
+      }
+    ]
+  },
+  {
     "identifier": "AYENI-2026-0010",
     "title": "Validation protocol: institutional self test for provider level fraud detection in federal healthcare programmes",
     "initiative": "1",
@@ -387,6 +407,7 @@
     "licence": "CC BY 4.0",
     "published": "2026-05-30",
     "version": "1",
+    "supersededBy": "AYENI-2026-0019",
     "description": "The methodology paper behind provider level claims anomaly detection: a supervised learning study comparing Random Forest, Support Vector Machine, and K Nearest Neighbors classifiers on structured Medicare style claims data, at a fraud prevalence of about 9 percent. The best configuration, a Random Forest with a depth of 25 and 1,000 estimators, reached 86.88 percent accuracy, an F1 score of 0.819, and an AUC ROC of 0.94. Covers the feature engineering behind that result, including chronic condition indexing and derived survival status, and examines the regulatory framework a detector operates inside: the False Claims Act, the Anti Kickback Statute, the Stark Law, and HIPAA.",
     "files": [
       {
@@ -411,6 +432,25 @@
         "path": "files/healthcare-provider-fraud.ipynb",
         "size": 2175881,
         "sha256": "24734460939fa31228ae2659022b149d37c4875ea5ce52fb72fb23bee7f72be2"
+      }
+    ]
+  },
+  {
+    "identifier": "AYENI-2026-0019",
+    "title": "Healthcare Provider Fraud Detection",
+    "initiative": "1",
+    "type": "methodology",
+    "tier": "1",
+    "licence": "CC BY 4.0",
+    "published": "2026-05-30",
+    "version": "2",
+    "supersedes": "AYENI-2026-0012",
+    "description": "An expanded methodology paper behind provider level claims anomaly detection: a supervised learning study comparing Random Forest, Support Vector Machine, and K Nearest Neighbors classifiers on structured Medicare claims data, at a fraud prevalence of about 9 percent. The best configuration, a Random Forest with a depth of 25 and 1,000 estimators, reached 86.88 percent accuracy, an F1 score of 0.8187, and an AUC ROC of 0.94. This version presents the full study as a complete paper: end to end data preprocessing, clinically informed feature engineering including chronic condition indexing and derived survival status, deployment considerations for a programme integrity unit, and the regulatory framework a detector operates inside, the False Claims Act, the Anti Kickback Statute, the Stark Law, and HIPAA.",
+    "files": [
+      {
+        "path": "files/healthcare-provider-fraud-detection.pdf",
+        "size": 231733,
+        "sha256": "75646a5ae57b0f845f58395ab3e5e07ce4c19914c1a9daaff4e4467520f17a04"
       }
     ]
   }

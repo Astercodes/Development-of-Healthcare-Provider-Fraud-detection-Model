@@ -1,0 +1,26 @@
+identifier: AYENI-2026-0019
+title: Healthcare Provider Fraud Detection
+initiative: 1
+type: methodology
+tier: 1
+licence: CC BY 4.0
+published: 2026-05-30
+version: 2
+supersedes: AYENI-2026-0012
+description: >
+  An expanded methodology paper behind provider level claims anomaly
+  detection: a supervised learning study comparing Random Forest, Support
+  Vector Machine, and K Nearest Neighbors classifiers on structured Medicare
+  claims data, at a fraud prevalence of about 9 percent. The best
+  configuration, a Random Forest with a depth of 25 and 1,000 estimators,
+  reached 86.88 percent accuracy, an F1 score of 0.8187, and an AUC ROC of
+  0.94. This version presents the full study as a complete paper: end to end
+  data preprocessing, clinically informed feature engineering including
+  chronic condition indexing and derived survival status, deployment
+  considerations for a programme integrity unit, and the regulatory framework
+  a detector operates inside, the False Claims Act, the Anti Kickback Statute,
+  the Stark Law, and HIPAA.
+files:
+  - path: files/healthcare-provider-fraud-detection.pdf
+    size: 231733
+    sha256: 75646a5ae57b0f845f58395ab3e5e07ce4c19914c1a9daaff4e4467520f17a04

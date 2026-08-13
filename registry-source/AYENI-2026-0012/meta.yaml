@@ -6,6 +6,7 @@ tier: 1
 licence: CC BY 4.0
 published: 2026-05-30
 version: 1
+supersededBy: AYENI-2026-0019
 description: >
   The methodology paper behind provider level claims anomaly detection: a
   supervised learning study comparing Random Forest, Support Vector Machine,

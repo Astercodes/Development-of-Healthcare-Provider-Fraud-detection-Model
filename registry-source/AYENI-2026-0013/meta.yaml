@@ -6,6 +6,7 @@ tier: 1
 licence: CC BY 4.0
 published: 2026-06-24
 version: 1
+supersededBy: AYENI-2026-0020
 description: >
   The methodology paper behind the transaction fraud detection half of this
   initiative: a comparative study of four supervised classifiers, Decision
